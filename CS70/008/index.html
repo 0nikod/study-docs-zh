@@ -1,0 +1,1537 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="一个存放外国课程的中文翻译的网站">
+      
+      
+        <meta name="author" content="0nikod">
+      
+      
+        <link rel="canonical" href="https://study-docs-zh.example.com/CS70/008/">
+      
+      
+        <link rel="prev" href="../007/">
+      
+      
+        <link rel="next" href="../009/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>008 - 多项式 - 外国课程课程笔记翻译</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#008-" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="外国课程课程笔记翻译" class="md-header__button md-logo" aria-label="外国课程课程笔记翻译" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            外国课程课程笔记翻译
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              008 - 多项式
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  课程笔记翻译
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../000/" class="md-tabs__link">
+          
+  
+  
+  CS70
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="外国课程课程笔记翻译" class="md-nav__button md-logo" aria-label="外国课程课程笔记翻译" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    外国课程课程笔记翻译
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    课程笔记翻译
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CS70
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CS70
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../000/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    000 - 集合与数学符号回顾
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../001/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    001 - 命题逻辑与量词
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../002/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    002 - 证明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../003/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    003 - 数学归纳法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../004/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    004 - 稳定匹配问题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../005/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    005 - 图论简介
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    006 - 同余运算
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    007 - 公钥加密
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    008 - 多项式
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    008 - 多项式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 多项式
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 多项式插值
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 多项式插值">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 性质 2 的证明
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        多项式除法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 性质 1 的证明
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        引理 1 的证明
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        引理 2 的证明
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 有限域
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 计数
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 秘密共享
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    009 - 纠错码
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    010 - 迈向无穷：可数性与可计算性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    011 - 自指与可计算性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    012 - 计数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    013 - 离散概率入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../014/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    014 - 条件概率、独立性和事件组合
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../015/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    015 - 三个杀手级应用：哈希、收集优惠券和负载均衡
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../016/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    016 - 随机变量：分布与期望
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../017/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    017 - 随机变量的函数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../018/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    018 - 几何分布和泊松分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../019/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    019 - 集中不等式与大数定律
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../020/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    020 - 连续概率分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 多项式
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 多项式插值
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 多项式插值">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 性质 2 的证明
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        多项式除法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 性质 1 的证明
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        引理 1 的证明
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        引理 2 的证明
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 有限域
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 计数
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 秘密共享
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="008-">008 - 多项式</h1>
+<h2 id="1">1 多项式</h2>
+<p>多项式构成了一类丰富的函数，它们既易于描述，又广泛应用于从傅里叶分析、加密和通信到控制和计算几何等各个领域。在本讲义中，我们将讨论多项式的更多特性，正是这些特性使它们如此有用。这里的核心思想是将你已经了解的关于实数和复数域上的多项式的知识扩展到同余运算中。然后，我们将描述如何利用这些特性来开发秘密共享方案。</p>
+<p>回想一下高中数学，单变量多项式是形如 <span class="arithmatex">\(p(x) = a_d x^d + a_{d-1} x^{d-1} + \dots + a_1 x + a_0\)</span> 的表达式。这里，变量 <span class="arithmatex">\(x\)</span> 和系数 <span class="arithmatex">\(a_i\)</span> 通常是实数。例如，<span class="arithmatex">\(p(x) = 5x^3 + 2x + 1\)</span> 是一个次数为 <span class="arithmatex">\(d = 3\)</span> 的多项式。它的系数为 <span class="arithmatex">\(a_3 = 5\)</span>，<span class="arithmatex">\(a_2 = 0\)</span>，<span class="arithmatex">\(a_1 = 2\)</span>，<span class="arithmatex">\(a_0 = 1\)</span>。多项式具有一些非常简单、优雅且强大的特性，我们将在本讲义中探讨这些特性。</p>
+<p>多项式代表一个函数，可以使用加法和乘法自然地求值。例如，<span class="arithmatex">\(p(x) = 5x^3 + 2x + 1\)</span> 可以在 <span class="arithmatex">\(x = 3\)</span> 处求值，得到 <span class="arithmatex">\(p(3) = 5(3)^3 + 2(3) + 1 = 142\)</span>。</p>
+<p>如果 <span class="arithmatex">\(p(a) = 0\)</span>，我们说 <span class="arithmatex">\(a\)</span> 是多项式 <span class="arithmatex">\(p(x)\)</span> 的一个<strong>根</strong>（root）。例如，2 次多项式 <span class="arithmatex">\(p(x) = x^2 - 4\)</span> 有两个根，即 2 和 -2，因为 <span class="arithmatex">\(p(2) = p(-2) = 0\)</span>。如果我们在 <span class="arithmatex">\(x-y\)</span> 平面上绘制多项式 <span class="arithmatex">\(p(x)\)</span>，那么该多项式的根就是曲线与 <span class="arithmatex">\(x\)</span> 轴相交的地方：</p>
+<p><img alt="" src="../images/0f364478bae8f71dd573783be1a6b337505a383fc96315d1ae2999c792322a94.jpg" /></p>
+<p>我们现在阐述多项式的两个基本性质，稍后将对其进行证明。</p>
+<p><strong>性质 1</strong>：次数为 <span class="arithmatex">\(d\)</span> 的非零多项式最多有 <span class="arithmatex">\(d\)</span> 个根。</p>
+<p><strong>性质 2</strong>：给定 <span class="arithmatex">\(d + 1\)</span> 个点对 <span class="arithmatex">\((x_1, y_1), \dots, (x_{d+1}, y_{d+1})\)</span>，其中所有 <span class="arithmatex">\(x_i\)</span> 互不相同，存在唯一的次数（最多）为 <span class="arithmatex">\(d\)</span> 的多项式 <span class="arithmatex">\(p(x)\)</span>，使得对于 <span class="arithmatex">\(1 \leq i \leq d+1\)</span>，有 <span class="arithmatex">\(p(x_i) = y_i\)</span>。</p>
+<p>让我们考虑这两个性质在 <span class="arithmatex">\(d = 1\)</span> 的情况下的含义。实数域上的一阶（1 次）多项式 <span class="arithmatex">\(y = a_1 x + a_0\)</span> 的图像是一条直线。性质 1 说，如果一条直线不是 <span class="arithmatex">\(x\)</span> 轴（即，如果多项式不是 <span class="arithmatex">\(y = 0\)</span>），那么它与 <span class="arithmatex">\(x\)</span> 轴最多相交于一点。</p>
+<p><img alt="" src="../images/04efadd9d8cd583d4ea32108a41de0fa9a83ab75cec9ef60f5f12cb01c33eb8a.jpg" /></p>
+<p><img alt="" src="../images/81ed5c8e8c9ce669ffd6390cd5253e0f08695fe5a99787ccf745eab56fc2c3fb.jpg" /></p>
+<p>性质 2 说，两点唯一确定一条直线。</p>
+<p><img alt="" src="../images/c17f96aed546a368c3556fff9f8aa2a5e347af3364c8e5731b919717670f3916.jpg" /></p>
+<h2 id="2">2 多项式插值</h2>
+<p>性质 2 说，两点唯一确定一个 1 次多项式（直线），三点唯一确定一个 2 次多项式（抛物线），四点唯一确定一个 3 次多项式（立方曲线），依此类推。给定 <span class="arithmatex">\(d + 1\)</span> 个点对 <span class="arithmatex">\((x_1, y_1), \dots, (x_{d+1}, y_{d+1})\)</span>，我们如何确定多项式 <span class="arithmatex">\(p(x) = a_d x^d + \dots + a_1 x + a_0\)</span>，使得对于 <span class="arithmatex">\(1 \leq i \leq d+1\)</span>，有 <span class="arithmatex">\(p(x_i) = y_i\)</span>？我们将给出一种重构系数 <span class="arithmatex">\(a_0, \dots, a_d\)</span> 并从而重构多项式 <span class="arithmatex">\(p(x)\)</span> 的算法。（下讲义将描述另一种更显式地基于线性代数的标准算法，它在不同的应用中会很有用。）</p>
+<p>这里的方法被称为<strong>拉格朗日插值</strong>（Lagrange interpolation），它应该会让你想起中国剩余定理：让我们从解决一个较简单的问题开始。假设我们得知 <span class="arithmatex">\(y_1 = 1\)</span>，且对于 <span class="arithmatex">\(2 \leq j \leq d+1\)</span>，有 <span class="arithmatex">\(y_j = 0\)</span>。现在我们能重构 <span class="arithmatex">\(p(x)\)</span> 吗？是的，这很简单！考虑 <span class="arithmatex">\(q(x) = (x - x_2)(x - x_3) \dots (x - x_{d+1})\)</span>。这是一个 <span class="arithmatex">\(d\)</span> 次多项式（<span class="arithmatex">\(x_i\)</span> 是常数，<span class="arithmatex">\(x\)</span> 出现了 <span class="arithmatex">\(d\)</span> 次）。此外，显然对于 <span class="arithmatex">\(2 \leq j \leq d+1\)</span>，有 <span class="arithmatex">\(q(x_j) = 0\)</span>。那么 <span class="arithmatex">\(q(x_1)\)</span> 是多少呢？嗯，<span class="arithmatex">\(q(x_1) = (x_1 - x_2)(x_1 - x_3) \dots (x_1 - x_{d+1})\)</span>，这是一个不等于 0 的常数（因为 <span class="arithmatex">\(x_1\)</span> 不等于任何其他 <span class="arithmatex">\(x_i\)</span>）。因此，如果我们令 <span class="arithmatex">\(p(x) = q(x) / q(x_1)\)</span>（除法是可行的，因为 <span class="arithmatex">\(q(x_1) \neq 0\)</span>），我们就得到了我们要寻找的多项式。例如，假设给定点对 <span class="arithmatex">\((1, 1), (2, 0), (3, 0)\)</span>。那么我们可以通过令 <span class="arithmatex">\(q(x) = (x - 2)(x - 3) = x^2 - 5x + 6\)</span>，且 <span class="arithmatex">\(q(x_1) = q(1) = 2\)</span>，来构造 <span class="arithmatex">\(d = 2\)</span> 次多项式 <span class="arithmatex">\(p(x)\)</span>。因此，我们现在可以构造 <span class="arithmatex">\(p(x) = q(x) / q(1) = (x^2 - 5x + 6) / 2\)</span>。</p>
+<p>当然，如果我们挑选某个任意索引 <span class="arithmatex">\(i\)</span> 而不是 1，即 <span class="arithmatex">\(y_i = 1\)</span> 且对于 <span class="arithmatex">\(j \neq i\)</span> 有 <span class="arithmatex">\(y_j = 0\)</span>，这个问题也同样简单。让我们引入一些符号：用 <span class="arithmatex">\(\Delta_i(x)\)</span> 表示通过这 <span class="arithmatex">\(d+1\)</span> 个点的 <span class="arithmatex">\(d\)</span> 次多项式。那么 <span class="arithmatex">\(\Delta_i(x) = \frac{\prod_{j \neq i} (x - x_j)}{\prod_{j \neq i} (x_i - x_j)}\)</span>。</p>
+<p>现在我们回到原始问题。给定 <span class="arithmatex">\(d+1\)</span> 个点对 <span class="arithmatex">\((x_1, y_1), \dots, (x_{d+1}, y_{d+1})\)</span>，我们首先按照上述方法构造 <span class="arithmatex">\(d+1\)</span> 个多项式 <span class="arithmatex">\(\Delta_1(x), \dots, \Delta_{d+1}(x)\)</span>。现在我们主张，我们可以写出 <span class="arithmatex">\(p(x) = \sum_{i=1}^{d+1} y_i \Delta_i(x)\)</span>。为什么这可行呢？首先注意到 <span class="arithmatex">\(p(x)\)</span> 是一个 <span class="arithmatex">\(d\)</span> 次多项式，符合要求，因为它是 <span class="arithmatex">\(d\)</span> 次多项式的和。其次，当它在 <span class="arithmatex">\(x_i\)</span> 处求值时，和式中的 <span class="arithmatex">\(d+1\)</span> 项中有 <span class="arithmatex">\(d\)</span> 项的值为 0，而第 <span class="arithmatex">\(i\)</span> 项的值为 <span class="arithmatex">\(y_i\)</span> 乘以 1，符合要求。</p>
+<p>在上述构造中，我们可以将多项式 <span class="arithmatex">\(\Delta_i(x)\)</span> 视为在点 <span class="arithmatex">\(\{x_j\}\)</span> 处指定值的所有多项式的“自然基”。注意，这些基多项式仅取决于 <span class="arithmatex">\(x_j\)</span>，而不取决于这些点处的值 <span class="arithmatex">\(y_j\)</span>。然后我们对基多项式 <span class="arithmatex">\(\Delta_i\)</span> 进行求和，系数等于对应的值 <span class="arithmatex">\(y_i\)</span>，以构造所需的多项式 <span class="arithmatex">\(p(x)\)</span>。请注意这里与我们在证明中国剩余定理时使用的构造的相似之处：基多项式 <span class="arithmatex">\(\Delta_i(x)\)</span> 与中国剩余定理中的基数 <span class="arithmatex">\(u_i\)</span> 起到了类似的作用。</p>
+<p>举个例子，假设我们想要找到通过三个点 <span class="arithmatex">\((x_1, y_1) = (1, 1), (x_2, y_2) = (2, 2)\)</span> 和 <span class="arithmatex">\((x_3, y_3) = (3, 4)\)</span> 的 2 次多项式 <span class="arithmatex">\(p(x)\)</span>。三个多项式 <span class="arithmatex">\(\Delta_i\)</span> 如下：</p>
+<div class="arithmatex">\[
+\Delta_1(x) = \frac{(x - 2)(x - 3)}{(1 - 2)(1 - 3)} = \frac{(x - 2)(x - 3)}{2} = \frac{1}{2}x^2 - \frac{5}{2}x + 3;
+\]</div>
+<div class="arithmatex">\[
+\Delta_2(x) = \frac{(x - 1)(x - 3)}{(2 - 1)(2 - 3)} = \frac{(x - 1)(x - 3)}{-1} = -x^2 + 4x - 3;
+\]</div>
+<div class="arithmatex">\[
+\Delta_3(x) = \frac{(x - 1)(x - 2)}{(3 - 1)(3 - 2)} = \frac{(x - 1)(x - 2)}{2} = \frac{1}{2}x^2 - \frac{3}{2}x + 1.
+\]</div>
+<p>因此，多项式 <span class="arithmatex">\(p(x)\)</span> 为：</p>
+<div class="arithmatex">\[
+p(x) = 1 \cdot \Delta_1(x) + 2 \cdot \Delta_2(x) + 4 \cdot \Delta_3(x) = \frac{1}{2}x^2 - \frac{1}{2}x + 1.
+\]</div>
+<p>你应该核实该多项式确实通过上述三个点。</p>
+<h3 id="21-2">2.1 性质 2 的证明</h3>
+<p>我们现在可以证明前面提到的性质 2，即：</p>
+<p><strong>性质 2</strong>：给定 <span class="arithmatex">\(d + 1\)</span> 个点对 <span class="arithmatex">\((x_1, y_1), \dots, (x_{d+1}, y_{d+1})\)</span>，其中所有 <span class="arithmatex">\(x_i\)</span> 互不相同，存在唯一的次数（最多）为 <span class="arithmatex">\(d\)</span> 的多项式 <span class="arithmatex">\(p(x)\)</span>，使得对于 <span class="arithmatex">\(1 \leq i \leq d+1\)</span>，有 <span class="arithmatex">\(p(x_i) = y_i\)</span>。</p>
+<p>我们已经在上文中展示了如何找到满足 <span class="arithmatex">\(p(x_i) = y_i\)</span> 的多项式 <span class="arithmatex">\(p(x)\)</span>。这证明了性质 2 的一部分（多项式的存在性）。我们该如何证明第二部分，即多项式的唯一性呢？假设为了导出矛盾，存在另一个多项式 <span class="arithmatex">\(q(x)\)</span> 满足上述所有 <span class="arithmatex">\(d+1\)</span> 个点对的点。现在考虑多项式 <span class="arithmatex">\(r(x) = p(x) - q(x)\)</span>。由于我们假设 <span class="arithmatex">\(q(x)\)</span> 和 <span class="arithmatex">\(p(x)\)</span> 是不同的多项式，因此 <span class="arithmatex">\(r(x)\)</span> 必须是一个次数最多为 <span class="arithmatex">\(d\)</span> 的非零多项式。根据性质 1（稍后证明），它最多可以有 <span class="arithmatex">\(d\)</span> 个根。但另一方面，在 <span class="arithmatex">\(d+1\)</span> 个互不相同的点 <span class="arithmatex">\(x_i\)</span> 处，<span class="arithmatex">\(r(x_i) = p(x_i) - q(x_i) = 0\)</span>，所以 <span class="arithmatex">\(r(x)\)</span> 至少有 <span class="arithmatex">\(d+1\)</span> 个根。矛盾。因此，<span class="arithmatex">\(p(x)\)</span> 是通过这 <span class="arithmatex">\(d+1\)</span> 个点的唯一多项式。</p>
+<h3 id="_1">多项式除法</h3>
+<p>让我们稍微偏离一下主题，讨论一下多项式除法，这在性质 1 的证明中会很有用。如果我们有一个 <span class="arithmatex">\(d\)</span> 次多项式 <span class="arithmatex">\(p(x)\)</span>，我们可以使用长除法将其除以一个次数 <span class="arithmatex">\(\leq d\)</span> 的多项式 <span class="arithmatex">\(q(x)\)</span>。结果将是：</p>
+<div class="arithmatex">\[
+p(x) = q'(x)q(x) + r(x)
+\]</div>
+<p>其中 <span class="arithmatex">\(q'(x)\)</span> 是商，<span class="arithmatex">\(r(x)\)</span> 是余数。<span class="arithmatex">\(r(x)\)</span> 的次数必须小于 <span class="arithmatex">\(q(x)\)</span> 的次数。我们可以使用多项式的长除法来计算商和余数，如下例所示。</p>
+<p><strong>示例</strong>。我们希望将 <span class="arithmatex">\(p(x) = x^3 + x^2 - 1\)</span> 除以 <span class="arithmatex">\(q(x) = x - 1\)</span>：</p>
+<ul>
+<li>首先我们减去一个因子 <span class="arithmatex">\(x^2(x - 1)\)</span>，得到：<span class="arithmatex">\(p(x) = x^2(x - 1) + (2x^2 - 1)\)</span></li>
+<li>然后我们减去一个因子 <span class="arithmatex">\(2x(x - 1)\)</span>，将余数写成 <span class="arithmatex">\(2x^2 - 1 = 2x(x - 1) + (2x - 1)\)</span>。</li>
+<li>然后我们减去一个因子 <span class="arithmatex">\(2(x - 1)\)</span>，将余数写成 <span class="arithmatex">\(2x - 1 = 2(x - 1) + 1\)</span>。</li>
+<li>最后，将上述三行结合起来，我们得到 <span class="arithmatex">\(p(x) = (x^2 + 2x + 2)(x - 1) + 1\)</span>。</li>
+</ul>
+<p>使用你可能熟悉的符号写出来：</p>
+<div class="arithmatex">\[
+\begin{array}{l} x^2 + 2x + 2 \\ \cline{1-1} x - 1 \big) x^3 + x^2 + 0x - 1 \\ \phantom{x-1} \underline{-(x^3 - x^2)} \\ \phantom{x-1 \big) x^3 -} 2x^2 + 0x \\ \phantom{x-1 \big) x^3 -} \underline{-(2x^2 - 2x)} \\ \phantom{x-1 \big) x^3 - 2x^2 +} 2x - 1 \\ \phantom{x-1 \big) x^3 - 2x^2 +} \underline{-(2x - 2)} \\ \phantom{x-1 \big) x^3 - 2x^2 + 2x-} 1 \end{array}
+\]</div>
+<p>因此，商是 <span class="arithmatex">\(q'(x) = x^2 + 2x + 2\)</span>，余数是 <span class="arithmatex">\(r(x) = 1\)</span>。</p>
+<h3 id="22-1">2.2 性质 1 的证明</h3>
+<p>现在让我们证明前面提到的性质 1：</p>
+<p><strong>性质 1</strong>：次数为 <span class="arithmatex">\(d\)</span> 的非零多项式最多有 <span class="arithmatex">\(d\)</span> 个根。</p>
+<p>证明思路如下。我们将证明以下两个引理：</p>
+<p><strong>引理 1</strong>：如果 <span class="arithmatex">\(a\)</span> 是次数为 <span class="arithmatex">\(d \geq 1\)</span> 的多项式 <span class="arithmatex">\(p(x)\)</span> 的一个根，那么 <span class="arithmatex">\(p(x) = (x - a)q(x)\)</span>，其中 <span class="arithmatex">\(q(x)\)</span> 是一个 <span class="arithmatex">\(d - 1\)</span> 次多项式。</p>
+<p><strong>引理 2</strong>：具有互不相同的根 <span class="arithmatex">\(a_1, \dots, a_d\)</span> 的 <span class="arithmatex">\(d\)</span> 次多项式 <span class="arithmatex">\(p(x)\)</span> 可以写成 <span class="arithmatex">\(p(x) = c(x - a_1) \dots (x - a_d)\)</span>，其中 <span class="arithmatex">\(c\)</span> 是一个实数。</p>
+<p>注意到引理 2 立即证明了性质 1：我们只需要说明对于 <span class="arithmatex">\(i = 1, \dots, d\)</span>，<span class="arithmatex">\(a \neq a_i\)</span> 不可能是 <span class="arithmatex">\(p(x)\)</span> 的根即可。但这可以从引理 2 中得出，因为 <span class="arithmatex">\(p(a) = c(a - a_1) \dots (a - a_d) \neq 0\)</span>。</p>
+<h3 id="1_1">引理 1 的证明</h3>
+<p>将 <span class="arithmatex">\(p(x)\)</span> 除以 <span class="arithmatex">\((x - a)\)</span> 得到 <span class="arithmatex">\(p(x) = (x - a)q(x) + r(x)\)</span>，其中 <span class="arithmatex">\(q(x)\)</span> 是商（次数为 <span class="arithmatex">\(d - 1\)</span>），<span class="arithmatex">\(r(x)\)</span> 是余数。<span class="arithmatex">\(r(x)\)</span> 的次数必然小于除数 <span class="arithmatex">\((x - a)\)</span> 的次数。因此 <span class="arithmatex">\(r(x)\)</span> 的次数必须为 0，即它是一个常数 <span class="arithmatex">\(c\)</span>。现在代入 <span class="arithmatex">\(x = a\)</span>，我们得到 <span class="arithmatex">\(p(a) = c\)</span>。但由于 <span class="arithmatex">\(a\)</span> 是一个根，故 <span class="arithmatex">\(p(a) = 0\)</span>。因此 <span class="arithmatex">\(c = 0\)</span>，从而 <span class="arithmatex">\(p(x) = (x - a)q(x)\)</span>。</p>
+<h3 id="2_1">引理 2 的证明</h3>
+<p>对 <span class="arithmatex">\(d\)</span> 使用归纳法证明。</p>
+<ul>
+<li><strong>基础情况</strong>：<span class="arithmatex">\(d = 0\)</span>。如果 <span class="arithmatex">\(p(x)\)</span> 是 0 次多项式，那么它只是一个常数 <span class="arithmatex">\(c\)</span>，显然可以写成所需的格式。</li>
+<li><strong>归纳假设</strong>：对于某个 <span class="arithmatex">\(d \geq 0\)</span>，任何具有 <span class="arithmatex">\(d\)</span> 个互不相同根 <span class="arithmatex">\(a_1, \dots, a_d\)</span> 的 <span class="arithmatex">\(d\)</span> 次多项式都可以写成 <span class="arithmatex">\(p(x) = c(x - a_1) \dots (x - a_d)\)</span>。</li>
+<li><strong>归纳步骤</strong>：令 <span class="arithmatex">\(p(x)\)</span> 为一个具有 <span class="arithmatex">\(d+1\)</span> 个互不相同根 <span class="arithmatex">\(a_1, \dots, a_{d+1}\)</span> 的 <span class="arithmatex">\(d+1\)</span> 次多项式。根据引理 1，<span class="arithmatex">\(p(x) = (x - a_{d+1})q(x)\)</span>，其中 <span class="arithmatex">\(q(x)\)</span> 是某个 <span class="arithmatex">\(d\)</span> 次多项式。由于对于所有 <span class="arithmatex">\(i \neq d+1\)</span>，<span class="arithmatex">\(0 = p(a_i) = (a_i - a_{d+1})q(a_i)\)</span>，且 <span class="arithmatex">\(a_i - a_{d+1} \neq 0\)</span>，因此 <span class="arithmatex">\(q(a_i)\)</span> 必须等于 0。因此 <span class="arithmatex">\(q(x)\)</span> 是一个具有 <span class="arithmatex">\(d\)</span> 个互不相同根 <span class="arithmatex">\(a_1, \dots, a_d\)</span> 的 <span class="arithmatex">\(d\)</span> 次多项式。我们现在可以将归纳假设应用于 <span class="arithmatex">\(q(x)\)</span>，写成 <span class="arithmatex">\(q(x) = c(x - a_1) \dots (x - a_d)\)</span>。代入 <span class="arithmatex">\(p(x) = (x - a_{d+1})q(x)\)</span>，我们得到 <span class="arithmatex">\(p(x) = c(x - a_1) \dots (x - a_{d+1})\)</span>，作为所需的结果。<span class="arithmatex">\(\square\)</span></li>
+</ul>
+<h2 id="3">3 有限域</h2>
+<p>性质 1 和性质 2 在系数和变量 <span class="arithmatex">\(x\)</span> 的取值范围为复数甚至是有理数（而非实数）时同样成立。然而，如果取值限制为自然数或整数，这些证明就不再成立了。让我们试着更深入地理解这些事实。在多项式插值以及性质 1 和 2 的证明中，我们唯一使用的数字性质是我们可以对任何一对数字进行加、减、乘、除运算（只要不除以 0）。（你应该回头检查一下这个说法！）因此，对于复数和有理数，一切都同样成立。另一方面，我们不能减去两个自然数并保证结果仍是自然数，而且两个整数相除通常不会得到整数，因此对于自然数和整数，一切都会崩溃。</p>
+<p>然而，如果我们模一个素数 <span class="arithmatex">\(m\)</span> 进行运算，那么我们就可以进行加、减、乘、除（除以任何非零的模 <span class="arithmatex">\(m\)</span> 数字）运算。要核实这一点，请回想一下，如果 <span class="arithmatex">\(\operatorname{gcd}(m, x) = 1\)</span>，则 <span class="arithmatex">\(x\)</span> 在模 <span class="arithmatex">\(m\)</span> 下有逆元，因此如果 <span class="arithmatex">\(m\)</span> 是素数，所有数字 <span class="arithmatex">\(\{ 1, \dots, m - 1 \}\)</span> 都有模 <span class="arithmatex">\(m\)</span> 下的逆元。因此，如果系数和变量 <span class="arithmatex">\(x\)</span> 被限制在模 <span class="arithmatex">\(m\)</span> 的取值范围内，性质 1 和性质 2 仍然成立。这个引人注目的事实——即使我们将自己限制在有限的值集内，这些性质仍然成立——是我们将要看到的几个应用的关键。</p>
+<p>让我们看一个模 5 的 1 次多项式的例子。令 <span class="arithmatex">\(p(x) = 2x + 3 \pmod{5}\)</span>。该多项式的根是所有使得 <span class="arithmatex">\(2x + 3 \equiv 0 \pmod{5}\)</span> 成立的 <span class="arithmatex">\(x\)</span> 值。解 <span class="arithmatex">\(x\)</span>，我们得到 <span class="arithmatex">\(2x = -3 \equiv 2 \pmod{5}\)</span>，从而 <span class="arithmatex">\(x = 1 \pmod{5}\)</span>。注意，这与性质 1 是相符的，因为我们只得到了 1 次多项式的一个根。</p>
+<p>现在考虑多项式 <span class="arithmatex">\(p(x) = 2x + 3 \pmod{5}\)</span> 和 <span class="arithmatex">\(q(x) = 3x - 2 \pmod{5}\)</span>。我们可以在 <span class="arithmatex">\(x-y\)</span> 平面上将每个多项式的值 <span class="arithmatex">\(y\)</span> 绘制为 <span class="arithmatex">\(x\)</span> 的函数。由于我们是在模 5 的环境下工作，因此 <span class="arithmatex">\(x\)</span> 只有 5 种可能的选择，<span class="arithmatex">\(y\)</span> 也只有 5 种可能的选择：</p>
+<p><img alt="" src="../images/c9ceab3cb3c4c6199d2a199ed6a1ef386dd77a18b0ca31afc4f431b8e28c9e08.jpg" /></p>
+<p>注意这两条“直线”恰好交于一点 <span class="arithmatex">\((0, 3)\)</span>，尽管这幅图看起来一点也不像欧几里得平面上的直线！看着这些图，当我们模任何素数 <span class="arithmatex">\(m\)</span> 运算时，性质 1 和性质 2 仍然成立，这似乎很神奇。但正如我们上面所说的，性质 1 和 2 的证明唯一需要的就是对任何一对数字进行加、减、乘、除运算的能力（只要不除以 0）。因此，只要我们模一个素数 <span class="arithmatex">\(m\)</span> 进行运算，它们就成立。</p>
+<p>当我们在模素数 <span class="arithmatex">\(m\)</span> 的环境下运算时，我们说我们是在<strong>有限域</strong>（finite field）上工作，记作 <span class="arithmatex">\(F_m\)</span> 或 <span class="arithmatex">\(\mathrm{GF}(m)\)</span>（代表“伽罗瓦域” Galois Field）。为了使一个集合成为域，它必须满足某些公理，这些公理是允许这些性质和其他性质成立的基石。如果你想了解更多关于域及其满足的公理，可以阅读维基百科关于域（field）的文章：<a href="https://en.wikipedia.org/wiki/Field_(mathematics)">https://en.wikipedia.org/wiki/Field_(mathematics)</a>。</p>
+<h2 id="4">4 计数</h2>
+<p>模 <span class="arithmatex">\(m\)</span> 的（最多）2 次多项式有多少个？这很简单：有 3 个系数，每个系数可以取 <span class="arithmatex">\(m\)</span> 个值中的一个，总共 <span class="arithmatex">\(m^3\)</span> 个多项式。通过指定 <span class="arithmatex">\(d + 1\)</span> 个系数 <span class="arithmatex">\(a_i\)</span> 来写出 <span class="arithmatex">\(p(x) = a_d x^d + a_{d-1} x^{d-1} + \dots + a_0\)</span> 被称为多项式 <span class="arithmatex">\(p(x)\)</span> 的<strong>系数表示</strong>（coefficient representation）。还有其他方法可以指定 <span class="arithmatex">\(p(x)\)</span> 吗？</p>
+<p>有的！我们的（最多）2 次多项式由它在任何三个点（比如 <span class="arithmatex">\(x = 0, 1, 2\)</span>）处的值唯一确定。多项式在这三个点的每一个点上同样可以取 <span class="arithmatex">\(m\)</span> 个值之一，总共有 <span class="arithmatex">\(m^3\)</span> 种可能性。通常，我们可以通过指定一个 <span class="arithmatex">\(d\)</span> 次多项式 <span class="arithmatex">\(p(x)\)</span> 在 <span class="arithmatex">\(d + 1\)</span> 个点（比如 <span class="arithmatex">\(x = 0, 1, \dots, d\)</span>）处的值来指定它，总共有 <span class="arithmatex">\(m^{d+1}\)</span> 种可能性。这 <span class="arithmatex">\(d + 1\)</span> 个值 <span class="arithmatex">\((y_0, y_1, \dots, y_d)\)</span> 被称为 <span class="arithmatex">\(p(x)\)</span> 的<strong>数值表示</strong>（value representation）。通过在 <span class="arithmatex">\(0, 1, \dots, d\)</span> 处求多项式的值，可以将系数表示转换为数值表示。并且正如我们所见，拉格朗日插值可用于将数值表示转换为系数表示。</p>
+<p>因此，如果我们给定任何三对点 <span class="arithmatex">\((x_1, y_1), (x_2, y_2), (x_3, y_3)\)</span> 且 <span class="arithmatex">\(x_i\)</span> 互不相同，那么存在唯一的 2 次多项式满足 <span class="arithmatex">\(p(x_i) = y_i\)</span>。但现在，假设只给定两对点 <span class="arithmatex">\((x_1, y_1), (x_2, y_2)\)</span>；通过这两点的不同 2 次多项式有多少个？注意，<span class="arithmatex">\(y_3\)</span> 恰好有 <span class="arithmatex">\(m\)</span> 种选择，对于每种选择，都存在唯一的（且互不相同的）通过这三个点 <span class="arithmatex">\((x_1, y_1), (x_2, y_2), (x_3, y_3)\)</span> 的 2 次多项式。由此得出，恰好有 <span class="arithmatex">\(m\)</span> 个次数最多为 2 的多项式通过两个点 <span class="arithmatex">\((x_1, y_1), (x_2, y_2)\)</span>，如下图所示：</p>
+<p><img alt="" src="../images/39c28e8ade55ba906670c57127c6588c445428e2d3cbb131f555e91c15942df5.jpg" /></p>
+<p>如果只给定一个点 <span class="arithmatex">\((x_1, y_1)\)</span> 呢？嗯，<span class="arithmatex">\(y_2\)</span> 和 <span class="arithmatex">\(y_3\)</span> 有 <span class="arithmatex">\(m^2\)</span> 种选择，产生 <span class="arithmatex">\(m^2\)</span> 个通过给定点的次数最多为 2 的多项式。一种规律开始显现，如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><span class="arithmatex">\(F_m\)</span> 上次数为 <span class="arithmatex">\(\leq d\)</span> 的多项式</th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>点数</strong></td>
+<td style="text-align: left;"><strong>多项式数量</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(d+1\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(1\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(d\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(m\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(d-1\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(m^2\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(\vdots\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(\vdots\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(d-k\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(m^{k+1}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(\vdots\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(\vdots\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(0\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(m^{d+1}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>注意，在这种情况下我们能够计算多项式数量的原因是我们是在有限域上工作。如果我们在像实数域这样的无限域上工作，通过 <span class="arithmatex">\(d\)</span> 个点的 <span class="arithmatex">\(d\)</span> 次多项式将会有无限多个！（想一下直线，它的次数为 1。如果只给你一个点，第二个点将会有无限多种可能性，其中每一个都唯一地定义了一条直线。）</p>
+<h2 id="5">5 秘密共享</h2>
+<p>在 20 世纪 50 年代末到 60 年代的冷战期间，德怀特·D·艾森豪威尔总统批准了指示，并授权高级指挥官在非常严重的紧急情况下使用核武器。建立这些措施是为了在发生攻击时保卫美国，因为当时没有足够的时间与总统商议并决定适当的对策。这使得在苏联袭击美国本土时能够迅速做出反应。这是一个可以使用秘密共享方案的完美场景，以确保一定数量的官员必须聚在一起才能成功发动核打击，从而例如没有任何一个人拥有对这种极具毁灭性和破坏力的武器的权力和控制权。假设美国政府决定，只有在至少 <span class="arithmatex">\(k &gt; 1\)</span> 名高级官员同意的情况下，才能发起核打击。我们希望设计一个方案，使得以下两个性质同时成立：</p>
+<ol>
+<li>这些官员中的任何 <span class="arithmatex">\(k\)</span> 个人组成的团队都可以汇集他们的信息，计算出启动代码并发起打击。</li>
+<li>任何 <span class="arithmatex">\(k - 1\)</span> 或更少人的官员团队都无法获得关于启动代码的任何信息，即使他们汇集了各自的知识。例如，他们不应了解到秘密是奇数还是偶数、是否为素数、是否能被某个数字 <span class="arithmatex">\(a\)</span> 整除，或者秘密的最低有效位是多少。</li>
+</ol>
+<p>我们如何实现这一点呢？假设有 <span class="arithmatex">\(n\)</span> 名官员，从 1 到 <span class="arithmatex">\(n\)</span> 编号，启动代码为某个自然数 <span class="arithmatex">\(s\)</span>。令 <span class="arithmatex">\(q\)</span> 为大于 <span class="arithmatex">\(n\)</span> 且大于 <span class="arithmatex">\(s\)</span> 的素数。从现在起，我们将在 <span class="arithmatex">\(\mathrm{GF}(q)\)</span> 上工作。</p>
+<p>现在随机选取一个 <span class="arithmatex">\(k - 1\)</span> 次多项式 <span class="arithmatex">\(P(x)\)</span>，使得 <span class="arithmatex">\(P(0) = s\)</span>，并将 <span class="arithmatex">\(P(1)\)</span> 给第一位官员，<span class="arithmatex">\(P(2)\)</span> 给第二位，……，<span class="arithmatex">\(P(n)\)</span> 给第 <span class="arithmatex">\(n\)</span> 位。那么我们有：</p>
+<ol>
+<li>任何 <span class="arithmatex">\(k\)</span> 名官员，拥有多项式在 <span class="arithmatex">\(k\)</span> 个点上的值，可以使用拉格朗日插值找到 <span class="arithmatex">\(P\)</span>，一旦他们知道 <span class="arithmatex">\(P\)</span> 是什么，就可以计算 <span class="arithmatex">\(P(0) = s\)</span> 来得知秘密。另一种说法是，任何 <span class="arithmatex">\(k\)</span> 名官员之间拥有多项式的数值表示，他们可以将其转换为系数表示，从而评估出 <span class="arithmatex">\(P(0) = s\)</span>。</li>
+<li>任何由 <span class="arithmatex">\(k - 1\)</span> 名（或更少）官员组成的团队都无法获得关于 <span class="arithmatex">\(s\)</span> 的任何信息！为了说明这一点，请观察到他们只知道 <span class="arithmatex">\(k - 1\)</span> 次未知多项式 <span class="arithmatex">\(P(x)\)</span> 所通过的 <span class="arithmatex">\(k - 1\)</span> 个点。他们希望重构 <span class="arithmatex">\(P(0) = s\)</span>。但根据我们在上一节的讨论，对于每一个可能的 <span class="arithmatex">\(P(0) = b\)</span> 值，都存在唯一的 <span class="arithmatex">\(k - 1\)</span> 次多项式，既通过这些官员拥有的 <span class="arithmatex">\(k - 1\)</span> 个点，也通过 <span class="arithmatex">\((0, b)\)</span>。因此，秘密可以是 <span class="arithmatex">\(q\)</span> 个可能值 <span class="arithmatex">\(\{ 0, 1, \dots, q-1 \}\)</span> 中的任何一个，因此这些官员在精确的意义上没有关于 <span class="arithmatex">\(s\)</span> 的任何信息。另一种说法是，官员们的信息与 <span class="arithmatex">\(q\)</span> 种不同的数值表示一致，每种表示对应秘密的一种可能值，因此官员们没有关于 <span class="arithmatex">\(s\)</span> 的信息。</li>
+</ol>
+<p><strong>示例</strong>。假设你负责建立一个秘密共享方案，秘密 <span class="arithmatex">\(s = 1\)</span>，你希望将 <span class="arithmatex">\(n = 5\)</span> 份份额分发给 5 个人，使得任何 <span class="arithmatex">\(k = 3\)</span> 个或更多的人都能算出秘密，但两个或更少的人则不能。假设我们是在 GF(7) 上工作（注意 <span class="arithmatex">\(7 &gt; s\)</span> 且 <span class="arithmatex">\(7 &gt; n\)</span>），你随机选择了以下 <span class="arithmatex">\(k - 1 = 2\)</span> 次多项式：<span class="arithmatex">\(P(x) = 3x^2 + 5x + 1\)</span>（这里，<span class="arithmatex">\(P(0) = 1 = s\)</span>，即秘密）。所以你了解关于秘密和多项式的一切，但接收份额的人呢？分发给份额分别是：<span class="arithmatex">\(P(1) = 2\)</span> 给第一位官员，<span class="arithmatex">\(P(2) = 2\)</span> 给第二位，<span class="arithmatex">\(P(3) = 1\)</span> 给第三位，<span class="arithmatex">\(P(4) = 6\)</span> 给第四位，<span class="arithmatex">\(P(5) = 3\)</span> 给第五位。假设第 3、4、5 位官员聚到一起（我们预期他们能够恢复秘密）。使用拉格朗日插值，他们</p>
+<p>计算出以下基函数：</p>
+<div class="arithmatex">\[
+\Delta_3(x) = \frac{(x - 4)(x - 5)}{(3 - 4)(3 - 5)} = \frac{(x - 4)(x - 5)}{2} = 4(x - 4)(x - 5);
+\]</div>
+<div class="arithmatex">\[
+\Delta_4(x) = \frac{(x - 3)(x - 5)}{(4 - 3)(4 - 5)} = \frac{(x - 3)(x - 5)}{-1} = 6(x - 3)(x - 5);
+\]</div>
+<div class="arithmatex">\[
+\Delta_5(x) = \frac{(x - 3)(x - 4)}{(5 - 3)(5 - 4)} = \frac{(x - 3)(x - 4)}{2} = 4(x - 3)(x - 4).
+\]</div>
+<p>（注意上述所有除法都应被解读为乘以相应的模 7 逆元；例如，在 <span class="arithmatex">\(\Delta_3\)</span> 的第一行中，除以 2 实际上是乘以 <span class="arithmatex">\(2^{-1} = 4 \pmod{7}\)</span>。）然后他们在 GF(7) 上计算多项式：<span class="arithmatex">\(P(x) = (1)\Delta_3(x) + (6)\Delta_4(x) + (3)\Delta_5(x) = 3x^2 + 5x + 1\)</span>。（请核实此计算！）最后，他们只需计算 <span class="arithmatex">\(P(0)\)</span>，发现秘密是 1。</p>
+<p>让我们看看如果两名官员（比方说第 1 和第 5 个人）试图聚在一起会发生什么。他们都知道多项式的形式为 <span class="arithmatex">\(P(x) = a_2 x^2 + a_1 x + s\)</span>。他们也知道以下方程组：</p>
+<div class="arithmatex">\[
+P(1) = a_2 + a_1 + s = 2
+\]</div>
+<div class="arithmatex">\[
+P(5) = 4a_2 + 5a_1 + s = 3
+\]</div>
+<p>但这就是他们所拥有的全部——由三个未知数构成的两个方程——因此他们无法找到秘密。无论哪两名官员聚在一起，情况都是如此。注意，由于我们是在 GF(7) 上工作，这两个人本可以猜测秘密（<span class="arithmatex">\(0 \leq s \leq 6\)</span>）并构造出唯一的 2 次多项式（根据性质 2）。但两人结合起来猜中秘密的机会与他们个人所猜中的机会是相同的。这一点非常重要，因为它意味着两个人获得关于秘密的信息并不比一个人多。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/0nikod/study-docs-zh" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

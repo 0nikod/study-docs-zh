@@ -1,0 +1,1174 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="一个存放外国课程的中文翻译的网站">
+      
+      
+        <meta name="author" content="0nikod">
+      
+      
+        <link rel="canonical" href="https://study-docs-zh.example.com/CS70/007/">
+      
+      
+        <link rel="prev" href="../006/">
+      
+      
+        <link rel="next" href="../008/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>007 - 公钥加密 - 外国课程课程笔记翻译</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#007-" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="外国课程课程笔记翻译" class="md-header__button md-logo" aria-label="外国课程课程笔记翻译" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            外国课程课程笔记翻译
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              007 - 公钥加密
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  课程笔记翻译
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../000/" class="md-tabs__link">
+          
+  
+  
+  CS70
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="外国课程课程笔记翻译" class="md-nav__button md-logo" aria-label="外国课程课程笔记翻译" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    外国课程课程笔记翻译
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    课程笔记翻译
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CS70
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CS70
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../000/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    000 - 集合与数学符号回顾
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../001/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    001 - 命题逻辑与量词
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../002/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    002 - 证明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../003/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    003 - 数学归纳法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../004/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    004 - 稳定匹配问题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../005/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    005 - 图论简介
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    006 - 同余运算
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    007 - 公钥加密
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../008/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    008 - 多项式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    009 - 纠错码
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    010 - 迈向无穷：可数性与可计算性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    011 - 自指与可计算性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    012 - 计数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    013 - 离散概率入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../014/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    014 - 条件概率、独立性和事件组合
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../015/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    015 - 三个杀手级应用：哈希、收集优惠券和负载均衡
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../016/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    016 - 随机变量：分布与期望
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../017/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    017 - 随机变量的函数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../018/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    018 - 几何分布和泊松分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../019/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    019 - 集中不等式与大数定律
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../020/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    020 - 连续概率分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="007-">007 - 公钥加密</h1>
+<p>在本讲义中，我们将讨论同余运算的一个非常精妙且重要的应用：<strong>RSA 公钥加密系统</strong>（RSA public-key cryptosystem），它以其发明者 Ronald Rivest、Adi Shamir 和 Leonard Adleman 的名字命名。</p>
+<p>密码学是一门古老的学科，它在信息科学/工程领域的其他重大革命发生的同时，也真正绽放出了现代形式。密码学的基本设置通常通过三个角色的登场来描述：Alice 和 Bob 希望通过某些（不安全的）链路进行秘密通信，而 Eve 是一名为正在偷听并试图发现他们谈话内容的窃听者。让我们假设 Alice 想要向 Bob 发送一条消息 <span class="arithmatex">\(x\)</span>（以二进制形式编写）。她将对 <span class="arithmatex">\(x\)</span> 应用她的加密函数 <span class="arithmatex">\(E\)</span>，并将加密后的消息 <span class="arithmatex">\(E(x)\)</span> 通过链路发送；Bob 在收到 <span class="arithmatex">\(E(x)\)</span> 后，将对其应用他的解密函数 <span class="arithmatex">\(D\)</span>，从而恢复原始消息：即 <span class="arithmatex">\(D(E(x)) = x\)</span>。</p>
+<p>由于链路是不安全的，Alice 和 Bob 必须假设 Eve 可能会获取到 <span class="arithmatex">\(E(x)\)</span>。（可以把 Eve 想象成网络上的“嗅探器”。）因此，理想情况下，我们希望知道加密函数 <span class="arithmatex">\(E\)</span> 的选择使得仅知道 <span class="arithmatex">\(E(x)\)</span>（而不显解密函数 <span class="arithmatex">\(D\)</span>）并不能让人发现关于原始消息 <span class="arithmatex">\(x\)</span> 的任何信息。</p>
+<p>几个世纪以来，密码学一直基于现在所谓的<strong>私钥协议</strong>（private-key protocols）。在这种方案中，Alice 和 Bob 预先见面并共同选择一个秘密密码本，他们用它来加密未来两人之间的所有通信。（这个密码本扮演了上述函数 <span class="arithmatex">\(E\)</span> 和 <span class="arithmatex">\(D\)</span> 的角色。）Eve 唯一的希望就是收集一些加密的消息，并利用它们来至少部分推导出密码本。</p>
+<p>公钥方案（如 RSA，最早发明于 20 世纪 70 年代）则要微妙和棘手得多：它们允许 Alice 在从未见过 Bob 的情况下向他发送消息！这听起来几乎是不可能的，因为在这种情况下，Bob 和 Eve 之间存在一种对称性：为什么 Bob 在能够理解 Alice 的消息方面应该比 Eve 有任何优势呢？RSA 加密系统背后的核心思想是，Bob 能够实现一个<strong>数字锁</strong>（digital lock），只有他才拥有钥匙。现在，通过将这个数字锁公开，他给 Alice（或者实际上是任何其他人）提供了一种向他发送安全消息的方式，而这种消息只有他才能打开。</p>
+<p>下面是 RSA 方案中数字锁的实现方式。每个人都有一个全世界都知道的<strong>公钥</strong>（public key），以及一个只有他或她自己知道的<strong>私钥</strong>（private key）。当 Alice 想要向 Bob 发送消息 <span class="arithmatex">\(x\)</span> 时，她使用 Bob 的公钥对其进行编码。然后，Bob 使用他的私钥对其进行解密，从而检索出 <span class="arithmatex">\(x\)</span>。Eve 可以随意查看发给 Bob 的加密消息，但她将无法对其进行解码（在本文稍后解释的某些基本假设下）。</p>
+<p>RSA 方案在很大程度上基于同余运算。令 <span class="arithmatex">\(p\)</span> 和 <span class="arithmatex">\(q\)</span> 为两个大素数（通常每个各占 512 位），并令 <span class="arithmatex">\(N = pq\)</span>。我们将发送给 Bob 的消息视为模 <span class="arithmatex">\(N\)</span> 序列的数字，排除平凡值 0 和 1。（更大的消息总是可以分成较小的片段分开发送。）</p>
+<p>同时，令 <span class="arithmatex">\(e\)</span> 为任何与 <span class="arithmatex">\((p - 1)(q-1)\)</span> 互素的数字。（通常 <span class="arithmatex">\(e\)</span> 被选为一个较小的值，如 3。）那么 Bob 的公钥就是数字对 <span class="arithmatex">\((N, e)\)</span>。这对数字对全世界公开。（请注意，数字 <span class="arithmatex">\(p\)</span> 和 <span class="arithmatex">\(q\)</span> 并不是公开的；这一点至关重要，我们稍后会回到这一点。）</p>
+<p>Bob 的私钥是什么？这将是数字 <span class="arithmatex">\(d\)</span>，它是 <span class="arithmatex">\(e\)</span> 模 <span class="arithmatex">\((p - 1)(q - 1)\)</span> 的逆元。（由于 <span class="arithmatex">\(e\)</span> 和 <span class="arithmatex">\((p - 1)(q - 1)\)</span> 互素，因此保证该逆元存在。）</p>
+<p>我们现在可以描述加密和解密函数了：</p>
+<ul>
+<li><strong>[加密] (Encryption)</strong>：当 Alice 想要向 Bob 发送一条消息 <span class="arithmatex">\(x\)</span>（假设是一个整数模 <span class="arithmatex">\(N\)</span>）时，她计算值 <span class="arithmatex">\(E(x) \equiv x^e \pmod{N}\)</span> 并将其发送给 Bob。</li>
+<li><strong>[解密] (Decryption)</strong>：在收到值 <span class="arithmatex">\(y = E(x)\)</span> 后，Bob 计算 <span class="arithmatex">\(D(y) \equiv y^d \pmod{N}\)</span>；这将等于原始消息 <span class="arithmatex">\(x\)</span>。</li>
+</ul>
+<p><strong>示例</strong>。令 <span class="arithmatex">\(p = 5\)</span>，<span class="arithmatex">\(q = 11\)</span>，且 <span class="arithmatex">\(N = pq = 55\)</span>。（在实践中，<span class="arithmatex">\(p\)</span> 和 <span class="arithmatex">\(q\)</span> 会大得多。）那么我们可以选择 <span class="arithmatex">\(e = 3\)</span>，它与 <span class="arithmatex">\((p - 1)(q - 1) = 40\)</span> 互素。因此，Bob 的公钥是 (55, 3)。他的私钥是 <span class="arithmatex">\(d \equiv 3^{-1} \pmod{40} \equiv 27\)</span>。对于 Alice（或任何其他人）希望发送给 Bob 的任何消息 <span class="arithmatex">\(x\)</span>，<span class="arithmatex">\(x\)</span> 的加密是 <span class="arithmatex">\(y \equiv x^3 \pmod{55}\)</span>，而 <span class="arithmatex">\(y\)</span> 的解密是 <span class="arithmatex">\(x \equiv y^{27} \pmod{55}\)</span>。例如，如果消息是 <span class="arithmatex">\(x = 13\)</span>，那么加密结果是 <span class="arithmatex">\(y = 13^3 \equiv 52 \pmod{55}\)</span>，解密结果是 <span class="arithmatex">\(52^{27} \equiv 13 \pmod{55}\)</span>。</p>
+<p>我们如何知道该方案有效？我们需要检查 Bob 是否确实恢复了原始消息 <span class="arithmatex">\(x\)</span>。以下定理确立了这一事实。</p>
+<p><strong>定理 7.1</strong>。在上述加密和解密函数 <span class="arithmatex">\(E\)</span> 和 <span class="arithmatex">\(D\)</span> 的定义下，对于每一个可能的消息 <span class="arithmatex">\(x \in \{ 0, 1, \dots, N - 1 \}\)</span>，我们有 <span class="arithmatex">\(D(E(x)) \equiv x \pmod{N}\)</span>。</p>
+<p>该定理的证明利用了数论中的一个标准事实，即<strong>费马小定理</strong>（Fermat's Little Theorem），它告诉我们当模一个素数进行幂运算时，它是周期性的，且该周期比该素数小 1。确切地说：</p>
+<p><strong>定理 7.2（费马小定理）</strong>。对于任何素数 <span class="arithmatex">\(p\)</span> 和 any <span class="arithmatex">\(a \in \{ 1, 2, \dots , p - 1 \}\)</span>，我们有 <span class="arithmatex">\(a^{p-1} \equiv 1 \pmod{p}\)</span>。</p>
+<p><strong>证明</strong>。令 <span class="arithmatex">\(S\)</span> 表示模 <span class="arithmatex">\(p\)</span> 的非零整数集合，即 <span class="arithmatex">\(S = \{ 1, 2, \dots, p - 1 \}\)</span>。考虑数字序列 <span class="arithmatex">\(a, 2a, 3a, \dots, (p-1)a \pmod{p}\)</span>。我们在之前的讲义中已经看到，只要 <span class="arithmatex">\(\operatorname{gcd}(p, a) = 1\)</span>（即 <span class="arithmatex">\(p, a\)</span> 互素，这在这里当然成立，因为 <span class="arithmatex">\(p\)</span> 是素数），这些数字就都是互不相同的。因此，由于它们中没有一个是零，且共有 <span class="arithmatex">\(p - 1\)</span> 个数字，它们必然恰好包含 <span class="arithmatex">\(S\)</span> 中的每个元素一次。因此，数字集合</p>
+<div class="arithmatex">\[
+S' = \{ a \bmod p, 2a \bmod p, \dots, (p - 1)a \bmod p \}
+\]</div>
+<p>与 <span class="arithmatex">\(S\)</span> 完全相同（只是顺序不同）！</p>
+<p>现在假设我们取 <span class="arithmatex">\(S\)</span> 中所有数字的乘积，模 <span class="arithmatex">\(p\)</span>。显然，这个乘积是</p>
+<div class="arithmatex">\[
+1 \times 2 \times \dots \times (p - 1) \equiv (p - 1)! \pmod{p} \tag{1}
+\]</div>
+<p>另一方面，如果我们取 <span class="arithmatex">\(S'\)</span> 中所有数字的乘积会怎样？显然它是</p>
+<div class="arithmatex">\[
+a \times 2a \times \dots \times (p - 1)a \equiv a^{p - 1} (p - 1)! \pmod{p} \tag{2}
+\]</div>
+<p>但根据我们在前一段的观察，<span class="arithmatex">\(S\)</span> 和 <span class="arithmatex">\(S'\)</span> 中的数字集合（模 <span class="arithmatex">\(p\)</span>）是完全相同的，因此 (1) 和 (2) 中的乘积实际上必须模 <span class="arithmatex">\(p\)</span> 相等。因此我们有</p>
+<div class="arithmatex">\[
+(p - 1)! \equiv a^{p - 1} (p - 1)! \pmod{p} \tag{3}
+\]</div>
+<p>最后，由于 <span class="arithmatex">\(p\)</span> 是素数，我们知道每个非零整数在模 <span class="arithmatex">\(p\)</span> 下都有逆元，因此 <span class="arithmatex">\((p - 1)!\)</span> 在模 <span class="arithmatex">\(p\)</span> 下有逆元。因此我们可以在 (3) 的两边同时乘以 <span class="arithmatex">\((p - 1)!\)</span> 的逆元，得到 <span class="arithmatex">\(a^{p - 1} \equiv 1 \pmod{p}\)</span>，符合要求。<span class="arithmatex">\(\square\)</span></p>
+<p>有了费马小定理，我们现在可以回头证明 RSA 的正确性。</p>
+<p><strong>定理 7.1 的证明</strong>。为了证明该结论，我们需要说明：</p>
+<div class="arithmatex">\[
+(x^e)^d \equiv x \pmod{N} \quad \text{对于每个} \ x \in \{ 0, 1, \dots, N-1 \} \tag{4}
+\]</div>
+<p>让我们考虑指数 <span class="arithmatex">\(ed\)</span>。根据 <span class="arithmatex">\(d\)</span> 的定义，我们知道 <span class="arithmatex">\(ed \equiv 1 \pmod{(p-1)(q-1)}\)</span>；因此我们可以写成 <span class="arithmatex">\(ed = 1 + k(p-1)(q-1)\)</span>（对于某个整数 <span class="arithmatex">\(k\)</span>），因此</p>
+<div class="arithmatex">\[
+x^{ed} - x = x^{1+k(p-1)(q-1)} - x = x(x^{k(p-1)(q-1)} - 1) \tag{5}
+\]</div>
+<p>回顾 (4)，我们的目标是证明 (5) 中的最后这个表达式对于每个 <span class="arithmatex">\(x\)</span> 都模 <span class="arithmatex">\(N\)</span> 等于 0。</p>
+<p>现在我们主张 (5) 中的表达式 <span class="arithmatex">\(x(x^{k(p-1)(q-1)} - 1)\)</span> 能被 <span class="arithmatex">\(p\)</span> 整除。为了看清这一点，我们考虑两种情况：</p>
+<ul>
+<li><strong>情况 1</strong>：<span class="arithmatex">\(x\)</span> 不是 <span class="arithmatex">\(p\)</span> 的倍数。在这种情况下，由于 <span class="arithmatex">\(x \not\equiv 0 \pmod{p}\)</span>，我们可以使用费马小定理推导出 <span class="arithmatex">\(x^{p-1} \equiv 1 \pmod{p}\)</span>，从而 <span class="arithmatex">\(x^{k(p-1)(q-1)} - 1 \equiv 0 \pmod{p}\)</span>，符合要求。</li>
+<li><strong>情况 2</strong>：<span class="arithmatex">\(x\)</span> 是 <span class="arithmatex">\(p\)</span> 的倍数。在这种情况下，由于 (5) 中的表达式含有因子 <span class="arithmatex">\(x\)</span>，它显然能被 <span class="arithmatex">\(p\)</span> 整除。</li>
+</ul>
+<p>通过完全对称的论证，<span class="arithmatex">\(x(x^{k(p-1)(q-1)} - 1)\)</span> 也能被 <span class="arithmatex">\(q\)</span> 整除。因此，它既能被 <span class="arithmatex">\(p\)</span> 也能被 <span class="arithmatex">\(q\)</span> 整除，由于 <span class="arithmatex">\(p\)</span> 和 <span class="arithmatex">\(q\)</span> 是素数，它必然能被它们的乘积 <span class="arithmatex">\(pq = N\)</span> 整除。这意味着该表达式模 <span class="arithmatex">\(N\)</span> 等于 0，这正是我们要证明的。<span class="arithmatex">\(\square\)</span></p>
+<p><strong>定理 7.1 的另一种证明</strong>。可以利用中国剩余定理得到一个密切相关的证明。首先注意</p>
+<div class="arithmatex">\[
+x^{ed} = x^{k(p-1)(q-1)+1} = (x^{k(q-1)})^{p-1} x \equiv x \pmod{p}
+\]</div>
+<p>这里的最后一个等价关系在 <span class="arithmatex">\(x \not\equiv 0 \pmod{p}\)</span> 时由费马小定理得出，而在 <span class="arithmatex">\(x \equiv 0 \pmod{p}\)</span> 时显然成立。通过对称计算，我们同样有 <span class="arithmatex">\(x^{ed} \equiv x \pmod{q}\)</span>。根据中国剩余定理，这两个同余式（模 <span class="arithmatex">\(pq\)</span>）的唯一解是 <span class="arithmatex">\(x\)</span>。<span class="arithmatex">\(\square\)</span></p>
+<p>因此我们已经看到 RSA 协议是正确的，即 Alice 可以对消息进行加密，使得 Bob 能够可靠地再次解密它们。但是我们如何知道它是安全的呢？即 Eve 无法通过观察加密消息获得任何有用的信息？RSA 的安全性取决于以下基本假设：</p>
+<blockquote>
+<p>给定 <span class="arithmatex">\(N\)</span>、<span class="arithmatex">\(e\)</span> 和 <span class="arithmatex">\(y \equiv x^e \pmod{N}\)</span>，不存在求解 <span class="arithmatex">\(x\)</span> 的高效算法。</p>
+</blockquote>
+<p>这个假设是相当合理的。Eve 可能如何尝试猜测 <span class="arithmatex">\(x\)</span>？她可以尝试所有可能的 <span class="arithmatex">\(x\)</span> 值，每次检查是否满足 <span class="arithmatex">\(x^e \equiv y \pmod{N}\)</span>；但她需要尝试大约 <span class="arithmatex">\(N\)</span> 个 <span class="arithmatex">\(x\)</span> 值，如果 <span class="arithmatex">\(N\)</span> 是一个（比方说）512 位的数字，这完全是不现实的。或者，她可以尝试分解 <span class="arithmatex">\(N\)</span> 以检索 <span class="arithmatex">\(p\)</span> 和 <span class="arithmatex">\(q\)</span>，然后通过计算 <span class="arithmatex">\(e\)</span> 模 <span class="arithmatex">\((p-1)(q-1)\)</span> 的逆元来算出 <span class="arithmatex">\(d\)</span>；但这种方法要求 Eve 能够将 <span class="arithmatex">\(N\)</span> 分解为其素因子，对于大数值的 <span class="arithmatex">\(N\)</span>，这个问题被认为是无法高效解决的。我们应该指出， RSA 的安全性尚未得到正式证明：它基于这样一种假设，即破解 RSA 实际上等同于分解 <span class="arithmatex">\(N\)</span>，而分解是一个难题。</p>
+<p>我们以对 RSA 实现问题的简短讨论来结束本讲讲义。既然我们认为破解 RSA 是不可能的（因为分解需要非常长的时间），我们就应该检查 Alice 和 Bob 运行该协议所必须执行的计算是否要简单得多，并且可以高效完成。</p>
+<p>Alice 和 Bob 实际上只需要做两件非平凡的事情：</p>
+<ol>
+<li>Bob 必须找到大素数 <span class="arithmatex">\(p\)</span> 和 <span class="arithmatex">\(q\)</span>，每个约有（比方说）512 位。</li>
+<li>Alice 和 Bob 都必须计算模 <span class="arithmatex">\(N\)</span> 的幂。（Alice 必须计算 <span class="arithmatex">\(x^e \pmod{N}\)</span>，而 Bob 必须计算 <span class="arithmatex">\(y^d \pmod{N}\)</span>。）</li>
+</ol>
+<p>我们下面简要讨论这两项任务的实现。</p>
+<p>为了寻找大素数，我们利用这样一个事实：给定一个正整数 <span class="arithmatex">\(n\)</span>，存在一种高效的算法来判定 <span class="arithmatex">\(n\)</span> 是否为素数。（这里的“高效”是指对于某个较小的 <span class="arithmatex">\(k\)</span>，其运行时间为 <span class="arithmatex">\(O((\log n)^k)\)</span>，即 <span class="arithmatex">\(n\)</span> 的二进制位数的低阶幂。请注意，这与整数分解形成了鲜明对比：我们可以高效地判断 <span class="arithmatex">\(n\)</span> 是否为素数，但在它不是素数的情况下，我们无法高效地找到它的因子。RSA 的成功关键在于这种区别。）既然我们可以测试素数，Bob 只需要生成一些具有正确位数的随机整数 <span class="arithmatex">\(n\)</span>，并对它们进行测试，直到找到两个素数 <span class="arithmatex">\(p\)</span> 和 <span class="arithmatex">\(q\)</span>。由于数论中如下基本事实（其证明超出了本课程的范围），这种方法是有效的：</p>
+<p><strong>定理 7.3（素数定理）</strong>。令 <span class="arithmatex">\(\pi(n)\)</span> 表示小于或等于 <span class="arithmatex">\(n\)</span> 的素数的个数。那么对于所有 <span class="arithmatex">\(n \geq 17\)</span>，我们有 <span class="arithmatex">\(\pi(n) \geq \frac{n}{\ln n}\)</span>。（事实上，<span class="arithmatex">\(\lim_{n \to \infty} \frac{\pi(n)}{n/\ln n} = 1\)</span>。）</p>
+<p>例如，令 <span class="arithmatex">\(n = 2^{512}\)</span>，素数定理说明在所有 512 位数字中，大约每 355 个中就有一个是素数。因此，如果我们不断选取随机的 512 位数字并进行测试，我们预计只需要在大约尝试 355 个数字后就能找到一个素数。</p>
+<p>现在转向上述第二个任务：同余取幂。这实际上是我们已经在之前的讲义中讨论过的内容。回想一下，我们可以使用反复平方法计算幂表达式 <span class="arithmatex">\(x^y \pmod{N}\)</span>，使用的乘法次数仅为 <span class="arithmatex">\(O(n)\)</span>，其中 <span class="arithmatex">\(n\)</span> 是 <span class="arithmatex">\(y\)</span> 的位数（即 <span class="arithmatex">\(y\)</span> 的二进制表示长度）。由于在 RSA 应用中，Alice 和 Bob 需要计算的表达式中的指数（分别为 <span class="arithmatex">\(e\)</span> 和 <span class="arithmatex">\(d\)</span>）都小于 <span class="arithmatex">\(N\)</span>，因此所需的乘法次数为 <span class="arithmatex">\(O(\log N)\)</span>。此外，由于所有乘法都是模 <span class="arithmatex">\(N\)</span> 进行的，我们可以确保所有计算都涉及至多 <span class="arithmatex">\(O(\log N)\)</span> 位的数字；而且，正如小学长乘法中所熟知的，将 <span class="arithmatex">\(m\)</span> 位数字相乘需要 <span class="arithmatex">\(O(m^2)\)</span> 次操作（实际上可以做得更快，见 CS170）。因此，Alice 和 Bob 取幂运算的总成本仅为 <span class="arithmatex">\(O((\log N)^3)\)</span>。因此，在 RSA 的实际实现中，处理具有数百位的极大数字是可行的。</p>
+<p>总而言之，在 RSA 协议中，Bob 只需要执行诸如乘法、取幂和素性测试等简单计算即可实现他的数字锁。类似地，Alice 和 Bob 只需要执行简单的计算来锁定和解锁消息——这些操作即使是任何便携计算设备也能胜任。相比之下，要在没有钥匙的情况下解锁消息，Eve 必须执行诸如分解大数字之类的操作，这（至少根据被广泛接受的观点）所需的计算能力超过了世界上所有最先进计算机的总和！这种无需私钥即可实现的令人信服的安全性保证，解释了为什么 RSA 加密系统是密码学领域的一项革命性发展。</p>
+<p><em>本讲义部分基于 S. Dasgupta, C. Papadimitriou 和 U. Vazirani 所著的《Algorithms》，McGraw-Hill, 2007 年版第 1.4 节。</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/0nikod/study-docs-zh" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

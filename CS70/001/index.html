@@ -1,0 +1,1334 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="一个存放外国课程的中文翻译的网站">
+      
+      
+        <meta name="author" content="0nikod">
+      
+      
+        <link rel="canonical" href="https://study-docs-zh.example.com/CS70/001/">
+      
+      
+        <link rel="prev" href="../000/">
+      
+      
+        <link rel="next" href="../002/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>001 - 命题逻辑与量词 - 外国课程课程笔记翻译</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#001-" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="外国课程课程笔记翻译" class="md-header__button md-logo" aria-label="外国课程课程笔记翻译" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            外国课程课程笔记翻译
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              001 - 命题逻辑与量词
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  课程笔记翻译
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../000/" class="md-tabs__link">
+          
+  
+  
+  CS70
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="外国课程课程笔记翻译" class="md-nav__button md-logo" aria-label="外国课程课程笔记翻译" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    外国课程课程笔记翻译
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    课程笔记翻译
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CS70
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CS70
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../000/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    000 - 集合与数学符号回顾
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    001 - 命题逻辑与量词
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    001 - 命题逻辑与量词
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 量词
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 关于否定的种种
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 更复杂的量词示例
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../002/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    002 - 证明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../003/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    003 - 数学归纳法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../004/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    004 - 稳定匹配问题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../005/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    005 - 图论简介
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    006 - 同余运算
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    007 - 公钥加密
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../008/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    008 - 多项式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    009 - 纠错码
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    010 - 迈向无穷：可数性与可计算性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    011 - 自指与可计算性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    012 - 计数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    013 - 离散概率入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../014/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    014 - 条件概率、独立性和事件组合
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../015/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    015 - 三个杀手级应用：哈希、收集优惠券和负载均衡
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../016/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    016 - 随机变量：分布与期望
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../017/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    017 - 随机变量的函数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../018/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    018 - 几何分布和泊松分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../019/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    019 - 集中不等式与大数定律
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../020/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    020 - 连续概率分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 量词
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 关于否定的种种
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 更复杂的量词示例
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="001-">001 - 命题逻辑与量词</h1>
+<p>为了能够流练地处理数学陈述，你需要理解数学语言的基本框架。在本节讲义中，我们将首先学习数学定理可能采取的逻辑形式，以及如何操作这些形式以使其更易于证明。在接下来的几节课中，我们将学习几种不同的证明方法。</p>
+<p>我们的第一个基本构件是 <strong>命题</strong>（Proposition）的概念，它只是一个非真即假的陈述。</p>
+<p>以下陈述都是命题：</p>
+<p>(1) <span class="arithmatex">\(\sqrt{3}\)</span> 是无理数。
+(2) <span class="arithmatex">\(1 + 1 = 5\)</span> 。
+(3) 尤利乌斯·凯撒在他 10 岁生日早餐时吃了 2 个鸡蛋。</p>
+<p>以下陈述显然不是命题：</p>
+<p>(4) 2 + 2。
+(5) <span class="arithmatex">\(x^{2} + 3x = 5\)</span> 。 [ <span class="arithmatex">\(x\)</span> 是什么？]</p>
+<p>以下陈述也不是命题（尽管有些书说它们是）。命题不应包含模糊的词汇。</p>
+<p>(6) 阿诺德·施瓦辛格经常吃西兰花。 [“经常”是什么意思？]
+(7) 亨利八世不受欢迎。 [“不受欢迎”是什么意思？]</p>
+<p>命题可以连接在一起形成更复杂的陈述。设 <span class="arithmatex">\(P\)</span> 和 <span class="arithmatex">\(Q\)</span> 为代表命题的变量（例如， <span class="arithmatex">\(P\)</span> 可以代表“3 是奇数”）。连接这些命题最简单的方法是使用联结词“且”、“或”和“非”。</p>
+<p>(1) <strong>合取</strong>（Conjunction）： <span class="arithmatex">\(P \land Q\)</span> （“ <span class="arithmatex">\(P\)</span> 且 <span class="arithmatex">\(Q\)</span> ”）。仅当 <span class="arithmatex">\(P\)</span> 和 <span class="arithmatex">\(Q\)</span> 均为真时才为真。
+(2) <strong>析取</strong>（Disjunction）： <span class="arithmatex">\(P \lor Q\)</span> （“ <span class="arithmatex">\(P\)</span> 或 <span class="arithmatex">\(Q\)</span> ”）。当 <span class="arithmatex">\(P\)</span> 和 <span class="arithmatex">\(Q\)</span> 中至少有一个为真时为真。
+(3) <strong>否定</strong>（Negation）： <span class="arithmatex">\(\neg P\)</span> （“非 <span class="arithmatex">\(P\)</span> ”）。当 <span class="arithmatex">\(P\)</span> 为假时为真。</p>
+<p>像这样带有变量的陈述称为 <strong>命题形式</strong>（Propositional Form）。</p>
+<p>一个被称为 <strong>排中律</strong>（Law of the Excluded Middle）的基本原理是，对于任何命题 <span class="arithmatex">\(P\)</span> ，要么 <span class="arithmatex">\(P\)</span> 为真，要么 <span class="arithmatex">\(\neg P\)</span> 为真（但不能两者都为真）。因此 <span class="arithmatex">\(P \lor \neg P\)</span> 永远为真，无论 <span class="arithmatex">\(P\)</span> 的真值如何。无论其变量的真值如何，永远为真的命题形式称为 <strong>重言式</strong>（Tautology）。相反，像 <span class="arithmatex">\(P \land \neg P\)</span> 这样永远为假的陈述称为 <strong>矛盾式</strong>（Contradiction）。</p>
+<blockquote>
+<p>概念检查！如果我们让 <span class="arithmatex">\(P\)</span> 代表命题“3 是奇数”， <span class="arithmatex">\(Q\)</span> 代表“4 是奇数”， <span class="arithmatex">\(R\)</span> 代表“<span class="arithmatex">\(4 + 5 = 49\)</span>”，那么 <span class="arithmatex">\(P \land R\)</span> 、 <span class="arithmatex">\(P \lor R\)</span> 和 <span class="arithmatex">\(\neg Q\)</span> 的值分别是多少？</p>
+</blockquote>
+<p>描述命题形式可能值的有用工具是 <strong>真值表</strong>（Truth Table）。真值表与函数表相同：你列出变量所有可能的输入值，然后列出给定这些输入时的输出。（顺序并不重要。）</p>
+<p>以下是合取和否定的真值表：</p>
+<table><tr><td>P</td><td>Q</td><td>P ∧ Q</td></tr><tr><td>T</td><td>T</td><td>T</td></tr><tr><td>T</td><td>F</td><td>F</td></tr><tr><td>F</td><td>T</td><td>F</td></tr><tr><td>F</td><td>F</td><td>F</td></tr></table>
+
+<table><tr><td>P</td><td>¬P</td></tr><tr><td>T</td><td>F</td></tr><tr><td>F</td><td>T</td></tr></table>
+
+<blockquote>
+<p>概念检查！写出析取（或）的真值表。</p>
+</blockquote>
+<p>最重要且最微妙的命题形式是 <strong>蕴含</strong>（Implication）：</p>
+<p>(4) <strong>蕴含</strong>（Implication）： <span class="arithmatex">\(P \Longrightarrow Q\)</span> （“ <span class="arithmatex">\(P\)</span> 蕴含 <span class="arithmatex">\(Q\)</span> ”）。这与“如果 <span class="arithmatex">\(P\)</span> ，那么 <span class="arithmatex">\(Q\)</span> ”相同。</p>
+<p>在这里， <span class="arithmatex">\(P\)</span> 被称为蕴含的 <strong>假设</strong>（Hypothesis），而 <span class="arithmatex">\(Q\)</span> 是 <strong>结论</strong>（Conclusion）。</p>
+<p>我们在日常生活中经常遇到蕴含；这里有几个例子：</p>
+<p>如果你站在雨中，你就会淋湿。</p>
+<p>如果你通过了这门课，你就会获得证书。</p>
+<p>蕴含 <span class="arithmatex">\(P \implies Q\)</span> 仅在 <span class="arithmatex">\(P\)</span> 为真且 <span class="arithmatex">\(Q\)</span> 为假时为假。例如，上述第一个陈述仅在你站在雨中但没有淋湿时才为假。第二个陈述仅在你通过了课程但没有获得证书时才为假。</p>
+<p>以下是 <span class="arithmatex">\(P \Longrightarrow Q\)</span> 的真值表（以及我们稍后将解释的额外列）：</p>
+<table><tr><td>P</td><td>Q</td><td>P ⇒ Q</td><td>¬P ∨ Q</td></tr><tr><td>T</td><td>T</td><td>T</td><td>T</td></tr><tr><td>T</td><td>F</td><td>F</td><td>F</td></tr><tr><td>F</td><td>T</td><td>T</td><td>T</td></tr><tr><td>F</td><td>F</td><td>T</td><td>T</td></tr></table>
+
+<p>注意，当 <span class="arithmatex">\(P\)</span> 为假时， <span class="arithmatex">\(P \Longrightarrow Q\)</span> 总是为真。这意味着许多在英语中听起来荒谬的陈述在数学上是正确的。例如：“如果猪会飞，那么马能读书”或者“如果 14 是奇数，那么 <span class="arithmatex">\(1 + 2 = 18\)</span>”。（这些是我们在日常生活中从不发表的陈述，但在数学中非常自然。）当一个蕴含式由于假设为假而“愚蠢地”为真时，我们说它是 <strong>空真</strong>（Vacuously True）的。</p>
+<p>另请注意， <span class="arithmatex">\(P \Longrightarrow Q\)</span> 逻辑上等价于 <span class="arithmatex">\(\neg P \lor Q\)</span> ，这可以通过比较上述真值表的最后两列看出：对于 <span class="arithmatex">\(P\)</span> 和 <span class="arithmatex">\(Q\)</span> 的所有可能真值， <span class="arithmatex">\(P \Longrightarrow Q\)</span> 和 <span class="arithmatex">\(\neg P \lor Q\)</span> 取相同的值（即它们具有相同的真值表）。我们将其记为 <span class="arithmatex">\((P \implies Q) \equiv (\neg P \lor Q)\)</span> 。</p>
+<p><span class="arithmatex">\(P \implies Q\)</span> 是数学定理最常见的形式。以下是表达它的不同方式：</p>
+<p>(1) 如果 <span class="arithmatex">\(P\)</span> ，那么 <span class="arithmatex">\(Q\)</span> ；
+(2) <span class="arithmatex">\(Q\)</span> 如果 <span class="arithmatex">\(P\)</span> ；
+(3) <span class="arithmatex">\(P\)</span> 仅当 <span class="arithmatex">\(Q\)</span> ；
+(4) <span class="arithmatex">\(P\)</span> 是 <span class="arithmatex">\(Q\)</span> 的充分条件；
+(5) <span class="arithmatex">\(Q\)</span> 是 <span class="arithmatex">\(P\)</span> 的必要条件；
+(6) <span class="arithmatex">\(Q\)</span> 除非非 <span class="arithmatex">\(P\)</span> 。</p>
+<p>如果 <span class="arithmatex">\(P \Longrightarrow Q\)</span> 和 <span class="arithmatex">\(Q \Longrightarrow P\)</span> 都为真，那么我们说“ <span class="arithmatex">\(P\)</span> <strong>当且仅当</strong> (If and Only If) <span class="arithmatex">\(Q\)</span> ”（缩写为 iff）。形式上，我们记作 <span class="arithmatex">\(P \Longleftrightarrow Q\)</span> 。注意 <span class="arithmatex">\(P \Longleftrightarrow Q\)</span> 仅在 <span class="arithmatex">\(P\)</span> 和 <span class="arithmatex">\(Q\)</span> 具有相同真值（同真或同假）时为真。</p>
+<p>例如，如果我们让 <span class="arithmatex">\(P\)</span> 为“3 是奇数”， <span class="arithmatex">\(Q\)</span> 为“4 是奇数”， <span class="arithmatex">\(R\)</span> 为“6 是偶数”，那么以下内容都是正确的： <span class="arithmatex">\(P \implies R\)</span> 、 <span class="arithmatex">\(Q \Longrightarrow P\)</span> （空真）以及 <span class="arithmatex">\(R \Longrightarrow P\)</span> 。因为 <span class="arithmatex">\(P \implies R\)</span> 且 <span class="arithmatex">\(R \Longrightarrow P\)</span> ，我们还可以看到 <span class="arithmatex">\(P \Longleftrightarrow R\)</span> 为真。</p>
+<p>给定一个蕴含式 <span class="arithmatex">\(P \Longrightarrow Q\)</span> ，我们还可以定义它的：</p>
+<p>(a) <strong>逆否命题</strong>（Contrapositive）： <span class="arithmatex">\(\neg Q \Longrightarrow \neg P\)</span>
+(b) <strong>逆命题</strong>（Converse）： <span class="arithmatex">\(Q \Longrightarrow P\)</span></p>
+<p>“如果你通过了课程，你就会获得证书”的逆否命题是“如果你没有获得证书，你就没有通过课程”。逆命题是“如果你获得了证书，你就通过了课程”。逆否命题说的是与原句相同的事情吗？逆命题呢？</p>
+<p>让我们看看真值表：</p>
+<table><tr><td>P</td><td>Q</td><td>¬P</td><td>¬Q</td><td>P ⇒ Q</td><td>Q ⇒ P</td><td>¬Q ⇒ ¬P</td><td>P ⇔ Q</td></tr><tr><td>T</td><td>T</td><td>F</td><td>F</td><td>T</td><td>T</td><td>T</td><td>T</td></tr><tr><td>T</td><td>F</td><td>F</td><td>T</td><td>F</td><td>T</td><td>F</td><td>F</td></tr><tr><td>F</td><td>T</td><td>T</td><td>F</td><td>T</td><td>F</td><td>T</td><td>F</td></tr><tr><td>F</td><td>F</td><td>T</td><td>T</td><td>T</td><td>T</td><td>T</td><td>T</td></tr></table>
+
+<p>注意 <span class="arithmatex">\(P \Longrightarrow Q\)</span> 及其逆否命题在真值表的所有位置都具有相同的真值，因此它们是逻辑等价的： <span class="arithmatex">\((P \implies Q) \equiv (\neg Q \implies \neg P)\)</span> 。许多学生将逆否命题与逆命题混淆：注意 <span class="arithmatex">\(P \Longrightarrow Q\)</span> 和 <span class="arithmatex">\(\neg Q \Longrightarrow \neg P\)</span> 是逻辑等价的，但 <span class="arithmatex">\(P \Longrightarrow Q\)</span> 和 <span class="arithmatex">\(Q \Longrightarrow P\)</span> 则不然！</p>
+<p>当两个命题形式逻辑等价时，我们可以认为它们“意思相同”。我们将在下一讲看到这对于证明定理是多么有用。</p>
+<h2 id="2">2 量词</h2>
+<p>你在实践中看到的数学陈述不会由像“3 是奇数”这样的简单命题组成。相反，你会看到像这样的陈述：</p>
+<p>(1) 对于所有自然数 <span class="arithmatex">\(n\)</span> ， <span class="arithmatex">\(n^{2} + n + 41\)</span> 是质数。
+(2) 如果 <span class="arithmatex">\(n\)</span> 是一个奇整数，那么 <span class="arithmatex">\(n^{3}\)</span> 也是。
+(3) 存在一个既是偶数又是奇数的整数 <span class="arithmatex">\(k\)</span> 。</p>
+<p>本质上，这些陈述一次性断言了许多简单命题（甚至是无限多个！）。例如，第一个陈述是断言 <span class="arithmatex">\(0^{2} + 0 + 41\)</span> 是质数，<span class="arithmatex">\(1^{2} + 1 + 41\)</span> 是质数，依此类推。最后一个陈述是说，当 <span class="arithmatex">\(k\)</span> 遍历所有可能的整数时，我们会发现至少一个满足该陈述的 <span class="arithmatex">\(k\)</span> 值。</p>
+<p>为什么上述三个例子被认为是命题，而早些时候我们声称“ <span class="arithmatex">\(x^{2} + 3x = 5\)</span> ”不是？原因在这些例子中，有一个我们正在工作的潜在“宇宙”，并且这些陈述在该宇宙上被量化。为了用数学方式表达这些陈述，我们需要两个 <strong>量词</strong> (Quantifier)： <strong>全称量词</strong> (Universal Quantifier) <span class="arithmatex">\(\forall\)</span> (“对于所有”) 和 <strong>存在量词</strong> (Existential Quantifier) <span class="arithmatex">\(\exists\)</span> (“存在”)。示例：</p>
+<p>(1) “有些哺乳动物产卵。”在数学上，“有些”意味着“至少一个”，因此陈述是说“存在一个哺乳动物 <span class="arithmatex">\(x\)</span> ，使得 <span class="arithmatex">\(x\)</span> 产卵”。如果我们让我们的宇宙 <span class="arithmatex">\(U\)</span> 为哺乳动物集合，那么我们可以写成： <span class="arithmatex">\((\exists x \in U) (x \text{ 产卵})\)</span> 。（有时，当宇宙很明确时，我们省略 <span class="arithmatex">\(U\)</span> 并简单地写成 <span class="arithmatex">\(\exists x (x \text{ 产卵})\)</span> 。）
+(2) “对于所有自然数 <span class="arithmatex">\(n\)</span> ， <span class="arithmatex">\(n^{2} + n + 41\)</span> 是质数”，可以通过将我们的宇宙设为自然数集（记作 <span class="arithmatex">\(\mathbb{N}\)</span> ）来表达： <span class="arithmatex">\((\forall n \in \mathbb{N}) (n^{2} + n + 41 \text{ 是质数})\)</span> 。</p>
+<p>当用一个值替换变量使陈述变为真或假时，我们称涉及变量的陈述为 <strong>谓词</strong>（Predicate） 或 <strong>命题公式</strong>（Propositional Formula）。例如，陈述“ <span class="arithmatex">\(n^{2} + n + 41\)</span> 是质数”是一个带有变量 <span class="arithmatex">\(n\)</span> 的谓词或命题公式。该陈述在自然数 <span class="arithmatex">\(n\)</span> 上的值要么为真要么为假，取决于 <span class="arithmatex">\(n\)</span> 的值。也就是说，用一个值替换变量会将谓词变成一个命题。特别地，对于 <span class="arithmatex">\(n = 1\)</span> ，我们有“43 是质数”，这是真的。而对于 <span class="arithmatex">\(n = 41\)</span> ，陈述“ <span class="arithmatex">\(41^{2} + 41 + 41\)</span> 是质数”是假的，因为可以将 <span class="arithmatex">\(41^{2} + 41 + 41\)</span> 分解为 <span class="arithmatex">\(41 \times 43\)</span> 。</p>
+<p>注意，在有限宇宙中，我们可以不使用量词来表达存在量化和全称量化的命题，而是分别使用析取和合取。例如，如果我们的宇宙 <span class="arithmatex">\(U\)</span> 是 <span class="arithmatex">\(\{ 1, 2, 3, 4 \}\)</span> ，那么 <span class="arithmatex">\((\exists x \in U) P(x)\)</span> 逻辑等价于 <span class="arithmatex">\(P(1) \lor P(2) \lor P(3) \lor P(4)\)</span> ，而 <span class="arithmatex">\((\forall x \in U) P(x)\)</span> 逻辑等价于 <span class="arithmatex">\(P(1) \land P(2) \land P(3) \land P(4)\)</span> 。然而，在无限宇宙中（如自然数集），这是不可能的。</p>
+<blockquote>
+<p>概念检查！使用量词表达以下两个陈述：“对于所有整数 <span class="arithmatex">\(x\)</span> ， <span class="arithmatex">\(2x + 1\)</span> 是奇数”，以及“存在一个介于 2 和 4 之间的整数”。</p>
+</blockquote>
+<p>有些陈述可能有多个量词。然而，正如我们将看到的，量词是不可交换的。你只需考虑一下英语陈述就能明白这一点。考虑以下（相当血腥的）例子：</p>
+<p>“每当我乘坐纽约地铁，都会有人被刺伤。”
+“存在一个人，每当我乘坐纽约地铁，那个人就会被刺伤。”</p>
+<p>第一个陈述是说每我坐地铁都有人被刺伤，但每次可能是不同的人。第二个陈述说的是一些真正可怕的事情：有个倒霉蛋乔，每当我登上纽约地铁，乔就在那里，又被刺伤了。（可怜的乔一看到我就会拼命逃跑。）</p>
+<p>在数学上，我们是在两个宇宙上进行量化： <span class="arithmatex">\(T = \{ \text{我乘坐地铁的时间} \}\)</span> 和 <span class="arithmatex">\(P = \{ \text{人} \}\)</span> 。第一个陈述可以写成： <span class="arithmatex">\((\forall t \in T) (\exists p \in P) (p \text{ 在时间 } t \text{ 被刺伤})\)</span> 。第二个陈述说： <span class="arithmatex">\((\exists p \in P) (\forall t \in T) (p \text{ 在时间 } t \text{ 被刺伤})\)</span> 。</p>
+<p>让我们看一个更具数学意义的例子：</p>
+<p>考虑：
+1. <span class="arithmatex">\((\forall x \in \mathbb{Z}) (\exists y \in \mathbb{Z}) (x &lt; y)\)</span>
+2. <span class="arithmatex">\((\exists y \in \mathbb{Z}) (\forall x \in \mathbb{Z}) (x &lt; y)\)</span></p>
+<p>第一个陈述说，给定一个整数，我可以找到一个更大的整数。第二个陈述说的则是非常不同的事情：存在一个最大的整数！第一个陈述是真的，第二个陈述不是。</p>
+<h2 id="3">3 关于否定的种种</h2>
+<p>命题 <span class="arithmatex">\(P\)</span> 为假意味着什么？这意味着它的否定 <span class="arithmatex">\(\neg P\)</span> 为真。为处理否定学习一些规则是很有帮助的，这在下一讲我们研究证明时会变得更加明显。</p>
+<p>首先，让我们看看如何否定合取和析取：</p>
+<div class="arithmatex">\[
+\begin{array}{l} \neg (P \wedge Q) \equiv (\neg P \vee \neg Q) \\ \neg (P \lor Q) \equiv (\neg P \land \neg Q) \\ \end{array}
+\]</div>
+<p>这两个等价式被称为 <strong>德·摩根定律</strong>（De Morgan's Laws），它们非常直观：例如，如果 <span class="arithmatex">\(P \land Q\)</span> 为真并非事实，那么 <span class="arithmatex">\(P\)</span> 或 <span class="arithmatex">\(Q\)</span> 必须有一个为假（反之亦顺）。</p>
+<blockquote>
+<p>概念检查！通过写下相应的真值表来验证德·摩根定律。</p>
+</blockquote>
+<p>否定涉及量词的命题实际上遵循类似的规律。让我们从一个简单的例子开始。假设宇宙是 <span class="arithmatex">\(\{ 1, 2, 3, 4 \}\)</span> ，并让 <span class="arithmatex">\(P(x)\)</span> 表示命题公式“ <span class="arithmatex">\(x^{2} &gt; 10\)</span> ”。检查 <span class="arithmatex">\(\exists x P(x)\)</span> 是否为真但 <span class="arithmatex">\(\forall x P(x)\)</span> 为假。观察到 <span class="arithmatex">\(\neg (\forall x P(x))\)</span> 和 <span class="arithmatex">\(\exists x \neg P(x)\)</span> 均为真，因为 <span class="arithmatex">\(P(1)\)</span> 为假。另请注意， <span class="arithmatex">\(\forall x \neg P(x)\)</span> 和 <span class="arithmatex">\(\neg (\exists x P(x))\)</span> 均为假，因为 <span class="arithmatex">\(P(4)\)</span> 为真。每对陈述具有相同真值并非巧合，因为这些等价式：</p>
+<div class="arithmatex">\[
+\begin{array}{l} \neg (\forall x P (x)) \equiv \exists x \neg P (x) \\ \neg (\exists x P (x)) \equiv \forall x \neg P (x) \\ \end{array}
+\]</div>
+<p>是适用于在任何宇宙（包括无限宇宙）上量化的任何命题 <span class="arithmatex">\(P\)</span> 的定律。</p>
+<p>考虑一下英语句子有助于说服自己（非正式地）这些规律是正确的。例如，假设我们在宇宙 <span class="arithmatex">\(\mathbb{Z}\)</span> （所有整数的集合）中工作，并且 <span class="arithmatex">\(P(x)\)</span> 是命题“ <span class="arithmatex">\(x\)</span> 是奇数”。我们知道陈述 <span class="arithmatex">\((\forall x P(x))\)</span> 是假的，因为并非每个整数都是奇数。因此，我们预期它的否定 <span class="arithmatex">\(\neg (\forall x P(x))\)</span> 是真的。但你会如何用中文（或英语）表达这个否定呢？嗯，如果并非每个整数都是奇数，那么一定存在某个不是奇数（即偶数）的整数。这在命题形式中该如何书写？这很简单，就是： <span class="arithmatex">\((\exists x \neg P(x))\)</span> 。</p>
+<p>看一个更复杂的例子，固定某个宇宙和命题公式 <span class="arithmatex">\(P(x, y)\)</span> 。假设我们有命题 <span class="arithmatex">\(\neg (\forall x \exists y P(x, y))\)</span> ，我们想将否定运算符推到量词内部。根据上述定律，我们可以按如下方式操作：</p>
+<div class="arithmatex">\[
+\neg (\forall x \exists y P(x, y)) \equiv \exists x \neg (\exists y P (x, y)) \equiv \exists x \forall y \neg P (x, y).
+\]</div>
+<p>请注意，当否定通过量词传播时，我们将复杂的否定分解成了更小、更容易的问题。还要注意，当我们进行操作时，量词会“翻转”。</p>
+<h2 id="4">4 更复杂的量词示例</h2>
+<p>让我们看一组更棘手的例子：</p>
+<p>将句子“至少存在三个不同的整数 <span class="arithmatex">\(x\)</span> 满足 <span class="arithmatex">\(P(x)\)</span> ”写成使用量词的命题！一种方法是：</p>
+<div class="arithmatex">\[
+\exists x \exists y \exists z (x \neq y \land y \neq z \land z \neq x \land P (x) \land P (y) \land P (z)).
+\]</div>
+<p>（这里所有量词均在整数宇宙 <span class="arithmatex">\(\mathbb{Z}\)</span> 上。）</p>
+<p>现在将句子“至多存在三个不同的整数 <span class="arithmatex">\(x\)</span> 满足 <span class="arithmatex">\(P(x)\)</span> ”写成使用量词的命题。一种方法是：</p>
+<div class="arithmatex">\[
+\exists x \exists y \exists z \forall d (P (d) \Rightarrow d = x \lor d = y \lor d = z).
+\]</div>
+<p>如果你不确定如何解释这个命题逻辑陈述，可以读作：“存在三个特定的整数 <span class="arithmatex">\(x, y\)</span> 和 <span class="arithmatex">\(z\)</span> ，使得如果 <span class="arithmatex">\(P(d)\)</span> 为真，那么 <span class="arithmatex">\(d\)</span> 必须是这三个整数之一。”还有许多其他方式可以表达同一个陈述，例如：</p>
+<div class="arithmatex">\[
+\forall x \forall y \forall v \forall z ((x \neq y \wedge y \neq v \wedge v \neq x \wedge x \neq z \wedge y \neq z \wedge v \neq z) \Rightarrow \neg (P (x) \wedge P (y) \wedge P (v) \wedge P (z))).
+\]</div>
+<blockquote>
+<p>概念检查！检查你是否理解了上述两个备选方案。</p>
+</blockquote>
+<p>注意，我们甚至可以生成更多完全相同的备选方案，例如，编写逆否命题、传播否定等。通常，你会想要选择能最清晰表达思想的命题逻辑陈述。</p>
+<p>最后，如果我们想表达句子“恰好存在三个不同的整数 <span class="arithmatex">\(x\)</span> 满足 <span class="arithmatex">\(P(x)\)</span> ”呢？这现在变简单了：我们只需使用上述两个命题的合取。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/0nikod/study-docs-zh" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

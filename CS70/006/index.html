@@ -1,0 +1,1620 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="一个存放外国课程的中文翻译的网站">
+      
+      
+        <meta name="author" content="0nikod">
+      
+      
+        <link rel="canonical" href="https://study-docs-zh.example.com/CS70/006/">
+      
+      
+        <link rel="prev" href="../005/">
+      
+      
+        <link rel="next" href="../007/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>006 - 同余运算 - 外国课程课程笔记翻译</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#006-" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="外国课程课程笔记翻译" class="md-header__button md-logo" aria-label="外国课程课程笔记翻译" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            外国课程课程笔记翻译
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              006 - 同余运算
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  课程笔记翻译
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../000/" class="md-tabs__link">
+          
+  
+  
+  CS70
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="外国课程课程笔记翻译" class="md-nav__button md-logo" aria-label="外国课程课程笔记翻译" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    外国课程课程笔记翻译
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    课程笔记翻译
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CS70
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CS70
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../000/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    000 - 集合与数学符号回顾
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../001/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    001 - 命题逻辑与量词
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../002/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    002 - 证明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../003/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    003 - 数学归纳法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../004/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    004 - 稳定匹配问题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../005/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    005 - 图论简介
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    006 - 同余运算
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    006 - 同余运算
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 同余运算
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 计算
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 集合表示
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 指数运算
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 逆元
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6 计算逆元：欧几里得算法
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7 欧几里得算法
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8 扩展欧几里得算法
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9 同余运算中的除法
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 算术基本定理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11 中国剩余定理
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    007 - 公钥加密
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../008/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    008 - 多项式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    009 - 纠错码
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    010 - 迈向无穷：可数性与可计算性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    011 - 自指与可计算性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    012 - 计数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    013 - 离散概率入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../014/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    014 - 条件概率、独立性和事件组合
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../015/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    015 - 三个杀手级应用：哈希、收集优惠券和负载均衡
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../016/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    016 - 随机变量：分布与期望
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../017/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    017 - 随机变量的函数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../018/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    018 - 几何分布和泊松分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../019/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    019 - 集中不等式与大数定律
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../020/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    020 - 连续概率分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 同余运算
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 计算
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 集合表示
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 指数运算
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 逆元
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6 计算逆元：欧几里得算法
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7 欧几里得算法
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8 扩展欧几里得算法
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9 同余运算中的除法
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 算术基本定理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11 中国剩余定理
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="006-">006 - 同余运算</h1>
+<h2 id="1">1 同余运算</h2>
+<p>在诸如纠错码和密码学等多种场景中，我们有时希望在较小的数字范围内进行运算。<strong>同余运算</strong>（Modular Arithmetic）在这种情况下非常有用，因为它将数字限制在预定义的范围 <span class="arithmatex">\(\{ 0, 1, \dots, N - 1 \}\)</span> 内，并且每当你试图离开这个范围时就会绕回——就像时钟的指针（其中 <span class="arithmatex">\(N = 12\)</span>）或一周中的天数（其中 <span class="arithmatex">\(N = 7\)</span>）。</p>
+<p><strong>示例：计算时间</strong>（Calculating the time）。当你计算时间时，你会自动使用同余运算。例如，如果有人问你从下午 1 点开始 13 小时后是多少点，你会说是凌晨 2 点而不是 14 点。假设我们的时钟将 12 显示为 0，这需要将数字限制在预定义的范围 <span class="arithmatex">\(\{ 0, 1, 2, \dots, 11 \}\)</span>。每当你在这种情况下将两个数字相加时，你都会除以 12 并将余数作为答案。</p>
+<p>如果我们想知道从下午 <span class="arithmatex">\(2 \ \mathrm{pm}\)</span> 开始 24 小时后是多少点，答案很简单：还是下午 <span class="arithmatex">\(2 \ \mathrm{pm}\)</span>。这不仅对 24 小时生效，对 12 小时的任何倍数都成立（忽略 <span class="arithmatex">\(\mathrm{am/pm}\)</span> 的细节）。那么从下午 <span class="arithmatex">\(2 \ \mathrm{pm}\)</span> 开始 25 小时后呢？由于从下午 2 点开始 24 小时后仍然是下午 <span class="arithmatex">\(2 \ \mathrm{pm}\)</span>，因此 25 小时后就是下午 <span class="arithmatex">\(3 \ \mathrm{pm}\)</span>。另一种说法是，我们将 25 除以 12，加上得到的余数 1 小时。</p>
+<p>这个例子表明，在某些情况下，在特定数字（本例中为 12）的范围内进行算术运算是有意义的。也就是说，我们只记录除以 12 时的余数，当我们需要将两个数字相加时，只需将余数相加即可。这种方法在使中间值尽可能小方面非常高效，我们将在后面的讲义中看到它的用处。</p>
+<p>更一般地，我们可以定义 <span class="arithmatex">\(x \bmod m\)</span>（读作：“<span class="arithmatex">\(x\)</span> 模 <span class="arithmatex">\(m\)</span>”）为 <span class="arithmatex">\(x\)</span> 除以 <span class="arithmatex">\(m\)</span> 时的余数 <span class="arithmatex">\(r\)</span>。即，如果 <span class="arithmatex">\(x \equiv r \pmod{m}\)</span>，那么 <span class="arithmatex">\(x = mq + r\)</span>，其中 <span class="arithmatex">\(0 \leq r \leq m - 1\)</span> 且 <span class="arithmatex">\(q\)</span> 是一个整数。因此 <span class="arithmatex">\(29 \equiv 5 \pmod{12}\)</span> 且 <span class="arithmatex">\(13 \equiv 3 \pmod{5}\)</span>。</p>
+<h2 id="2">2 计算</h2>
+<p>如果我们希望计算 <span class="arithmatex">\((x + y) \bmod m\)</span>，我们会先计算 <span class="arithmatex">\(x + y\)</span>，然后计算结果除以 <span class="arithmatex">\(m\)</span> 后的余数。例如，如果 <span class="arithmatex">\(x = 14, y = 25, m = 12\)</span>，我们会计算 <span class="arithmatex">\(x + y = 14 + 25 = 39\)</span> 除以 12 的余数，得到答案 3。请注意，如果我们先计算 <span class="arithmatex">\(x \equiv 2 \pmod{12}\)</span> 和 <span class="arithmatex">\(y \equiv 1 \pmod{12}\)</span>，然后将结果模 12 相加得到 3，也会得到相同的答案。减法也是如此：<span class="arithmatex">\((x - y) \bmod 12\)</span> 是 <span class="arithmatex">\(-11 \bmod 12\)</span>，即 1。同样，我们可以通过先简化来直接获得结果，即 <span class="arithmatex">\((x \bmod 12) - (y \bmod 12) \equiv 2 - 1 \equiv 1 \pmod{12}\)</span>。</p>
+<p>这个想法在乘法中为我们节省了更多的精力：要计算 <span class="arithmatex">\(xy \bmod 12\)</span>，我们可以先计算 <span class="arithmatex">\(xy = 14 \times 25 = 350\)</span>，然后计算除以 12 后的余数，结果是 2。注意，如果我们先计算 <span class="arithmatex">\(x \equiv 2 \pmod{12}\)</span> 和 <span class="arithmatex">\(y \equiv 1 \pmod{12}\)</span>，然后直接将结果模 12 相乘，会更轻松地得到相同的答案。</p>
+<p>更一般地，在进行任何模 <span class="arithmatex">\(m\)</span> 的加法、减法或乘法序列时，如果我们对任何中间结果进行模 <span class="arithmatex">\(m\)</span> 约简，都会得到相同的答案。这可以大大简化计算。我们将在下面的定理 6.1 中正式证明这一主张的正确性。</p>
+<h2 id="3">3 集合表示</h2>
+<p>另一种看待同余运算的观点有助于更好地理解这一切。对于任何整数 <span class="arithmatex">\(m\)</span>，如果两个整数 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(y\)</span> 之差是 <span class="arithmatex">\(m\)</span> 的倍数，我们就说它们<strong>模 <span class="arithmatex">\(m\)</span> 同余</strong>（congruent modulo <span class="arithmatex">\(m\)</span>），用符号表示为：</p>
+<div class="arithmatex">\[
+x \equiv y \pmod{m} \iff m \mid (x - y)
+\]</div>
+<p>例如，29 和 5 模 12 同余，因为 12 整除 <span class="arithmatex">\(29 - 5\)</span>。我们也可以写成 <span class="arithmatex">\(22 \equiv -2 \pmod{12}\)</span>。注意，<span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(y\)</span> 模 <span class="arithmatex">\(m\)</span> 同余当且仅当它们模 <span class="arithmatex">\(m\)</span> 的余数相同；换句话说：</p>
+<div class="arithmatex">\[
+x \equiv y \pmod{m} \iff x \bmod m = y \bmod m
+\]</div>
+<p>模 12 与 0 同余的数字集合是什么？这些是 12 的所有倍数：<span class="arithmatex">\(\{ \dots, -36, -24, -12, 0, 12, 24, 36, \dots \}\)</span>。那么模 12 与 1 同余的数字集合呢？这些是除以 12 时余数为 1 的所有数字：<span class="arithmatex">\(\{ \dots, -35, -23, -11, 1, 13, 25, 37, \dots \}\)</span>。类似地，模 12 与 2 同余的数字集合是 <span class="arithmatex">\(\{ \dots, -34, -22, -10, 2, 14, 26, 38, \dots \}\)</span>。请注意，通过这种方式，我们得到了 12 个这样的整数集合，并且每个整数都属于且仅属于其中一个集合。</p>
+<p>通常，如果我们以模 <span class="arithmatex">\(m\)</span> 进行运算，那么我们会得到 <span class="arithmatex">\(m\)</span> 个这样的不相交集合，它们的并集是所有整数的集合：这些通常被称为<strong>模 <span class="arithmatex">\(m\)</span> 的剩余类</strong>（residue classes mod <span class="arithmatex">\(m\)</span>）。我们可以认为每个集合都由它在 <span class="arithmatex">\(\{ 0, \dots, m - 1 \}\)</span> 范围内的唯一元素表示。由元素 <span class="arithmatex">\(i\)</span> 表示的集合将是所有满足 <span class="arithmatex">\(z = mq + i\)</span>（对于某个整数 <span class="arithmatex">\(q\)</span>）的数字 <span class="arithmatex">\(z\)</span>。观察发现，所有这些数字除以 <span class="arithmatex">\(m\)</span> 时的余数都是 <span class="arithmatex">\(i\)</span>；因此它们模 <span class="arithmatex">\(m\)</span> 同余。</p>
+<p>我们可以根据这些集合来理解加、减和乘运算。当我们相加两个数字时，比如 <span class="arithmatex">\(x \equiv 2 \pmod{12}\)</span> 和 <span class="arithmatex">\(y \equiv 1 \pmod{12}\)</span>，无论我们从这两个集合中选取哪个 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(y\)</span>，结果始终是包含 3 的集合中的一个元素。减法和乘法也是如此。现在应该很清楚了，在进行模 <span class="arithmatex">\(m\)</span> 计算时，每个集合的元素都是可以互换的，这就是为什么我们可以对任何中间结果进行模 <span class="arithmatex">\(m\)</span> 约简。</p>
+<p>下面是陈述这一观察结果的更正式方式：</p>
+<p><strong>定理 6.1</strong>。如果 <span class="arithmatex">\(a \equiv c \pmod{m}\)</span> 且 <span class="arithmatex">\(b \equiv d \pmod{m}\)</span>，那么 <span class="arithmatex">\(a + b \equiv c + d \pmod{m}\)</span> 且 <span class="arithmatex">\(a \cdot b \equiv c \cdot d \pmod{m}\)</span>。</p>
+<p><strong>证明</strong>。我们知道对于整数 <span class="arithmatex">\(k, \ell\)</span>，<span class="arithmatex">\(c = a + k \cdot m\)</span> 且 <span class="arithmatex">\(d = b + \ell \cdot m\)</span>，所以 <span class="arithmatex">\(c + d = a + k \cdot m + b + \ell \cdot m = a + b + (k + \ell) \cdot m\)</span>，这意味着 <span class="arithmatex">\(a + b \equiv c + d \pmod{m}\)</span>。乘法的证明类似，留作练习。<span class="arithmatex">\(\square\)</span></p>
+<p><strong>练习</strong>。完成定理 6.1 中乘法部分的证明。</p>
+<p>该定理告诉我们，我们总是可以将任何算术表达式模 <span class="arithmatex">\(m\)</span> 约简到 <span class="arithmatex">\(\{ 0, 1, \dots, m - 1 \}\)</span> 范围内的数字。例如，考虑表达式 <span class="arithmatex">\((13 + 11) \cdot 18 \pmod{7}\)</span>。多次使用上述定理，我们可以写成：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+(13 + 11) \cdot 18 &amp;\equiv (6 + 4) \cdot 4 \pmod{7} \\
+&amp;= 10 \cdot 4 \pmod{7} \\
+&amp;\equiv 3 \cdot 4 \pmod{7} \\
+&amp;= 12 \pmod{7} \\
+&amp;\equiv 5 \pmod{7}
+\end{aligned}
+\]</div>
+<p>总而言之，我们总是可以通过对中间结果进行模 <span class="arithmatex">\(m\)</span> 约简，来进行模 <span class="arithmatex">\(m\)</span> 的基本算术（乘法、加法、减法）计算。（请注意，我们还没有提到除法：稍后会有更多关于除法的内容！）</p>
+<h2 id="4">4 指数运算</h2>
+<p>算术算法中（例如在大数素性测试和 RSA 中大量使用）的另一个标准操作是将一个数字模另一个数字取幂。即，我们如何计算 <span class="arithmatex">\(x^y \bmod m\)</span>，其中 <span class="arithmatex">\(x, y, m\)</span> 是自然数且 <span class="arithmatex">\(m &gt; 1\)</span>？一种天真的方法是计算序列 <span class="arithmatex">\(x \bmod m, x^2 \bmod m, x^3 \bmod m, \dots\)</span> 直到第 <span class="arithmatex">\(y\)</span> 项，但这需要相对于 <span class="arithmatex">\(y\)</span> 的位数呈指数级的时间。我们可以使用<strong>反复平方法</strong>（repeated squaring）的技巧做得更好：</p>
+<div class="highlight"><pre><span></span><code>algorithm mod-exp(x, y, m)  
+if y = 0 then return (1)  
+else  
+z = mod-exp(x, y div 2, m)  
+if y (mod 2) ≡ 0 then return (z * z (mod m))  
+else return (x * z * z (mod m)) 
+</code></pre></div>
+<p>该算法利用了任何 <span class="arithmatex">\(y &gt; 0\)</span> 都可以写成 <span class="arithmatex">\(y = 2a\)</span> 或 <span class="arithmatex">\(y = 2a + 1\)</span> 的事实，其中 <span class="arithmatex">\(a = \lfloor y/2 \rfloor\)</span>（我们在上述伪代码中将其写为 <code>y div 2</code>），以及以下事实：</p>
+<div class="arithmatex">\[
+x^{2a} = (x^a)^2; \quad \text{以及} \quad x^{2a+1} = x \cdot (x^a)^2
+\]</div>
+<p><strong>练习</strong>。利用上述事实，通过对 <span class="arithmatex">\(y\)</span> 进行归纳证明该算法始终返回正确的值。</p>
+<p>它的运行时间是多少？与递归算法通常的情况一样，这里的主要任务是弄清楚进行了多少次递归调用。但我们可以看到，在每次调用中，第二个参数 <span class="arithmatex">\(y\)</span> 都会被（整数）除以 2，因此递归调用的次数恰好等于 <span class="arithmatex">\(y\)</span> 的位数 <span class="arithmatex">\(n\)</span>。（如果令 <span class="arithmatex">\(n\)</span> 为 <span class="arithmatex">\(y\)</span> 的二进制位数，情况也类似，只差一个很小的常数因子。）因此，如果我们认为每次算术运算（<code>div</code>, <code>mod</code> 等）仅耗费常数时间，那么 <code>mod-exp</code> 的运行时间为 <span class="arithmatex">\(O(n)\)</span>。请注意，这非常高效：这意味着我们可以处理具有（至少）数千位的指数！</p>
+<p>在更现实的模型中（即我们在位级别计算操作成本），我们需要更仔细地观察每次递归调用的成本。首先注意，<code>if</code> 语句中对 <span class="arithmatex">\(y\)</span> 的测试仅涉及查看 <span class="arithmatex">\(y\)</span> 的最低有效位，而 <span class="arithmatex">\(\lfloor y/2 \rfloor\)</span> 的计算只是位表示中的一个移位。因此，这些操作中的每一个仅花费常数时间。因此，每次递归调用的成本主要由最终结果中的模运算所主导。在 CS170 中对这类算法进行了更全面的分析。</p>
+<h2 id="5">5 逆元</h2>
+<p>到目前为止，我们已经讨论了加法、乘法和指数运算。减法是加法的逆运算，只需注意在模 <span class="arithmatex">\(m\)</span> 下减去 <span class="arithmatex">\(b\)</span> 等同于加上 <span class="arithmatex">\(-b \equiv m - b \pmod{m}\)</span>。</p>
+<p>那么除法呢？这有点难。在实数范围内，除以一个数 <span class="arithmatex">\(x\)</span> 等同于乘以 <span class="arithmatex">\(y = 1/x\)</span>。这里 <span class="arithmatex">\(y\)</span> 是满足 <span class="arithmatex">\(x \cdot y = 1\)</span> 的那个数。当然，当 <span class="arithmatex">\(x = 0\)</span> 时我们必须小心，因为这样的 <span class="arithmatex">\(y\)</span> 不存在。类似地，当我们希望模 <span class="arithmatex">\(m\)</span> 除以 <span class="arithmatex">\(x\)</span> 时，我们需要找到一个满足 <span class="arithmatex">\(x \cdot y \equiv 1 \pmod{m}\)</span> 的 <span class="arithmatex">\(y \bmod m\)</span>；那么模 <span class="arithmatex">\(m\)</span> 除以 <span class="arithmatex">\(x\)</span> 就等同于模 <span class="arithmatex">\(m\)</span> 乘以 <span class="arithmatex">\(y\)</span>。这样一个 <span class="arithmatex">\(y\)</span> 被称为 <strong><span class="arithmatex">\(x\)</span> 模 <span class="arithmatex">\(m\)</span> 的乘法逆元</strong>（multiplicative inverse）。在目前的同余运算设置中，我们能否确定 <span class="arithmatex">\(x\)</span> 在模 <span class="arithmatex">\(m\)</span> 下有逆元？如果有，它（在模 <span class="arithmatex">\(m\)</span> 意义下）是唯一的吗？我们该如何计算它？</p>
+<p>作为第一个例子，取 <span class="arithmatex">\(x = 8\)</span> 和 <span class="arithmatex">\(m = 15\)</span>。由于 <span class="arithmatex">\(2x = 16 \equiv 1 \pmod{15}\)</span>，所以 2 是 8 模 15 的乘法逆元。作为第二个例子，取 <span class="arithmatex">\(x = 12\)</span> 和 <span class="arithmatex">\(m = 15\)</span>。那么序列 <span class="arithmatex">\(\{ ax \bmod m : a = 1, 2, 3, \dots \}\)</span> 是周期的，取值为 <span class="arithmatex">\((12, 9, 6, 3, 0, 12, 9, 6, \dots)\)</span>。[练习：检查这一点！] 因此，12 在模 15 下没有乘法逆元，因为数字 1 从未在这个序列中出现。</p>
+<p>这是第一个警告信号，表明同余运算可能实际上与小学算术非常不同。有两件奇怪的事情正在发生。首先，可能存在没有逆元的非零数字。（在普通算术中，唯一没有逆元的数字是零。）其次，一个非零数字的“乘法表”中竟然会出现零！例如，当我们考虑模 15 的数字时，12 乘以 5 等于零。（在普通算术中，除了零以外，任何数字的乘法表中都不会出现零。）</p>
+<p>那么，我们如何判定 <span class="arithmatex">\(x\)</span> 模 <span class="arithmatex">\(m\)</span> 是否有乘法逆元呢？答案是：<strong>当且仅当 <span class="arithmatex">\(m\)</span> 和 <span class="arithmatex">\(x\)</span> 的最大公约数为 1 时</strong>。此外，当逆元存在时，它是唯一的。回想一下，两个自然数 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(y\)</span> 的<strong>最大公约数</strong>（greatest common divisor）记作 <span class="arithmatex">\(\operatorname{gcd}(x, y)\)</span>，是能同时整除这两个数的最大自然数。例如，<span class="arithmatex">\(\operatorname{gcd}(30, 24) = 6\)</span>。如果 <span class="arithmatex">\(\operatorname{gcd}(x, y) = 1\)</span>，意味着 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(y\)</span> 除了 1 以外没有共同的因子。这通常通过说 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(y\)</span> <strong>互素</strong>（relatively prime）或<strong>互质</strong>（coprime）来表达。</p>
+<p><strong>定理 6.2</strong>。令 <span class="arithmatex">\(m, x\)</span> 为正整数，满足 <span class="arithmatex">\(\operatorname{gcd}(m, x) = 1\)</span>。那么 <span class="arithmatex">\(x\)</span> 模 <span class="arithmatex">\(m\)</span> 有唯一的乘法逆元（在模 <span class="arithmatex">\(m\)</span> 意义下）。</p>
+<p><strong>证明</strong>。考虑包含 <span class="arithmatex">\(m\)</span> 个数字的序列 <span class="arithmatex">\(0, x, 2x, \dots, (m-1)x\)</span>。我们声称这些数字在模 <span class="arithmatex">\(m\)</span> 意义下都是互不相同的。由于模 <span class="arithmatex">\(m\)</span> 只有 <span class="arithmatex">\(m\)</span> 个不同的值，那么必然存在恰好一个 <span class="arithmatex">\(a \pmod{m}\)</span> 使得 <span class="arithmatex">\(ax \equiv 1 \pmod{m}\)</span>。这个 <span class="arithmatex">\(a\)</span> 就是 <span class="arithmatex">\(x\)</span> 唯一的乘法逆元。</p>
+<p>为了验证上述主张，假设为了导出矛盾，在范围 <span class="arithmatex">\(0 \leq b \leq a \leq m - 1\)</span> 内对于两个不同的值 <span class="arithmatex">\(a, b\)</span> 有 <span class="arithmatex">\(ax \equiv bx \pmod{m}\)</span>。那么我们将得到 <span class="arithmatex">\((a - b)x \equiv 0 \pmod{m}\)</span>，或者等价地，对于某个整数 <span class="arithmatex">\(k\)</span>（可能为零）有 <span class="arithmatex">\((a - b)x = km\)</span>。</p>
+<p>然而，<span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(m\)</span> 互素，所以 <span class="arithmatex">\(x\)</span> 不能与 <span class="arithmatex">\(m\)</span> 共享任何因子。这意味着 <span class="arithmatex">\(a - b\)</span> 必须是 <span class="arithmatex">\(m\)</span> 的整数倍。这是不可能的，因为 <span class="arithmatex">\(a - b\)</span> 的范围在 1 到 <span class="arithmatex">\(m - 1\)</span> 之间。<span class="arithmatex">\(\square\)</span></p>
+<p>事实上，<span class="arithmatex">\(\operatorname{gcd}(m, x) = 1\)</span> 也是逆元存在的必要条件：即，如果 <span class="arithmatex">\(\operatorname{gcd}(m, x) &gt; 1\)</span>，那么 <span class="arithmatex">\(x\)</span> 模 <span class="arithmatex">\(m\)</span> 没有乘法逆元。</p>
+<p><strong>练习</strong>。验证这一观点。[提示：对比假设 <span class="arithmatex">\(x\)</span> 确实有一个逆元，例如 <span class="arithmatex">\(a\)</span>。然后写出一个 <span class="arithmatex">\(x, m, a\)</span> 必须满足的（非模运算）方程。最后，利用 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(m\)</span> 有公共因子 <span class="arithmatex">\(d &gt; 1\)</span> 的事实导出矛盾。]</p>
+<p>既然我们知道当 <span class="arithmatex">\(\operatorname{gcd}(m, x) = 1\)</span> 时乘法逆元是唯一的，我们将 <span class="arithmatex">\(x\)</span> 的逆元记作 <span class="arithmatex">\(x^{-1} \pmod{m}\)</span>。能够计算一个数字的乘法逆元对许多应用至关重要，因此理想情况下使用的算法应该是高效的。事实证明，我们可以使用欧几里得算法的一个扩展版本（计算两个数字的 gcd）来计算乘法逆元。</p>
+<h2 id="6">6 计算逆元：欧几里得算法</h2>
+<p>让我们首先讨论计算 <span class="arithmatex">\(x\)</span> 模 <span class="arithmatex">\(m\)</span> 的乘法逆元与寻找 <span class="arithmatex">\(\operatorname{gcd}(x, m)\)</span> 之间的关系。对于任何一对数字 <span class="arithmatex">\(x, y\)</span>，假设我们不仅可以计算 <span class="arithmatex">\(\operatorname{gcd}(x, y)\)</span>，还可以找到整数 <span class="arithmatex">\(a, b\)</span> 使得：</p>
+<div class="arithmatex">\[
+d = \operatorname{gcd}(x, y) = ax + by \tag{1}
+\]</div>
+<p>（请注意，这不是一个模方程；整数 <span class="arithmatex">\(a, b\)</span> 可能是零或负数。）例如，我们可以写成 <span class="arithmatex">\(1 = \operatorname{gcd}(35, 12) = -1 \cdot 35 + 3 \cdot 12\)</span>，所以这里的 <span class="arithmatex">\(a = -1, b = 3\)</span> 是 <span class="arithmatex">\(a, b\)</span> 的可能取值。</p>
+<p>如果我们能做到这一点，我们就能计算逆元，步骤如下。我们首先找到整数 <span class="arithmatex">\(a\)</span> 和 <span class="arithmatex">\(b\)</span> 使得：</p>
+<div class="arithmatex">\[
+1 = \operatorname{gcd}(m, x) = am + bx
+\]</div>
+<p>但这意味着 <span class="arithmatex">\(bx \equiv 1 \pmod{m}\)</span>，所以 <span class="arithmatex">\(b\)</span> 是 <span class="arithmatex">\(x\)</span> 模 <span class="arithmatex">\(m\)</span> 的一个乘法逆元。将 <span class="arithmatex">\(b\)</span> 模 <span class="arithmatex">\(m\)</span> 约简就得到了我们要寻找的唯一逆元。在上述示例中，我们看到 3 是 12 模 35 的乘法逆元。因此，我们将计算逆元的问题简化为寻找满足 (1) 的整数 <span class="arithmatex">\(a, b\)</span> 的问题。值得注意的是，扩展欧几里得算法不仅能计算 gcd，还可以让我们找到如上所述的整数 <span class="arithmatex">\(a\)</span> 和 <span class="arithmatex">\(b\)</span>。因此，计算 <span class="arithmatex">\(x\)</span> 模 <span class="arithmatex">\(m\)</span> 的乘法逆元就像对输入 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(m\)</span> 运行欧几里得 gcd 算法一样简单！</p>
+<h2 id="7">7 欧几里得算法</h2>
+<p>如果我们希望计算两个数字 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(y\)</span> 的 gcd，我们该如何进行？作为基本情况（base case），如果 <span class="arithmatex">\(x\)</span> 或 <span class="arithmatex">\(y\)</span> 为 0，那么计算 gcd 非常容易；它就是另一个数字，因为 0 可以被任何数整除（当然它不能整除任何数）。其他情况下的算法非常古老，虽然以欧几里得的名字命名，但几乎可以肯定是由工匠（当世的工程师）发明的民间算法，因为它具有非常强的实用性。</p>
+<p>计算 <span class="arithmatex">\(\operatorname{gcd}(x, y)\)</span> 的算法使用以下定理最终简化为其中一个数字为 0 的基本情况。</p>
+<p><strong>定理 6.3</strong>。令 <span class="arithmatex">\(x \geq y &gt; 0\)</span>。那么 <span class="arithmatex">\(\operatorname{gcd}(x, y) = \operatorname{gcd}(y, x \bmod y)\)</span>。</p>
+<p><strong>证明</strong>。该定理直接源于以下事实：一个数字 <span class="arithmatex">\(d\)</span> 是 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(y\)</span> 的公共约数，当且仅当 <span class="arithmatex">\(d\)</span> 是 <span class="arithmatex">\(y\)</span> 和 <span class="arithmatex">\(x \bmod y\)</span> 的公共约数。为了看清这一点，写成 <span class="arithmatex">\(x = qy + r\)</span>，其中 <span class="arithmatex">\(q\)</span> 是一个整数且 <span class="arithmatex">\(r = x \bmod y\)</span>。那么，如果 <span class="arithmatex">\(d\)</span> 整除 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(y\)</span>，那么它也整除 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(qy\)</span>，因此它也整除它们的差 <span class="arithmatex">\(r = x - qy\)</span>（正如我们在讲义 1 中证明的那样）。反之，如果 <span class="arithmatex">\(d\)</span> 整除 <span class="arithmatex">\(y\)</span> 和 <span class="arithmatex">\(r\)</span>，那么它也整除 <span class="arithmatex">\(qy\)</span> 和 <span class="arithmatex">\(r\)</span>，因此也整除它们的和 <span class="arithmatex">\(x = qy + r\)</span>。<span class="arithmatex">\(\square\)</span></p>
+<p>利用该定理，让我们看看如何计算 <span class="arithmatex">\(\operatorname{gcd}(16, 10)\)</span>：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\operatorname{gcd}(16, 10) &amp;= \operatorname{gcd}(10, 6) \\
+&amp;= \operatorname{gcd}(6, 4) \\
+&amp;= \operatorname{gcd}(4, 2) \\
+&amp;= \operatorname{gcd}(2, 0) = 2
+\end{aligned}
+\]</div>
+<p>在每一行中，我们用 <span class="arithmatex">\((y, x \bmod y)\)</span> 替换参数对 <span class="arithmatex">\((x, y)\)</span>，直到第二个参数变为 0。此时，gcd 就是第一个参数。根据该定理，每一次替换都保持 gcd 不变。</p>
+<p>该算法可以递归地编写如下。算法假设输入为满足 <span class="arithmatex">\(x \geq y \geq 0\)</span> 且 <span class="arithmatex">\(x &gt; 0\)</span> 的自然数 <span class="arithmatex">\(x, y\)</span>。</p>
+<div class="highlight"><pre><span></span><code>algorithm gcd(x, y)  
+if y = 0 then return(x)  
+else return gcd(y, x (mod y))
+</code></pre></div>
+<p><strong>定理 6.4</strong>。上述算法能正确计算 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(y\)</span> 的 gcd。</p>
+<p><strong>证明</strong>。正确性通过对 <span class="arithmatex">\(y\)</span>（两个输入数字中较小的一个）进行（强）归纳来证明。对于每个 <span class="arithmatex">\(y \geq 0\)</span>，令 <span class="arithmatex">\(P(y)\)</span> 表示该算法能正确计算所有满足 <span class="arithmatex">\(x \geq y\)</span>（且 <span class="arithmatex">\(x &gt; 0\)</span>）的 <span class="arithmatex">\(x\)</span> 的 <span class="arithmatex">\(\operatorname{gcd}(x, y)\)</span>。显然 <span class="arithmatex">\(P(0)\)</span> 成立，因为 <span class="arithmatex">\(\operatorname{gcd}(x, 0) = x\)</span>，且算法在 <code>if</code> 子句中正确计算了此值。在归纳步骤中，我们可以假设对于所有 <span class="arithmatex">\(z &lt; y\)</span>，<span class="arithmatex">\(P(z)\)</span> 均成立（归纳假设）；我们的任务是证明 <span class="arithmatex">\(P(y)\)</span>。这里的关键观察是 <span class="arithmatex">\(\operatorname{gcd}(x, y) = \operatorname{gcd}(y, x \bmod y)\)</span>——也就是说，用 <span class="arithmatex">\(x \bmod y\)</span> 替换 <span class="arithmatex">\(x\)</span> 不会改变 gcd。这在定理 6.3 中已得到证明。因此，只要递归调用 <code>gcd(y, x mod y)</code> 正确计算了 <span class="arithmatex">\(\operatorname{gcd}(y, x \bmod y)\)</span> 的值，算法的 <code>else</code> 子句就会返回正确的结果。但由于 <span class="arithmatex">\(x \bmod y &lt; y\)</span>，根据归纳假设，我们知道这是成立的！这完成了我们对 <span class="arithmatex">\(P(y)\)</span> 的验证，从而完成了归纳证明。<span class="arithmatex">\(\square\)</span></p>
+<p>该算法的运行时间是多少？我们将看到，就整数的算术运算而言，它耗时 <span class="arithmatex">\(O(n)\)</span>，其中 <span class="arithmatex">\(n\)</span> 是输入 <span class="arithmatex">\((x, y)\)</span> 的总位数。这同样非常高效。对此事实的论证将类似于我们之前用于指数运算的论证，但稍微复杂一些：显而易见，递归调用的参数变得越来越小（因为 <span class="arithmatex">\(y \leq x\)</span> 且 <span class="arithmatex">\(x \bmod y &lt; y\)</span>）。问题是，变小的速度有多快？</p>
+<p>我们将证明的关键点是，在计算 <span class="arithmatex">\(\operatorname{gcd}(x, y)\)</span> 时，经过两次递归调用后，第一个（较大的）参数至少比 <span class="arithmatex">\(x\)</span> 减小了两倍（假设 <span class="arithmatex">\(x &gt; 0\)</span>）。（请注意，我们不能仅通过一次调用就得出结论。）有两种情况：</p>
+<ol>
+<li><span class="arithmatex">\(y \leq \frac{x}{2}\)</span>。那么下一个递归调用的第一个参数 <span class="arithmatex">\(y\)</span> 已经比 <span class="arithmatex">\(x\)</span> 小了 2 倍，因此在随后的递归调用中它会变得更小。</li>
+<li><span class="arithmatex">\(x \geq y &gt; \frac{x}{2}\)</span>。那么在两次递归调用内，第一个参数将变为 <span class="arithmatex">\(x \bmod y\)</span>，它小于 <span class="arithmatex">\(\frac{x}{2}\)</span>。</li>
+</ol>
+<p>因此，在这两种情况下，每两次递归调用，第一个参数至少减少一半。因此，在至多 <span class="arithmatex">\(2n\)</span> 次递归调用（其中 <span class="arithmatex">\(n\)</span> 是 <span class="arithmatex">\(x\)</span> 的位数）之后，递归必须停止。（注意第一个参数始终是自然数。）</p>
+<p>请注意，上述论证仅表明计算中的递归调用次数是 <span class="arithmatex">\(O(n)\)</span>。如果我们假设每次调用仅需要常数时间，我们可以对运行时间提出同样的主张。由于每次调用涉及一次整数比较和一次模运算，因此声称其运行时间为常数是合理的。然而，在更现实的计算模型中，我们实际上应该让这些操作的时间取决于所涉及数字的大小。这将在 CS170 中讨论。</p>
+<h2 id="8">8 扩展欧几里得算法</h2>
+<p>回想一下，为了计算乘法逆元，我们需要一个算法同样返回满足以下条件的整数 <span class="arithmatex">\(a, b\)</span>：</p>
+<div class="arithmatex">\[
+\operatorname{gcd}(x, y) = ax + by \tag{2}
+\]</div>
+<p>那么，特别地，当 <span class="arithmatex">\(\operatorname{gcd}(x, y) = 1\)</span> 时，我们可以推断出 <span class="arithmatex">\(b\)</span> 是 <span class="arithmatex">\(y\)</span> 模 <span class="arithmatex">\(x\)</span> 的逆元。</p>
+<p>既然这个问题是基础 gcd 的泛化，那么我们可以通过对欧几里得算法进行相当直接的扩展来解决它，这也许并不太令人惊讶。</p>
+<p>以下递归算法 <code>extended-gcd</code> 遵循与原始欧几里得算法相同的递归结构，但在递归展开时会追踪 (2) 中所需的系数 <span class="arithmatex">\(a, b\)</span>。具体而言，该算法以欧几里得算法中的一对自然数 <span class="arithmatex">\(x \geq y\)</span> 作为输入，并返回一个三元组 <span class="arithmatex">\((d, a, b)\)</span>，满足 <span class="arithmatex">\(d = \operatorname{gcd}(x, y)\)</span> 且 <span class="arithmatex">\(d = ax + by\)</span>：</p>
+<div class="highlight"><pre><span></span><code>algorithm extended-gcd(x, y)  
+if y = 0 then return(x, 1, 0)  
+else  
+(d, a, b) := extended-gcd(y, x (mod y))  
+return((d, b, a - (x div y) * b))
+</code></pre></div>
+<p>在该算法中，<code>x div y</code> 表示通常的截断整数除法，数学上写为 <span class="arithmatex">\(\lfloor x/y \rfloor\)</span>。</p>
+<p>下面是对于之前 gcd 示例中相同的输入 <span class="arithmatex">\((x, y) = (16, 10)\)</span>，其递归调用序列（顶行）以及它们返回的三元组序列（底行）：</p>
+<div class="arithmatex">\[
+\operatorname{egcd}(16, 10) \longrightarrow \operatorname{egcd}(10, 6) \longrightarrow \operatorname{egcd}(6, 4) \longrightarrow \operatorname{egcd}(4, 2) \longrightarrow \operatorname{egcd}(2, 0)
+\]</div>
+<div class="arithmatex">\[
+(2, 2, -3) \quad \longleftarrow \quad (2, -1, 2) \quad \longleftarrow \quad (2, 1, -1) \quad \longleftarrow \quad (2, 0, 1) \quad \longleftarrow \quad (2, 1, 0)
+\]</div>
+<p><strong>练习</strong>。检查上述执行序列。</p>
+<p>最后返回的三元组是 <span class="arithmatex">\((d, a, b) = (2, 2, -3)\)</span>，这意味着 <span class="arithmatex">\((x, y) = (16, 10)\)</span> 的 gcd 是 <span class="arithmatex">\(d = 2\)</span>，并且它可以表示为 <span class="arithmatex">\(d = ax + by = 2 \cdot 16 - 3 \cdot 10\)</span>，显而易见这是正确的。（事实上，返回的每个三元组 <span class="arithmatex">\((d, a, b)\)</span> 都将 <span class="arithmatex">\(d = 2\)</span> 表达为该递归调用对应输入的线性组合：所以我们可以检查 <span class="arithmatex">\(d = 1 \cdot 2 + 0 \cdot 0 = 0 \cdot 4 + 1 \cdot 2 = 1 \cdot 6 - 1 \cdot 4 = -1 \cdot 10 + 2 \cdot 6 = 2 \cdot 16 - 3 \cdot 10\)</span>。）由于 <span class="arithmatex">\(\operatorname{gcd}(16, 10) \neq 1\)</span>，10 在模 16 下没有逆元，因此该算法返回的系数 <span class="arithmatex">\(a, b\)</span> 对计算逆元没有直接帮助。然而，接下来的练习提供了一个可以读出逆元的示例，正如早先描述的那样。</p>
+<p><strong>练习</strong>。亲自手动运行输入为 <span class="arithmatex">\((x, y) = (35, 12)\)</span> 的算法，并验证它返回三元组 <span class="arithmatex">\((1, -1, 3)\)</span>。由此推导出 12 模 35 的逆元是 3。</p>
+<p>现在让我们逆向分析该算法，并了解它为何有效以及为何如此设计。在基本情况 <span class="arithmatex">\((y = 0)\)</span> 下，算法像以前一样返回 gcd 值 <span class="arithmatex">\(d = x\)</span>，以及系数 <span class="arithmatex">\(a = 1\)</span> 和 <span class="arithmatex">\(b = 0\)</span>；显然这些满足所需的 <span class="arithmatex">\(ax + by = d\)</span>。</p>
+<p>当 <span class="arithmatex">\(y &gt; 0\)</span> 时，算法首先递归计算出满足 <span class="arithmatex">\(d = \operatorname{gcd}(y, x \bmod y)\)</span> 以及以下条件的 <span class="arithmatex">\((d, a, b)\)</span> 值：</p>
+<div class="arithmatex">\[
+d = ay + b(x \bmod y) \tag{3}
+\]</div>
+<p>然后它返回三元组 <span class="arithmatex">\((d, A, B)\)</span>，其中 <span class="arithmatex">\(A = b\)</span> 且 <span class="arithmatex">\(B = a - \lfloor x/y \rfloor b\)</span>。正如我们在之前对原始 gcd 算法的分析中一样，我们 know that the value <span class="arithmatex">\(d\)</span> computed recursively will be equal to <span class="arithmatex">\(\operatorname { g c d } ( x , y )\)</span> . So the first component of the triple returned by the algorithm is correct.</p>
+<p>那么另外两个分量 <span class="arithmatex">\(A\)</span> 和 <span class="arithmatex">\(B\)</span> 呢？根据算法规范，它们应该是满足以下条件的整数：</p>
+<div class="arithmatex">\[
+d = Ax + By \tag{4}
+\]</div>
+<p>要弄清楚 <span class="arithmatex">\(A\)</span> 和 <span class="arithmatex">\(B\)</span> 如何由先前返回的 <span class="arithmatex">\(a\)</span> 和 <span class="arithmatex">\(b\)</span> 表达，我们可以按如下方式重排 (3)：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+d &amp;= ay + b(x \bmod y) \\
+&amp;= ay + b(x - \lfloor x/y \rfloor y) \\
+&amp;= bx + (a - \lfloor x/y \rfloor b)y \tag{5}
+\end{aligned}
+\]</div>
+<p>（在第二行中，我们使用了 <span class="arithmatex">\(x \bmod y = x - \lfloor x/y \rfloor y\)</span> 这一事实——请检查这点！）现在比较 (5) 和 (4)：对比 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(y\)</span> 的系数，我们看到我们需要取 <span class="arithmatex">\(A = b\)</span> 且 <span class="arithmatex">\(B = a - \lfloor x/y \rfloor b\)</span>。但这正是算法最后一行所做的，这就是它有效的原因！</p>
+<p><strong>练习</strong>。将上述论证转化为扩展欧几里得算法正确性的正式归纳证明。</p>
+<p>由于扩展 gcd 算法与原始版本具有完全相同的递归结构，它的运行时间在常数因子范围内（反映了每次递归调用增加的时间）也将与原始版本相同。因此，对于 <span class="arithmatex">\(n\)</span> 位数字，其运行时间再次为 <span class="arithmatex">\(O(n)\)</span> 次算术运算。这意味着我们可以非常高效地找到乘法逆元。</p>
+<h2 id="9">9 同余运算中的除法</h2>
+<p>既然我们知道如何计算 <span class="arithmatex">\(x\)</span> 模 <span class="arithmatex">\(m\)</span> 的逆元（假设 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(m\)</span> 互素），我们该如何利用它来进行运算呢？最简单的场景是求解如下所示的同余方程：</p>
+<div class="arithmatex">\[
+8x \equiv 9 \pmod{15} \tag{6}
+\]</div>
+<p>为了在有理数范围内求解类似的方程 <span class="arithmatex">\(8x = 9\)</span>，我们会将两边同时乘以 <span class="arithmatex">\(8^{-1}\)</span> 得到 <span class="arithmatex">\(x = 9/8\)</span>。让我们在模 15 算术中做同样的事情。回想一下，8（模 15）的逆元是 2（因为 <span class="arithmatex">\(2 \cdot 8 = 16 \equiv 1 \pmod{15}\)</span>）。因此我们可以将 (6) 的两边同时乘以 <span class="arithmatex">\(8^{-1} \equiv 2\)</span> 得到：</p>
+<div class="arithmatex">\[
+x \equiv 18 \equiv 3 \pmod{15}
+\]</div>
+<p>即，(6) 中同余方程的解是 <span class="arithmatex">\(x = 3\)</span>，且该解在模 15 意义下是唯一的。</p>
+<h2 id="10">10 算术基本定理</h2>
+<p>你可能还记得，任何大于 1 的正整数都可以唯一地（在不计因子顺序的情况下）表示为素数的乘积。这就是所谓的<strong>算术基本定理</strong>（Fundamental Theorem of Arithmetic）。例如，<span class="arithmatex">\(12 = 2 \cdot 2 \cdot 3\)</span>。我们如何知道这是真的？事实证明，扩展欧几里得算法是证明这一点的关键！</p>
+<p>我们将从证明一个关于整除性的重要事实开始。</p>
+<p><strong>主张</strong>：令 <span class="arithmatex">\(x, y\)</span> 和 <span class="arithmatex">\(z\)</span> 为正整数，满足 <span class="arithmatex">\(\operatorname{gcd}(x, y) = 1\)</span>。如果 <span class="arithmatex">\(x \mid yz\)</span>，那么 <span class="arithmatex">\(x \mid z\)</span>。</p>
+<p><strong>证明</strong>：由于 <span class="arithmatex">\(\operatorname{gcd}(x, y) = 1\)</span>，根据扩展欧几里得算法，存在整数 <span class="arithmatex">\(a\)</span> 和 <span class="arithmatex">\(b\)</span> 使得：</p>
+<div class="arithmatex">\[
+1 = \operatorname{gcd}(x, y) = ax + by
+\]</div>
+<p>两边同时乘以 <span class="arithmatex">\(z\)</span> 得到：</p>
+<div class="arithmatex">\[
+z = axz + byz
+\]</div>
+<p>我们 know that <span class="arithmatex">\(x \mid axz\)</span> , and <span class="arithmatex">\(x \mid byz\)</span> because <span class="arithmatex">\(x \mid y z\)</span> . Thus, <span class="arithmatex">\(x\)</span> divides their sum, or in other words, <span class="arithmatex">\(x \mid (axz + byz) .\)</span> Since <span class="arithmatex">\(axz + byz = z\)</span> , we conclude that <span class="arithmatex">\(x \mid z\)</span> . □</p>
+<p>回想一下，<strong>素数</strong>（prime number）<span class="arithmatex">\(p\)</span> 是指其仅有的正因子为 1 和 <span class="arithmatex">\(p\)</span> 的数。</p>
+<p><strong>算术基本定理</strong>：每一个大于 1 的正整数 <span class="arithmatex">\(n\)</span> 都可以唯一地表示成 <span class="arithmatex">\(p_1 p_2 \dots p_k\)</span> 的形式，其中每个 <span class="arithmatex">\(p_i\)</span> 都是素数（不一定互不相同），不计素因子的排列顺序。</p>
+<p>例如，我们可以写成 <span class="arithmatex">\(12 = 2 \cdot 2 \cdot 3\)</span>。12 的任何其他素因子分解都是对 2, 2 和 3 的某种重排。</p>
+<p><strong>证明</strong>：我们在讲义 3 中通过归纳法证明了每个正整数 <span class="arithmatex">\(n\)</span> 都可以表示成 <span class="arithmatex">\(p_1 p_2 \dots p_k\)</span> 的形式，其中每个 <span class="arithmatex">\(p_i\)</span> 都是素数（不一定互不相同）。因此，只需证明这种形式在不计因子重排的情况下是唯一的。</p>
+<p>换句话说，假设我们可以用两种素因子分解来表示 <span class="arithmatex">\(n\)</span>：</p>
+<div class="arithmatex">\[
+n = p_1 p_2 \dots p_k = q_1 q_2 \dots q_l
+\]</div>
+<p>其中 <span class="arithmatex">\(p_i\)</span> 和 <span class="arithmatex">\(q_j\)</span> 都是素数。我们需要证明 <span class="arithmatex">\(k = l\)</span>，且 <span class="arithmatex">\(p_i\)</span> 是 <span class="arithmatex">\(q_j\)</span> 的某种重排。</p>
+<p>由于不失一般性，假设 <span class="arithmatex">\(k \leq l\)</span>。（如果 <span class="arithmatex">\(k \geq l\)</span>，我们只需交换两个分解式。）我们的目标是证明每个 <span class="arithmatex">\(p_i\)</span> 都是 <span class="arithmatex">\(q_j\)</span> 中的一个。</p>
+<p>首先，考虑 <span class="arithmatex">\(p_1\)</span>。由于 <span class="arithmatex">\(p_1 \mid n\)</span>，我们必然有 <span class="arithmatex">\(p_1 \mid q_1 q_2 \dots q_l\)</span>。如果 <span class="arithmatex">\(p_1\)</span> 是 <span class="arithmatex">\(q_1, q_2, \dots, q_l\)</span> 中的一个，那么我们就完成了。否则，如果 <span class="arithmatex">\(p_1 \neq q_j\)</span>（对于 <span class="arithmatex">\(1 \leq j \leq l\)</span>），那么 <span class="arithmatex">\(\operatorname{gcd}(p_1, q_j) = 1\)</span>（对于 <span class="arithmatex">\(1 \leq j \leq l\)</span>），因为它们共享的唯一因子是 1。应用前面的主张，我们得出结论 <span class="arithmatex">\(p_1 \mid q_l\)</span>。由于 1 不是素数，<span class="arithmatex">\(p_1\)</span> 不是 1，所以 <span class="arithmatex">\(p_1 = q_l\)</span>。</p>
+<p>因此，我们得出结论 <span class="arithmatex">\(p_1 = q_j\)</span>（对于某个 <span class="arithmatex">\(j\)</span>）。于是我们可以将等式两边同时除以 <span class="arithmatex">\(p_1\)</span>，从而使两边的素数数量各减少 1。</p>
+<p>我们现在对 <span class="arithmatex">\(p_2, p_3, \dots, p_k\)</span> 重复此过程。最后，左边将变为 1，右边将变为 <span class="arithmatex">\(l - k\)</span> 个素数的乘积。每个素数至少为 2，所以要使两边相等，我们必须有 <span class="arithmatex">\(l - k = 0\)</span>，即 <span class="arithmatex">\(k = l\)</span>。此外，在此过程中，我们将每个 <span class="arithmatex">\(p_i\)</span> 与唯一的 <span class="arithmatex">\(q_j\)</span> 匹配。因此，<span class="arithmatex">\(p_i\)</span> 是 <span class="arithmatex">\(q_j\)</span> 的某种重排，证毕。<span class="arithmatex">\(\square\)</span></p>
+<p>上述证明的关键是什么？嗯，为了证明素因子分解的存在性（我们在讲义 3 中展示的内容），我们使用了强归纳法。为了证明这种分解的可唯一性，我们使用了欧几里得算法的一个推论。欧几里得算法的关键是带余除法的存在性和唯一性；换句话说，对于整数 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(m \neq 0\)</span>，存在唯一的整数 <span class="arithmatex">\(q\)</span> 和 <span class="arithmatex">\(r\)</span> 满足 <span class="arithmatex">\(x = mq + r\)</span> 且 <span class="arithmatex">\(0 \leq r \leq m - 1\)</span>。如果我们有其他模拟这种除法算法的算术系统，我们可以遵循相同类型的证明来获得某种形式的唯一素因子分解。这是数论中的一个重要推广。</p>
+<h2 id="11">11 中国剩余定理</h2>
+<p>作为本讲义的结语，我们介绍同余运算中一个有趣的方面，它体现为<strong>中国剩余定理</strong>（Chinese Remainder Theorem），之所以这样命名，是因为它最早为人所知的陈述是由中国数学家孙子在公元 3 世纪提出的。</p>
+<p>该定理的最简单情况如下：</p>
+<p><strong>主张</strong>：对于满足 <span class="arithmatex">\(\operatorname{gcd}(n_1, n_2) = 1\)</span> 的 <span class="arithmatex">\(n_1, n_2\)</span>，存在唯一的 <span class="arithmatex">\(x \pmod{n_1 n_2}\)</span> 满足方程组：</p>
+<div class="arithmatex">\[
+x \equiv a_1 \pmod{n_1} \quad \text{且} \quad x \equiv a_2 \pmod{n_2} \tag{7}
+\]</div>
+<p><strong>证明</strong>：由于 <span class="arithmatex">\(\operatorname{gcd}(n_1, n_2) = 1\)</span>，根据扩展欧几里得算法，我们知道存在整数 <span class="arithmatex">\(b_1, b_2\)</span> 使得：</p>
+<div class="arithmatex">\[
+b_1 n_1 + b_2 n_2 = 1 \tag{8}
+\]</div>
+<p>现在我们声称整数 <span class="arithmatex">\(x = a_1 b_2 n_2 + a_2 b_1 n_1\)</span> 满足方程组 (7)。为了核实这一点，我们可以将其写成：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+x &amp;= a_1 b_2 n_2 + a_2 b_1 n_1 \\
+&amp;= a_1 (1 - b_1 n_1) + a_2 b_1 n_1 \\
+&amp;= a_1 + (a_2 - a_1) b_1 n_1
+\end{aligned}
+\]</div>
+<p>因此我们看到 <span class="arithmatex">\(x \equiv a_1 \pmod{n_1}\)</span>，符合要求。</p>
+<p>通过完全相同的论证，交换下标 1 和 2，我们同样可以看到 <span class="arithmatex">\(x \equiv a_2 \pmod{n_2}\)</span>。因此 <span class="arithmatex">\(x\)</span> 确实满足两个方程 (7)。</p>
+<p>为了完成证明，我们需要验证 <span class="arithmatex">\(x\)</span> 在模 <span class="arithmatex">\(n_1 n_2\)</span> 意义下是唯一的。为此，假设整数 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(y\)</span> 都满足方程组 (7)。因此特别地有 <span class="arithmatex">\(x \equiv y \pmod{n_1}\)</span> 且 <span class="arithmatex">\(x \equiv y \pmod{n_2}\)</span>。这意味着 <span class="arithmatex">\((x - y)\)</span> 既能被 <span class="arithmatex">\(n_1\)</span> 整除，也能被 <span class="arithmatex">\(n_2\)</span> 整除。但由于 <span class="arithmatex">\(\operatorname{gcd}(n_1, n_2) = 1\)</span>，这意味着 <span class="arithmatex">\((x - y)\)</span> 必须能被 <span class="arithmatex">\(n_1 n_2\)</span> 整除，从而 <span class="arithmatex">\(x \equiv y \pmod{n_1 n_2}\)</span>，符合要求。<span class="arithmatex">\(\square\)</span></p>
+<p>回看上述证明，请注意在 <span class="arithmatex">\(x\)</span> 的定义中出现的整数 <span class="arithmatex">\(b_1, b_2\)</span> 实际上具有逆元的特定含义。具体而言，回想我们在对扩展欧几里得算法的讨论中，在方程 (8) 中，<span class="arithmatex">\(b_1\)</span> 是 <span class="arithmatex">\(n_1\)</span> 模 <span class="arithmatex">\(n_2\)</span> 的逆元。类似地，<span class="arithmatex">\(b_2\)</span> 是 <span class="arithmatex">\(n_2\)</span> 模 <span class="arithmatex">\(n_1\)</span> 的逆元。（这两个逆元都存在，因为 <span class="arithmatex">\(\operatorname{gcd}(n_1, n_2) = 1\)</span>。）因此我们在证明中构造的解 <span class="arithmatex">\(x\)</span> 具有以下形式：</p>
+<div class="arithmatex">\[
+x = a_1 u_1 + a_2 u_2
+\]</div>
+<p>其中 <span class="arithmatex">\(u_1 = n_2 (n_2^{-1} \bmod n_1)\)</span> 且 <span class="arithmatex">\(u_2 = n_1 (n_1^{-1} \bmod n_2)\)</span>。注意这意味着：</p>
+<div class="arithmatex">\[
+u_1 \equiv \begin{cases} 1 \pmod{n_1} \\ 0 \pmod{n_2} \end{cases} \qquad u_2 \equiv \begin{cases} 0 \pmod{n_1} \\ 1 \pmod{n_2} \end{cases}
+\]</div>
+<p>因此我们可以将 <span class="arithmatex">\(u_1, u_2\)</span> 视为“基向量”，在这个意义下，<span class="arithmatex">\(u_1\)</span> 在“方向” <span class="arithmatex">\(n_1\)</span> 上的坐标为 1，而在“方向” <span class="arithmatex">\(n_2\)</span> 上的坐标为 0，反之亦然。因此，为了满足方程组 (7)，我们的解 <span class="arithmatex">\(x\)</span> 应该是 <span class="arithmatex">\(u_1, u_2\)</span> 的线性组合，系数分别为 <span class="arithmatex">\(a_1\)</span> 和 <span class="arithmatex">\(a_2\)</span>。</p>
+<p>上述结果可以很容易地扩展到完整的中国剩余定理，其表述如下。</p>
+<p><strong>中国剩余定理</strong>：令 <span class="arithmatex">\(n_1, n_2, \dots, n_k\)</span> 为两两互素的正整数，并令 <span class="arithmatex">\(N = \prod_{i=1}^k n_i\)</span>。那么对于任何整数序列 <span class="arithmatex">\(a_1, a_2, \dots, a_k\)</span>，存在唯一的整数 <span class="arithmatex">\(x \pmod{N}\)</span> 满足所有同余式：</p>
+<div class="arithmatex">\[
+\begin{cases}
+x \equiv a_1 \pmod{n_1} \\
+\vdots \\
+x \equiv a_i \pmod{n_i} \\
+\vdots \\
+x \equiv a_k \pmod{n_k}
+\end{cases}
+\]</div>
+<p>我们在此不对完整的定理进行深入证明，但我们将概述两种方法。</p>
+<p>第一种方法是迭代我们上面证明的 <span class="arithmatex">\(k = 2\)</span> 版本的结果。即，我们首先使用该版本找到一个满足前两个同余式（模数分别为 <span class="arithmatex">\(n_1\)</span> 和 <span class="arithmatex">\(n_2\)</span>）的 <span class="arithmatex">\(x\)</span>。这个 <span class="arithmatex">\(x\)</span> 在模 <span class="arithmatex">\(n_1 n_2\)</span> 意义下有一个特定的（唯一的）值，我们称之为 <span class="arithmatex">\(a_{12}\)</span>。现在我们可以用单个同余式 <span class="arithmatex">\(x \equiv a_{12} \pmod{n_1 n_2}\)</span> 替换前两个同余式。请注意，<span class="arithmatex">\(n_1 n_2\)</span> 也与所有其他 <span class="arithmatex">\(n_i\)</span> 互素。我们现在面临一个较小规模的问题，只有 <span class="arithmatex">\(k - 1\)</span> 个同余式，我们可以继续迭代直到完成。</p>
+<p>第二种方法是扩展我们之前证明中对于 <span class="arithmatex">\(k = 2\)</span> 的“坐标”视角。即，我们像以前一样使用逆元为每个 <span class="arithmatex">\(i\)</span> 构造基向量 <span class="arithmatex">\(u_i\)</span>，然后将解导出为这些基向量的线性组合 <span class="arithmatex">\(x = \sum_i a_i u_i\)</span>。按照我们早先的构造，每个 <span class="arithmatex">\(u_i\)</span> 的正确定义应该是 <span class="arithmatex">\(u_i = \frac{N}{n_i} ((\frac{N}{n_i})^{-1} \bmod n_i)\)</span>。如果你感兴趣，你或许想核实一下这一解法是否像以前一样奏效。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/0nikod/study-docs-zh" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

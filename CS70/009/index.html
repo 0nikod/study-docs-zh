@@ -1,0 +1,1409 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="一个存放外国课程的中文翻译的网站">
+      
+      
+        <meta name="author" content="0nikod">
+      
+      
+        <link rel="canonical" href="https://study-docs-zh.example.com/CS70/009/">
+      
+      
+        <link rel="prev" href="../008/">
+      
+      
+        <link rel="next" href="../010/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>009 - 纠错码 - 外国课程课程笔记翻译</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#009-" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="外国课程课程笔记翻译" class="md-header__button md-logo" aria-label="外国课程课程笔记翻译" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            外国课程课程笔记翻译
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              009 - 纠错码
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  课程笔记翻译
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../000/" class="md-tabs__link">
+          
+  
+  
+  CS70
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="外国课程课程笔记翻译" class="md-nav__button md-logo" aria-label="外国课程课程笔记翻译" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    外国课程课程笔记翻译
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    课程笔记翻译
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CS70
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CS70
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../000/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    000 - 集合与数学符号回顾
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../001/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    001 - 命题逻辑与量词
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../002/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    002 - 证明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../003/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    003 - 数学归纳法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../004/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    004 - 稳定匹配问题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../005/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    005 - 图论简介
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    006 - 同余运算
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    007 - 公钥加密
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../008/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    008 - 多项式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    009 - 纠错码
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    009 - 纠错码
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 纠错码
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 擦除错误
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        示例
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 重温多项式插值
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 一般错误
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        细节讨论
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    010 - 迈向无穷：可数性与可计算性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    011 - 自指与可计算性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    012 - 计数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    013 - 离散概率入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../014/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    014 - 条件概率、独立性和事件组合
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../015/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    015 - 三个杀手级应用：哈希、收集优惠券和负载均衡
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../016/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    016 - 随机变量：分布与期望
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../017/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    017 - 随机变量的函数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../018/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    018 - 几何分布和泊松分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../019/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    019 - 集中不等式与大数定律
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../020/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    020 - 连续概率分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 纠错码
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 擦除错误
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        示例
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 重温多项式插值
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 一般错误
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        细节讨论
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="009-">009 - 纠错码</h1>
+<h2 id="1">1 纠错码</h2>
+<p>在本讲义中，我们将讨论通过不可靠的通信信道传输消息的问题。信道可能导致消息的某些部分（“数据包”，packets）丢失或丢弃；或者更严重的是，它可能导致某些数据包被损坏。我们将学习如何通过在消息中引入冗余来对其进行“编码”，以防止这两种类型的错误。这种编码方案被称为“纠错码”（error-correcting code）。纠错码是数学、计算机科学和电气工程领域的主要研究对象；它们属于一个被称为“信息论”（Information Theory）的领域，这是核心计算机科学之一。除了支持它们的优美理论（我们将在本讲义中略见一斑）之外，它们还具有巨大的实际重要性：每当你使用手机、卫星电视、DSP、电缆调制解调器、硬盘驱动器、CD-ROM、DVD 播放器等，或者在互联网上发送和接收数据时，你都在使用纠错码来确保信息被可靠地传输。纠错码还用于数据中心以及加速并行计算。</p>
+<p>粗略地说，纠错码有两种不同的风格：一种是基于有限域上的多项式的<strong>代数码</strong>（algebraic codes），另一种是基于图论的<strong>组合码</strong>（combinatorial codes）。在本讲义中，我们将把重点放在代数码上，特别是所谓的 <strong>Reed-Solomon 码</strong>（以其两位发明者的名字命名）。在这样做的过程中，我们将充分利用我们在上一讲中学习到的多项式性质。</p>
+<h2 id="11">1.1 擦除错误</h2>
+<p>我们将考虑在不可靠信道上传输信息的两种情况。第一种情况以互联网为例，信息（例如一个文件）被分解成多个数据包，其不可靠性体现在一些数据包在传输过程中丢失，如下图所示：</p>
+<p><img alt="" src="../images/66d0e407358441b0a4e7ad68833a81b0468a00fcea3565c1627148040b6f7075.jpg" /></p>
+<p>我们将此类错误称为<strong>擦除错误</strong>（erasure errors）。假设消息由 <span class="arithmatex">\(n\)</span> 个数据包组成，并且假设在传输过程中最多丢失 <span class="arithmatex">\(k\)</span> 个数据包。我们将展示如何将由 <span class="arithmatex">\(n\)</span> 个数据包组成的初始消息编码为由 <span class="arithmatex">\(n + k\)</span> 个数据包组成的冗余编码，以便接收者可以从任何收到的 <span class="arithmatex">\(n\)</span> 个数据包中重构出原始消息。请注意，在这种设置下，数据包都带有标题标签，因此接收者确切地知道哪些数据包在传输过程中被丢弃了。</p>
+<p>我们可以不失一般性地假设每个数据包的内容都是一个模 <span class="arithmatex">\(q\)</span> 的数字，其中 <span class="arithmatex">\(q\)</span> 是一个素数。例如，数据包的内容可能是一个 32 位的字符串，因此可以被视为一个介于 0 和 <span class="arithmatex">\(2^{32} - 1\)</span> 之间的数字；那么我们可以选择 <span class="arithmatex">\(q\)</span> 为任何大于 <span class="arithmatex">\(2^{32}\)</span> 的素数。<span class="arithmatex">\(\mathrm{GF}(q)\)</span> 上的多项式性质（即系数和值均模 <span class="arithmatex">\(q\)</span> 约简）非常适合解决这个问题，并且是这种纠错方案的支柱。</p>
+<p>为了看清这一点，让我们用 <span class="arithmatex">\(m_1, \dots, m_n\)</span> 来表示要发送的消息，其中每个 <span class="arithmatex">\(m_i\)</span> 都是 <span class="arithmatex">\(\mathrm{GF}(q)\)</span> 中的一个数字，并做出以下关键观察：</p>
+<ol>
+<li>存在唯一的 <span class="arithmatex">\(n - 1\)</span> 次多项式 <span class="arithmatex">\(P(x)\)</span>，使得对于 <span class="arithmatex">\(1 \leq i \leq n\)</span>，有 <span class="arithmatex">\(P(i) = m_i\)</span>。（即 <span class="arithmatex">\(P(x)\)</span> 包含了关于消息的所有信息，并且对 <span class="arithmatex">\(P(i)\)</span> 求值可以得到第 <span class="arithmatex">\(i\)</span> 个数据包的预期内容）。</li>
+<li>现在要发送的消息是 <span class="arithmatex">\(m_1 = P(1), \dots, m_n = P(n)\)</span>。我们可以通过在点 <span class="arithmatex">\(n + j\)</span> 处对 <span class="arithmatex">\(P(x)\)</span> 求值来生成额外的数据包。（回想一下，我们传输的码字应该是冗余的，即它应该包含比原始消息更多的数据包，以弥补丢失的数据包。这就是<strong>码字</strong>（codeword）与<strong>消息</strong>（message）之间的区别。码字是传输的内容，且通过构造具有冗余性；而消息是用户给我们的东西，不一定包含任何冗余。）因此，传输的码字是 <span class="arithmatex">\(c_1 = P(1), c_2 = P(2), \dots, c_{n+k} = P(n+k)\)</span>。由于我们是模 <span class="arithmatex">\(q\)</span> 运算，我们必须确保 <span class="arithmatex">\(n + k \leq q\)</span>，但由于假设 <span class="arithmatex">\(q\)</span> 非常大，这个条件并不会构成严重的限制。</li>
+<li>我们可以从 <span class="arithmatex">\(P(x)\)</span> 在任何 <span class="arithmatex">\(n\)</span> 个互不相同的点处的值中唯一地重构出它，因为它具有 <span class="arithmatex">\(n - 1\)</span> 次幂。这意味着可以从任何 <span class="arithmatex">\(n\)</span> 个传输的数据包（而不仅仅是原始的 <span class="arithmatex">\(n\)</span> 个数据包！）中重构出 <span class="arithmatex">\(P(x)\)</span>。一旦我们重构出了多项式 <span class="arithmatex">\(P\)</span>，我们就可以在 <span class="arithmatex">\(x = 1, \dots, n\)</span> 处对 <span class="arithmatex">\(P(x)\)</span> 求值，以恢复原始消息 <span class="arithmatex">\(m_1, \dots, m_n\)</span>。</li>
+</ol>
+<h2 id="_1">示例</h2>
+<p>假设 Alice 想要给 Bob 发送一个包含 <span class="arithmatex">\(n = 4\)</span> 个数据包的消息，并且她想要防范 <span class="arithmatex">\(k = 2\)</span> 个数据包丢失。那么，假设数据包可以被编码为 0 到 6 之间的整数，Alice 可以在 GF(7) 上工作（因为 <span class="arithmatex">\(7 \geq n + k = 6\)</span>；当然，在实际应用中，我们会在更大的域上工作！）。假设 Alice 想要发送给 Bob 的消息是 <span class="arithmatex">\(m_1 = 3, m_2 = 1, m_3 = 5, m_4 = 0\)</span>。由这 4 个点描述的唯一的 <span class="arithmatex">\(n - 1 = 3\)</span> 次多项式是 <span class="arithmatex">\(P(x) = x^3 + 4x^2 + 5\)</span>。</p>
+<p><strong>练习</strong>。我们使用模 7 的拉格朗日插值导出了这个多项式。请核实这一推导，并验证对于 <span class="arithmatex">\(1 \leq i \leq 4\)</span>，确实有 <span class="arithmatex">\(P(i) = m_i\)</span>。</p>
+<p>由于 <span class="arithmatex">\(k = 2\)</span>，Alice 必须在 2 个额外的点上对 <span class="arithmatex">\(P(x)\)</span> 求值：<span class="arithmatex">\(P(5) = 6\)</span> 和 <span class="arithmatex">\(P(6) = 1\)</span>。现在，Alice 可以传输由 <span class="arithmatex">\(n + k = 6\)</span> 个数据包组成的码字，其中对于 <span class="arithmatex">\(1 \leq j \leq 6\)</span>，<span class="arithmatex">\(c_j = P(j)\)</span>。因此 Alice 将发送 <span class="arithmatex">\(c_1 = P(1) = 3, c_2 = P(2) = 1, c_3 = P(3) = 5, c_4 = P(4) = 0, c_5 = P(5) = 6, c_6 = P(6) = 1\)</span>。</p>
+<p>现在假设数据包 2 和 6 丢失了，在这种情况下我们的处境如下：</p>
+<p><img alt="" src="../images/539bcc45fb8c4562fde578057da5e89e868bfc26d8ba3a6efca2b19987645d56.jpg" /></p>
+<p>根据 Bob 收到的值（3, 5, 0 和 6），他使用拉格朗日插值法计算以下基多项式（其中所有内容都应解释为模 7）：</p>
+<div class="arithmatex">\[
+\Delta_1(x) = \frac{(x - 3)(x - 4)(x - 5)}{-24} \equiv 2(x - 3)(x - 4)(x - 5) \pmod{7}
+\]</div>
+<div class="arithmatex">\[
+\Delta_3(x) = \frac{(x - 1)(x - 4)(x - 5)}{4} \equiv 2(x - 1)(x - 4)(x - 5) \pmod{7}
+\]</div>
+<div class="arithmatex">\[
+\Delta_4(x) = \frac{(x - 1)(x - 3)(x - 5)}{-3} \equiv 2(x - 1)(x - 3)(x - 5) \pmod{7}
+\]</div>
+<div class="arithmatex">\[
+\Delta_5(x) = \frac{(x - 1)(x - 3)(x - 4)}{8} \equiv (x - 1)(x - 3)(x - 4) \pmod{7}
+\]</div>
+<p>（注意，我们这里利用了 -24, 4, -3 和 8 (模 7) 的逆元分别是 2, 2, 2 和 1 这一事实。）然后他重构出多项式 <span class="arithmatex">\(P(x) = 3 \cdot \Delta_1(x) + 5 \cdot \Delta_3(x) + 0 \cdot \Delta_4(x) + 6 \cdot \Delta_5(x) = x^3 + 4x^2 + 5 \pmod{7}\)</span>。Bob 然后计算 <span class="arithmatex">\(m_2 = P(2) = 1\)</span>，这是原始码字中丢失的数据包。更一般地，无论哪两个数据包丢失，遵循完全相同的方法，Bob 总能重构出 <span class="arithmatex">\(P(x)\)</span>，从而重构出原始的基础消息。</p>
+<p><strong>练习</strong>。检查 Bob 上述的计算过程，并验证他是否真的如所声称的那样重构出了正确的多项式。记住所有的算术运算都必须模 7 进行。</p>
+<p>因此，这种纠错方案是理论最优的：它可以从任何收到的 <span class="arithmatex">\(n\)</span> 个字符中恢复传输消息的 <span class="arithmatex">\(n\)</span> 个字符，但从任何更少数量的字符进行恢复都是不可能的。</p>
+<h2 id="12">1.2 重温多项式插值</h2>
+<p>让我们简要偏离一下主题，讨论另一种多项式插值方法（不同于上一讲中讨论的拉格朗日插值），该方法在处理一般错误时将非常有用。我们需要让这里的底层线性代数更加显式化，以便我们能在今后的学习中更好地依靠它。</p>
+<p>同样，算法的目标是输入 <span class="arithmatex">\(d + 1\)</span> 个点对 <span class="arithmatex">\((x_1, y_1), \dots, (x_{d+1}, y_{d+1})\)</span>，并输出多项式 <span class="arithmatex">\(p(x) = a_d x^d + \dots + a_1 x + a_0\)</span>，使得对于 <span class="arithmatex">\(i = 1\)</span> 到 <span class="arithmatex">\(d+1\)</span>，有 <span class="arithmatex">\(p(x_i) = y_i\)</span>。</p>
+<p>算法的第一步是写出一个由 <span class="arithmatex">\(d + 1\)</span> 个变量组成的包含 <span class="arithmatex">\(d + 1\)</span> 条线性方程的方程组：变量是多项式的系数 <span class="arithmatex">\(a_0, \dots, a_d\)</span>均衡。每条方程是通过将 <span class="arithmatex">\(x\)</span> 固定为 <span class="arithmatex">\(d + 1\)</span> 个值 <span class="arithmatex">\(x_1, \dots, x_{d+1}\)</span> 中的一个而得到的。请注意，在 <span class="arithmatex">\(p(x)\)</span> 中，<span class="arithmatex">\(x\)</span> 是一个变量，而 <span class="arithmatex">\(a_0, \dots, a_d\)</span> 是固定的常数。在下面的方程组中，这些角色被互换了：<span class="arithmatex">\(x_i\)</span> 是固定的常数，而 <span class="arithmatex">\(a_0, \dots, a_d\)</span> 是变量。例如，第 <span class="arithmatex">\(i\)</span> 条方程是固定 <span class="arithmatex">\(x\)</span> 为 <span class="arithmatex">\(x_i\)</span>，并令多项式的值为 <span class="arithmatex">\(y_i\)</span> 的结果：<span class="arithmatex">\(a_d x_i^d + a_{d-1} x_i^{d-1} + \dots + a_0 = y_i\)</span>。</p>
+<p>现在求解这些方程就能得到多项式 <span class="arithmatex">\(p(x)\)</span> 的系数。例如，假设给定三对点 <span class="arithmatex">\((-1, 2), (0, 1)\)</span> 和 <span class="arithmatex">\((2, 5)\)</span>；我们的目标是构造出通过这些点的 2 次多项式 <span class="arithmatex">\(p(x)\)</span>。第一条方程说明 <span class="arithmatex">\(a_2 (-1)^2 + a_1 (-1) + a_0 = 2\)</span>。化简后得到 <span class="arithmatex">\(a_2 - a_1 + a_0 = 2\)</span>。类似地，第二条方程说明 <span class="arithmatex">\(a_2 (0)^2 + a_1 (0) + a_0 = 1\)</span>，即 <span class="arithmatex">\(a_0 = 1\)</span>。而第三条方程说明 <span class="arithmatex">\(a_2 (2)^2 + a_1 (2) + a_0 = 5\)</span>。因此我们得到以下方程组：</p>
+<div class="arithmatex">\[
+a_2 - a_1 + a_0 = 2
+\]</div>
+<div class="arithmatex">\[
+a_0 = 1
+\]</div>
+<div class="arithmatex">\[
+4a_2 + 2a_1 + a_0 = 5
+\]</div>
+<p>代入 <span class="arithmatex">\(a_0\)</span> 并将第一条方程乘以 2 得到：</p>
+<div class="arithmatex">\[
+2a_2 - 2a_1 = 2
+\]</div>
+<div class="arithmatex">\[
+4a_2 + 2a_1 = 4
+\]</div>
+<p>然后将这两条方程相加，我们发现 <span class="arithmatex">\(6a_2 = 6\)</span>，所以 <span class="arithmatex">\(a_2 = 1\)</span>，再代回可以发现 <span class="arithmatex">\(a_1 = 0\)</span>。因此，我们确定了多项式 <span class="arithmatex">\(p(x) = x^2 + 1\)</span>。为了更仔细地证明这种方法的合理性，我们必须证明此类方程组总是有解，并且该解是唯一的。幸运的是，我们上一讲中通过拉格朗日插值所做的工作已经确立了这一点。（你能看出来为什么吗？）这就是能够从不同角度看待同一个问题的优点之一。</p>
+<h2 id="13">1.3 一般错误</h2>
+<p>现在让我们回到纠错的主题，考虑一个更具挑战性的场景。假设 Alice 希望通过嘈杂的信道（例如通过调制解调器）与 Bob 通信。她的消息是 <span class="arithmatex">\(m_1, \dots, m_n\)</span>，我们可以将 <span class="arithmatex">\(m_i\)</span> 视为字符（字节或是英文字母表中的字符）。现在的问题是，由于信道噪声，有些字符在传输过程中被损坏了。因此 Bob 收到的字符数量与 Alice 发送的一样多，但其中 <span class="arithmatex">\(k\)</span> 个被损坏了，且 Bob 完全不知道是哪 <span class="arithmatex">\(k\)</span> 个！你可以把这些看成是被恶意对手破坏的，该对手唯一的限制是能破坏的字符不超过 <span class="arithmatex">\(k\)</span> 个。从这种一般错误中恢复要比从擦除错误中恢复具有挑战性得多，尽管多项式再次成为了其中的关键。正如我们将看到的，Alice 仍然可以防范 <span class="arithmatex">\(k\)</span> 个一般错误，代价是仅多传输 <span class="arithmatex">\(2k\)</span> 个额外字符（是我们在上面看到的擦除情况下的两倍）。</p>
+<p>我们将再次把每个字符视为模某个素数 <span class="arithmatex">\(q\)</span> 的数字。（对于英文字母表来说，<span class="arithmatex">\(q\)</span> 是某个大于 26 的素数。）和以前一样，我们可以用 <span class="arithmatex">\(\mathrm{GF}(q)\)</span> 上的 <span class="arithmatex">\(n - 1\)</span> 次多项式 <span class="arithmatex">\(P(x)\)</span> 来描述消息，使得 <span class="arithmatex">\(P(1) = m_1, \dots, P(n) = m_n\)</span>。同样，为了应对错误，Alice 将通过在额外的点上对 <span class="arithmatex">\(P(x)\)</span> 求值来传输额外的字符。如前所述，为了抵御 <span class="arithmatex">\(k\)</span> 个一般错误，Alice 必须发送 <span class="arithmatex">\(2k\)</span> 个额外字符：因此编码后的码字为 <span class="arithmatex">\(c_1, \dots, c_{n+2k}\)</span>，其中对于 <span class="arithmatex">\(1 \leq j \leq n+2k\)</span>，<span class="arithmatex">\(c_j = P(j)\)</span>，我们可以假设 Bob 收到的这些字符中（至少）有 <span class="arithmatex">\(n+k\)</span> 个是未损坏的。和以前一样，我们必须对 <span class="arithmatex">\(q\)</span> 施加温和的约束，使其足够大以满足 <span class="arithmatex">\(q &gt; n + 2k\)</span>。</p>
+<p>例如，如果 Alice 想要通过调制解调器向 Bob 发送 <span class="arithmatex">\(n = 4\)</span> 个字符，且其中最多有 <span class="arithmatex">\(k = 1\)</span> 个字符被损坏，她必须冗余地发送由 6 个字符组成的编码消息。假设她想要传输与上述擦除示例中相同的消息 (3150)，且 <span class="arithmatex">\(c_1\)</span> 从 3 损坏为 2。这种情况可以由下图直观展现：</p>
+<p><img alt="" src="../images/ba20a9cb914f4cf4a45cc85f809f4b2c70c5ddc52422382ab1a160ac56cfdeab.jpg" /></p>
+<p>从 Bob 的角度来看，重构 Alice 的消息的问题等同于根据收到的 <span class="arithmatex">\(n + 2k\)</span> 个字符 <span class="arithmatex">\(r_1, r_2, \dots, r_{n+2k}\)</span> 来重构多项式 <span class="arithmatex">\(P(x)\)</span>。换句话说，Bob 被给定了 <span class="arithmatex">\(n + 2k\)</span> 个模 <span class="arithmatex">\(q\)</span> 的值 <span class="arithmatex">\(r_1, r_2, \dots, r_{n+2k}\)</span>，并保证存在一个 <span class="arithmatex">\(\mathrm{GF}(q)\)</span> 上的 <span class="arithmatex">\(n - 1\)</span> 次多项式 <span class="arithmatex">\(P(x)\)</span>，使得对于 <span class="arithmatex">\(1\)</span> 到 <span class="arithmatex">\(n + 2k\)</span> 之间的 <span class="arithmatex">\(n + k\)</span> 个 <span class="arithmatex">\(i\)</span> 值，有 <span class="arithmatex">\(P(i) = r_i\)</span>。Bob 必须从这些数据中重构出 <span class="arithmatex">\(P(x)\)</span>（在上述示例中，<span class="arithmatex">\(n + k = 5\)</span>，且 <span class="arithmatex">\(r_2 = P(2) = 1, r_3 = P(3) = 5, r_4 = P(4) = 0, r_5 = P(5) = 6, r_6 = P(6) = 1\)</span>）。然而请注意，Bob 并不知道哪 <span class="arithmatex">\(n + k\)</span> 个值是正确的！</p>
+<p>Bob 甚至拥有足够的信息来重构 <span class="arithmatex">\(P(x)\)</span> 吗？我们的第一个观察是，最多只存在一个次数最多为 <span class="arithmatex">\(n - 1\)</span> 的多项式 <span class="arithmatex">\(P(x)\)</span>，满足在 1 到 <span class="arithmatex">\(n + 2k\)</span> 之间的至少 <span class="arithmatex">\(n + k\)</span> 个 <span class="arithmatex">\(i\)</span> 值上有 <span class="arithmatex">\(P(i) = r_i\)</span>。为了看清这一点，假设对于 <span class="arithmatex">\(n + k\)</span> 个点有 <span class="arithmatex">\(P(i) = r_i\)</span>，且对于 <span class="arithmatex">\(n + k\)</span> 个（可能不同）点有 <span class="arithmatex">\(P'(i) = r_i\)</span>。由于总共只有 <span class="arithmatex">\(n + 2k\)</span> 个点，这两组点必然在 <span class="arithmatex">\(n\)</span> 个点上重叠，因此对于这 <span class="arithmatex">\(n\)</span> 个点有 <span class="arithmatex">\(P(i) = r_i = P'(i)\)</span>，这意味着它们必须是相同的 <span class="arithmatex">\(n - 1\)</span> 次多项式。此外，我们观察到原始多项式在 <span class="arithmatex">\(n + k\)</span> 个点上满足 <span class="arithmatex">\(P(i) = r_i\)</span>，因为最多有 <span class="arithmatex">\(k\)</span> 个错误。因此，<span class="arithmatex">\(P(x)\)</span> 是唯一与 Bob 的信息一致的多项式。</p>
+<p>总结一下，Bob 的任务是找到一个 <span class="arithmatex">\(n - 1\)</span> 次多项式 <span class="arithmatex">\(P(x)\)</span>，使得对于至少 <span class="arithmatex">\(n + k\)</span> 个 <span class="arithmatex">\(i\)</span> 值，有 <span class="arithmatex">\(P(i) = r_i\)</span>。如果他能做到这一点， he can be sure that the polynomial he has found is in fact the original polynomial <span class="arithmatex">\(P(x)\)</span>.</p>
+<p>但是 Bob 怎样才能高效地找到这样的多项式呢？手头的问题是 <span class="arithmatex">\(k\)</span> 个错误的位置。令 <span class="arithmatex">\(e_1, \dots, e_k\)</span> 为发生错误的 <span class="arithmatex">\(k\)</span> 个位置（使得对于所有 <span class="arithmatex">\(i \notin \{e_1, \dots, e_k\}\)</span>，有 <span class="arithmatex">\(P(i) = r_i\)</span>）。Bob 不知道这些错误在哪里，所以他不知道 <span class="arithmatex">\(e_1, \dots, e_k\)</span> 的值。</p>
+<p>现在 Bob 可以尝试猜测 <span class="arithmatex">\(k\)</span> 个错误的位置，但这太费时间了（实际上这需要指数级的时间）。相反，Bob 将采用一个基于以下定义的巧妙技巧。考虑所谓的<strong>错误定位多项式</strong> (error-locator polynomial)：</p>
+<div class="arithmatex">\[
+E(x) = (x - e_1)(x - e_2) \dots (x - e_k).
+\]</div>
+<p>请注意 <span class="arithmatex">\(E(x)\)</span> 是一个 <span class="arithmatex">\(k\)</span> 次多项式（因为 <span class="arithmatex">\(x\)</span> 出现了 <span class="arithmatex">\(k\)</span> 次）。还请注意 Bob 并不显式地知道这个多项式，因为他不知道错误的位置 <span class="arithmatex">\(e_i\)</span>。然而，他将符号化地使用该多项式，并最终计算出其中出现的 <span class="arithmatex">\(e_i\)</span> 值！</p>
+<p>让我们对这个多项式做一个简单但至关重要的观察：</p>
+<div class="arithmatex">\[
+P(i)E(i) = r_i E(i) \quad \text{对于} \ 1 \leq i \leq n + 2k. \tag{1}
+\]</div>
+<p>为了看清这一点，请注意，在未发生错误的点 <span class="arithmatex">\(i\)</span> 上，由于在这些点上有 <span class="arithmatex">\(P(i) = r_i\)</span>，因此等式成立；而在发生错误的点 <span class="arithmatex">\(i\)</span> 上，由于此时 <span class="arithmatex">\(E(i) = 0\)</span>，等式显然也成立。</p>
+<p>这一观察构成了 Berlekamp 和 Welch 发明的一种非常聪明算法的基础。更仔细地查看 (1) 中的等式，我们将展示它们可以对应于 <span class="arithmatex">\(n + 2k\)</span> 个变量组成的 <span class="arithmatex">\(n + 2k\)</span> 条线性方程，从中可以很容易地推导出错误的位置和 <span class="arithmatex">\(P(x)\)</span> 的系数（类似于我们在上一节中看到的插值方案）。</p>
+<p>定义多项式 <span class="arithmatex">\(Q(x) := P(x)E(x)\)</span>，它的次数为 <span class="arithmatex">\(n + k - 1\)</span>，因此由 <span class="arithmatex">\(n + k\)</span> 个系数 <span class="arithmatex">\(a_0, a_1, \dots, a_{n+k-1}\)</span> 描述。错误定位多项式 <span class="arithmatex">\(E(x) = (x - e_1) \dots (x - e_k)\)</span> 的次数为 <span class="arithmatex">\(k\)</span>，由 <span class="arithmatex">\(k + 1\)</span> 个系数 <span class="arithmatex">\(b_0, b_1, \dots, b_k\)</span> 来描述，但最高位系数（<span class="arithmatex">\(x^k\)</span> 的系数 <span class="arithmatex">\(b_k\)</span>）始终为 1。因此我们可以写成：</p>
+<div class="arithmatex">\[
+Q(x) = a_{n+k-1}x^{n+k-1} + a_{n+k-2}x^{n+k-2} + \dots + a_1 x + a_0;
+\]</div>
+<div class="arithmatex">\[
+E(x) = x^k + b_{k-1}x^{k-1} + \dots + b_1 x + b_0.
+\]</div>
+<p>（记住我们还不知道任何系数 <span class="arithmatex">\(a_i\)</span> 或 <span class="arithmatex">\(b_i\)</span>。）</p>
+<p>现在注意到，将 <span class="arithmatex">\(Q(x) = P(x)E(x)\)</span> 代入 (1)，我们得到 <span class="arithmatex">\(n + 2k\)</span> 条方程：</p>
+<div class="arithmatex">\[
+Q(i) = r_i E(i) \quad \text{对于} \ 1 \leq i \leq n + 2k.
+\]</div>
+<p>使用 <span class="arithmatex">\(Q(x)\)</span> 和 <span class="arithmatex">\(E(x)\)</span> 的系数写出第 <span class="arithmatex">\(i\)</span> 条方程，得到：</p>
+<div class="arithmatex">\[
+a_{n+k-1}i^{n+k-1} + a_{n+k-2}i^{n+k-2} + \dots + a_1 i + a_0 = r_i(i^k + b_{k-1}i^{k-1} + \dots + b_1 i + b_0) \pmod{q}.
+\]</div>
+<p>这是一组 <span class="arithmatex">\(n + 2k\)</span> 条线性方程，对应于 <span class="arithmatex">\(i\)</span> 的每个值，含有 <span class="arithmatex">\(n + 2k\)</span> 个未知数 <span class="arithmatex">\(a_0, a_1, \dots, a_{n+k-1}, b_0, b_1, \dots, b_{k-1}\)</span>。我们可以解这个线性方程组并得到 <span class="arithmatex">\(E(x)\)</span> 和 <span class="arithmatex">\(Q(x)\)</span>。然后我们可以计算比例 <span class="arithmatex">\(\frac{Q(x)}{E(x)}\)</span> 来获得 <span class="arithmatex">\(P(x)\)</span>。通过示例可以最好地说明这一点。</p>
+<p><strong>示例</strong>。假设我们正在 <span class="arithmatex">\(\mathrm{GF}(7)\)</span> 上工作，Alice 想要通过调制解调器向 Bob 发送 <span class="arithmatex">\(n = 3\)</span> 个字符“3”，“0”和“6”。类比于英文字母表，这相当于只使用字母表的前 7 个字母，其中 <span class="arithmatex">\(a=0, \dots, g=6\)</span>。所以 Alice 希望 Bob 接收到的消息是“dag”。然后 Alice 进行插值（例如，使用拉格朗日：练习！）找到多项式</p>
+<div class="arithmatex">\[
+P(x) = x^2 + x + 1,
+\]</div>
+<p>这是唯一的 <span class="arithmatex">\(\mathrm{GF}(7)\)</span> 上的 2 次多项式，满足 <span class="arithmatex">\(P(1) = 3, P(2) = 0, P(3) = 6\)</span>。</p>
+<p>假设 Alice 知道最多可能有 <span class="arithmatex">\(k = 1\)</span> 个字符被损坏；那么她需要向 Bob 传输 <span class="arithmatex">\(n + 2k = 5\)</span> 个字符 <span class="arithmatex">\(P(1) = 3, P(2) = 0, P(3) = 6, P(4) = 0, P(5) = 3\)</span>。假设 <span class="arithmatex">\(P(1)\)</span> 实际上被损坏了，Bob 收到的字符是 2 而不是 3（即 Alice 发送了编码后的码字“dagad”，但 Bob 收到的却是“cagad”）。综上所述，我们的情况如下：</p>
+<p><img alt="" src="../images/ff114aa0c7a8d7cc427d2687838d5b43365e1fab6374047a45990e1fd8c5faa1.jpg" /></p>
+<p>令 <span class="arithmatex">\(E(x) = (x - e_1) = x + b_0\)</span> 为错误定位多项式——记住，Bob 还不知道 <span class="arithmatex">\(e_1 = -b_0\)</span> 是多少，因为他不知道错误发生在哪里——并令 <span class="arithmatex">\(Q(x) = a_3 x^3 + a_2 x^2 + a_1 x + a_0\)</span>（这里的系数 <span class="arithmatex">\(a_i\)</span> 同样是未知的）。现在 Bob 只需要将 <span class="arithmatex">\(i = 1, i = 2, \dots, i = 5\)</span> 代入上述 (1) 中的方程 <span class="arithmatex">\(Q(i) = r_i E(i)\)</span>，并进行化简，得到含五个未知数的五条线性方程（请记住我们是在模 7 下运算，且 <span class="arithmatex">\(r_i\)</span> 是 Bob 收到的第 <span class="arithmatex">\(i\)</span> 个字符的值）：</p>
+<div class="arithmatex">\[
+a_3 + a_2 + a_1 + a_0 + 5b_0 = 2
+\]</div>
+<div class="arithmatex">\[
+a_3 + 4a_2 + 2a_1 + a_0 = 0
+\]</div>
+<div class="arithmatex">\[
+6a_3 + 2a_2 + 3a_1 + a_0 + b_0 = 4
+\]</div>
+<div class="arithmatex">\[
+a_3 + 2a_2 + 4a_1 + a_0 = 0
+\]</div>
+<div class="arithmatex">\[
+6a_3 + 4a_2 + 5a_1 + a_0 + 4b_0 = 1
+\]</div>
+<p>Bob 然后解这个线性方程组，发现 <span class="arithmatex">\(a_3 = 1, a_2 = 0, a_1 = 0, a_0 = 6\)</span> 且 <span class="arithmatex">\(b_0 = 6\)</span>（均模 7）。这给了他多项式 <span class="arithmatex">\(Q(x) = x^3 + 6\)</span> 和 <span class="arithmatex">\(E(x) = x + 6 = x - 1\)</span>。（作为检查，<span class="arithmatex">\(E(x) = x - 1\)</span> 意味着错误的位置在 <span class="arithmatex">\(e_1 = 1\)</span>，这是正确的，因为第一个字符从“d”损坏为了“c”。）然后他可以通过计算商来求得 <span class="arithmatex">\(P(x)\)</span>：</p>
+<div class="arithmatex">\[
+P(x) = \frac{Q(x)}{E(x)} = \frac{x^3 + 6}{x - 1} = x^2 + x + 1 \pmod{7}.
+\]</div>
+<p>Bob 注意到第一个字符被损坏了（因为 <span class="arithmatex">\(e_1 = 1\)</span>），所以既然他已经有了 <span class="arithmatex">\(P(x)\)</span>，他只需要计算 <span class="arithmatex">\(P(1) = 3 = \mathrm{'d'}\)</span>，就得到了原始的、未损坏的消息“dag”。</p>
+<p><strong>练习</strong>。通过 <span class="arithmatex">\(i = \{1, 2, 3, 4, 5\}\)</span> 的等式 <span class="arithmatex">\(Q(i) = r_i E(i)\)</span> 验证上述方程组的推导过程。此外，解这些方程（这有点乏味，但不难！）并检查你的解是否与上面的结果一致。记住所有的算术运算都应模 7 进行。</p>
+<p><strong>练习</strong>。针对第二个字符从“0”损坏为“5”且所有其他字符未损坏的情况，重新做一遍上述示例。</p>
+<h2 id="_2">细节讨论</h2>
+<p>有两点需要进一步讨论。我们如何知道这 <span class="arithmatex">\(n + 2k\)</span> 条方程是相容的？如果它们没有解怎么办？这很简单。这些方程一定是相容的，因为由 <span class="arithmatex">\(Q(x) = P(x)E(x)\)</span> 以及实际的错误定位多项式 <span class="arithmatex">\(E(x)\)</span> 构成了一组解！</p>
+<p>一个更有趣的问题是：我们如何知道这 <span class="arithmatex">\(n + 2k\)</span> 条方程是独立的，也就是说，我们如何知道除了我们要寻找的真实解之外，不存在其他虚假的解？用更数学的话来说，假设我们构造的解是 <span class="arithmatex">\(Q'(x), E'(x)\)</span>；我们如何知道这个解满足 <span class="arithmatex">\(E'(x)\)</span> 整除 <span class="arithmatex">\(Q'(x)\)</span> 且 <span class="arithmatex">\(\frac{Q'(x)}{E'(x)} = \frac{Q(x)}{E(x)} = P(x)\)</span>？</p>
+<p>为了看清这是真的，我们首先注意到，根据我们计算 <span class="arithmatex">\(Q'(x), E'(x)\)</span> 的方法，我们知道对于 <span class="arithmatex">\(1 \leq i \leq n + 2k\)</span>，有 <span class="arithmatex">\(Q'(i) = r_i E'(i)\)</span>；当然，根据定义，对于相同的 <span class="arithmatex">\(i\)</span> 值，我们也有 <span class="arithmatex">\(Q(i) = r_i E(i)\)</span>。将第一个等式乘以 <span class="arithmatex">\(E(i)\)</span>，第二个等式乘以 <span class="arithmatex">\(E'(i)\)</span>，我们得到</p>
+<div class="arithmatex">\[
+Q'(i)E(i) = Q(i)E'(i) \quad \text{对于} \ 1 \leq i \leq n + 2k, \tag{2}
+\]</div>
+<p>因为两边都等于 <span class="arithmatex">\(r_i E(i)E'(i)\)</span>。方程 (2) 告诉我们，两个多项式 <span class="arithmatex">\(Q(x)E'(x)\)</span> 和 <span class="arithmatex">\(Q'(x)E(x)\)</span> 在 <span class="arithmatex">\(n + 2k\)</span> 个点上相等。但是这两个多项式的次数均为 <span class="arithmatex">\(n + 2k - 1\)</span>，因此它们完全由在 <span class="arithmatex">\(n + 2k\)</span> 个点上的值确定。因此，由于它们在 <span class="arithmatex">\(n + 2k\)</span> 个点上一致，它们必须是同一个多项式，即对于所有 <span class="arithmatex">\(x\)</span>，都有 <span class="arithmatex">\(Q(x)E'(x) = Q'(x)E(x)\)</span>。现在我们可以除以多项式 <span class="arithmatex">\(E(x)E'(x)\)</span>（根据构造，它不是零多项式）得到 <span class="arithmatex">\(\frac{Q'(x)}{E'(x)} = \frac{Q(x)}{E(x)} = P(x)\)</span>，这正是我们想要的结果。因此，我们可以确信我们找到的任何解都是正确的。</p>
+<p><strong>练习（较难）</strong>。解 <span class="arithmatex">\(Q'(x), E'(x)\)</span> 总是唯一的吗？上述分析告诉我们，其比例必须始终满足 <span class="arithmatex">\(\frac{Q'(x)}{E'(x)} = \frac{Q(x)}{E(x)} = P(x)\)</span>，但并不能保证 <span class="arithmatex">\(Q'(x) = Q(x)\)</span> 且 <span class="arithmatex">\(E'(x) = E(x)\)</span>。提示：在我们的上述示例中，如果实际上没有字符被损坏（尽管 Alice 仍然假设可能有 <span class="arithmatex">\(k=1\)</span> 个字符被损坏），会发生什么？试着在这种情况下写出并求解方程组。你应该会得到一整簇解，对应于 <span class="arithmatex">\(b_0 \in \mathrm{GF}(7)\)</span> 的每个可能值。（因为在这种情况下没有错误，所以 <span class="arithmatex">\(b_0\)</span> 是不确定的。）其他值可以用 <span class="arithmatex">\(b_0\)</span> 来表示：<span class="arithmatex">\(a_3 = 1, a_2 = 1+b_0, a_1 = 1+b_0, a_0 = b_0\)</span>。但是，无论 <span class="arithmatex">\(b_0\)</span> 的值是多少，其商均为 <span class="arithmatex">\(\frac{Q(x)}{E(x)} = \frac{x^3 + (1 + b_0)x^2 + (1 + b_0)x + b_0}{x + b_0} = x^2 + x + 1\)</span>，因此我们再次恢复了 <span class="arithmatex">\(P(x)\)</span>（正如我们根据前一段的论证所知道的那样）。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/0nikod/study-docs-zh" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

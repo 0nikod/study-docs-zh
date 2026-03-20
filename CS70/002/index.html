@@ -1,0 +1,1466 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="一个存放外国课程的中文翻译的网站">
+      
+      
+        <meta name="author" content="0nikod">
+      
+      
+        <link rel="canonical" href="https://study-docs-zh.example.com/CS70/002/">
+      
+      
+        <link rel="prev" href="../001/">
+      
+      
+        <link rel="next" href="../003/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>002 - 证明 - 外国课程课程笔记翻译</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#002-" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="外国课程课程笔记翻译" class="md-header__button md-logo" aria-label="外国课程课程笔记翻译" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            外国课程课程笔记翻译
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              002 - 证明
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  课程笔记翻译
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../000/" class="md-tabs__link">
+          
+  
+  
+  CS70
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="外国课程课程笔记翻译" class="md-nav__button md-logo" aria-label="外国课程课程笔记翻译" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    外国课程课程笔记翻译
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    课程笔记翻译
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CS70
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CS70
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../000/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    000 - 集合与数学符号回顾
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../001/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    001 - 命题逻辑与量词
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    002 - 证明
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    002 - 证明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 符号与基本事实
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 直接证明
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 逆否命题证明法
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 反证法
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6 分情况证明
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7 编写证明时的常见错误
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8 证明中的风格与内容
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9 练习
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../003/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    003 - 数学归纳法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../004/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    004 - 稳定匹配问题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../005/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    005 - 图论简介
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    006 - 同余运算
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    007 - 公钥加密
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../008/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    008 - 多项式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    009 - 纠错码
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    010 - 迈向无穷：可数性与可计算性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    011 - 自指与可计算性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    012 - 计数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    013 - 离散概率入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../014/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    014 - 条件概率、独立性和事件组合
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../015/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    015 - 三个杀手级应用：哈希、收集优惠券和负载均衡
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../016/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    016 - 随机变量：分布与期望
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../017/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    017 - 随机变量的函数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../018/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    018 - 几何分布和泊松分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../019/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    019 - 集中不等式与大数定律
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../020/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    020 - 连续概率分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 符号与基本事实
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 直接证明
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 逆否命题证明法
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 反证法
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6 分情况证明
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7 编写证明时的常见错误
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8 证明中的风格与内容
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9 练习
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="002-">002 - 证明</h1>
+<p>在科学中，通过实验积累证据来断言一个陈述（Statement）的有效性。相比之下，数学旨在追求更高层次的绝对确定性。数学 <strong>证明</strong>（Proof） 提供了一种保证陈述为真的手段。证明非常强大，在某些方面类似于计算机程序。实际上，这两个概念之间有着深远的历史联系，我们稍后将在本课程中触及这一点——计算机的发明与一个世纪前对数学证明理念的探索紧密相连。</p>
+<p>那么，我们可能想要证明哪些“与计算机科学相关”的陈述呢？这里有两个例子：(1) 程序 <span class="arithmatex">\(P\)</span> 会在每个输入上停止吗？(2) 程序 <span class="arithmatex">\(P\)</span> 是否正确地计算了函数 <span class="arithmatex">\(f(x)\)</span> ，即对于每一个 <span class="arithmatex">\(x\)</span> ，它在输入 <span class="arithmatex">\(x\)</span> 时是否输出 <span class="arithmatex">\(f(x)\)</span> ？请注意，这些陈述中的每一个都涉及程序在无限多个输入上的行为。对于这样的陈述，我们可以尝试通过测试它对许多 <span class="arithmatex">\(x\)</span> 值是否成立来提供其为真的证据。不幸的是，这并不能保证该陈述对于我们没有测试的无限多个 <span class="arithmatex">\(x\)</span> 值也成立！要确定陈述为真，我们必须提供严谨的证明。</p>
+<p>那么，什么是证明？证明是有限的步骤序列，称为 <strong>逻辑演绎</strong>（Logical Deduction），它确定了目标陈述的真实性。特别地，证明的力量在于：使用有限的手段，我们可以保证具有无限多种情况的陈述的真实性。</p>
+<p>更具体地说，证明通常结构如下。回想一下，有一些陈述称为 <strong>公理</strong>（Axiom） 或 <strong>公设</strong>（Postulate），我们不加证明地接受它们（我们必须从某个地方开始）。从这些公理出发，证明由一系列逻辑演绎组成：应用逻辑规则的简单步骤。这产生了一个陈述序列，如果前面的陈述为真，则后续的每个陈述必然为真。这一性质由逻辑规则强制执行：每个陈述都由前面的陈述推导而来。这些逻辑规则是传统上被认为构成人类思维基础的规律的正式提炼。它们在计算机设计中发挥着核心作用，从数字逻辑设计或数字电路设计背后的基本原理开始。在更高级的层面上，这些逻辑规则在人工智能中发挥着不可或缺的作用，人工智能的终极目标之一是在计算机上模拟人类思维。</p>
+<p><strong>本讲义的组织</strong>。我们首先在第 2 节中设定符号并说明本讲中使用的基本数学事实。随后我们将介绍四种不同的证明技术：直接证明（第 3 节）、逆否命题证明法（第 4 节）、反证法（第 5 节）和分情况证明（第 6 节）。然后，我们将简要讨论证明中的常见陷阱和风格建议（分别为第 7 节和第 8 节）。最后在第 9 节提供练习。</p>
+<h2 id="2">2 符号与基本事实</h2>
+<p>在本讲义中，我们使用以下符号和基本数学事实。设 <span class="arithmatex">\(\mathbb{Z}\)</span> 表示整数集，即 <span class="arithmatex">\(\mathbb{Z} = \{ \dots, -2, -1, 0, 1, 2, \dots \}\)</span> ，而 <span class="arithmatex">\(\mathbb{N}\)</span> 表示自然数集 <span class="arithmatex">\(\mathbb{N} = \{ 0, 1, 2, \ldots \}\)</span> 。回想一下，两个整数的和或积仍是整数，即整数集在加法和乘法下是 <strong>封闭的</strong>（Closed）。自然数集在加法和乘法下也是封闭的。</p>
+<p>给定整数 <span class="arithmatex">\(a\)</span> 和 <span class="arithmatex">\(b\)</span> ，我们说 <span class="arithmatex">\(a\)</span> <strong>整除</strong>（Divide） <span class="arithmatex">\(b\)</span> （记作 <span class="arithmatex">\(a \mid b\)</span> ） <strong>当且仅当</strong>（If and Only If） 存在一个整数 <span class="arithmatex">\(q\)</span> 使得 <span class="arithmatex">\(b = aq\)</span> 。例如，<span class="arithmatex">\(2 \mid 10\)</span> 是因为存在整数 <span class="arithmatex">\(q = 5\)</span> 使得 <span class="arithmatex">\(10 = 5 \cdot 2\)</span> 。我们说一个自然数 <span class="arithmatex">\(p \geq 2\)</span> 是 <strong>质数</strong>（Prime），如果它只能被 1 和它本身整除。</p>
+<p>最后，我们使用符号 <span class="arithmatex">\(:=\)</span> 来表示定义。例如，<span class="arithmatex">\(q := 6\)</span> 定义变量 <span class="arithmatex">\(q\)</span> 的值为 6。</p>
+<h2 id="3">3 直接证明</h2>
+<p>有了讲义 1 中的命题逻辑语言，我们现在将讨论几种涵盖现实世界中大部分实际证明的通用证明技术。我们的第一种技术被称为 <strong>直接证明</strong>（Direct Proof）。在本节中，请记住我们的目标是提供清晰且简明扼要的证明。让我们从一个非常简单的例子开始。</p>
+<p><strong>定理 2.1</strong>。对于任何 <span class="arithmatex">\(a, b, c \in \mathbb{Z}\)</span> ，如果 <span class="arithmatex">\(a \mid b\)</span> 且 <span class="arithmatex">\(a \mid c\)</span> ，那么 <span class="arithmatex">\(a \mid (b + c)\)</span> 。</p>
+<blockquote>
+<p>概念检查！设 <span class="arithmatex">\(P(x, y)\)</span> 表示 <span class="arithmatex">\(x \mid y\)</span> 。请说服自己，上述陈述等价于 <span class="arithmatex">\((\forall a, b, c \in \mathbb{Z}) ((P(a, b) \land P(a, c)) \implies P(a, b + c))\)</span> 。</p>
+</blockquote>
+<p>在高层次上，直接证明的过程如下。对于每一个 <span class="arithmatex">\(x\)</span> ，我们要证明的命题形式为 <span class="arithmatex">\(P(x) \implies Q(x)\)</span> 。直接证明从假设 <span class="arithmatex">\(x\)</span> 的一个通用值满足 <span class="arithmatex">\(P(x)\)</span> 开始，最后通过一系列蕴含式得出 <span class="arithmatex">\(Q(x)\)</span> 。</p>
+<blockquote>
+<p><strong>直接证明</strong></p>
+<p>目标：证明 <span class="arithmatex">\(P \Longrightarrow Q\)</span></p>
+<p>方法：假设 <span class="arithmatex">\(P\)</span></p>
+<p>结论：因此 <span class="arithmatex">\(Q\)</span></p>
+</blockquote>
+<p><strong>定理 2.1 的证明</strong>。假设 <span class="arithmatex">\(a \mid b\)</span> 且 <span class="arithmatex">\(a \mid c\)</span> ，即存在整数 <span class="arithmatex">\(q_{1}\)</span> 和 <span class="arithmatex">\(q_{2}\)</span> 使得 <span class="arithmatex">\(b = q_{1}a\)</span> 且 <span class="arithmatex">\(c = q_{2}a\)</span> 。那么，<span class="arithmatex">\(b + c = q_{1}a + q_{2}a = (q_{1} + q_{2})a\)</span> 。由于 <span class="arithmatex">\(\mathbb{Z}\)</span> 在加法下是封闭的，我们得出 <span class="arithmatex">\((q_{1} + q_{2}) \in \mathbb{Z}\)</span> ，因此 <span class="arithmatex">\(a \mid (b + c)\)</span> ，证毕。 □</p>
+<p>足够简单，对吧？但等一下，之前我们说定理 2.1 等价于 <span class="arithmatex">\((\forall a, b, c \in \mathbb{Z}) ((P(a, b) \land P(a, c)) \implies P(a, b + c))\)</span> ；在上面的证明中，我们在哪里遇到了 <span class="arithmatex">\(\forall\)</span> 量词？关键见解是证明没有假设 <span class="arithmatex">\(a, b, c\)</span> 的任何具体值；实际上，我们的证明对于任意 <span class="arithmatex">\(a, b, c \in \mathbb{Z}\)</span> 都成立！因此，我们确实证明了所需的断言。</p>
+<blockquote>
+<p>概念检查！给出以下陈述的直接证明：对于任何 <span class="arithmatex">\(a, b, c \in \mathbb{Z}\)</span> ，如果 <span class="arithmatex">\(a \mid b\)</span> 且 <span class="arithmatex">\(a \mid c\)</span> ，那么 <span class="arithmatex">\(a \mid (b - c)\)</span> 。</p>
+</blockquote>
+<p>让我们尝试一些更具挑战性的内容。</p>
+<p><strong>定理 2.2</strong>。设 <span class="arithmatex">\(0 &lt; n &lt; 1000\)</span> 为一个整数。如果 <span class="arithmatex">\(n\)</span> 的各位数字之和能被 9 整除，那么 <span class="arithmatex">\(n\)</span> 也能被 9 整除。</p>
+<p>观察到这个陈述等价于：</p>
+<div class="arithmatex">\[
+(\forall n \in \mathbb{Z}^{+}) (n &lt; 1000) \Longrightarrow (\text{n 的各位数字之和能被 9 整除} \Longrightarrow n \text{ 能被 9 整除}),
+\]</div>
+<p>其中 <span class="arithmatex">\(\mathbb{Z}^{+}\)</span> 表示正整数集 <span class="arithmatex">\(\{ 1, 2, \ldots \}\)</span> 。现在证明过程类似——我们从假设（对于 <span class="arithmatex">\(n\)</span> 的通用值） <span class="arithmatex">\(n\)</span> 的各位数字之和能被 9 整除开始。然后我们执行一系列蕴含推导，得出 <span class="arithmatex">\(n\)</span> 本身也能被 9 整除。</p>
+<p><strong>定理 2.2 的证明</strong>。设 <span class="arithmatex">\(n\)</span> 的十进制表示为 <span class="arithmatex">\(n = abc\)</span> ，即 <span class="arithmatex">\(n = 100a + 10b + c\)</span> 。假设 <span class="arithmatex">\(n\)</span> 的各位数字之和能被 9 整除，即：</p>
+<div class="arithmatex">\[
+\exists k \in \mathbb{Z} \quad \text{使得} \quad a + b + c = 9k. \tag{1}
+\]</div>
+<p>将 <span class="arithmatex">\(99a + 9b\)</span> 加到 (1) 的两边，我们得到：</p>
+<div class="arithmatex">\[
+100a + 10b + c = n = 9k + 99a + 9b = 9(k + 11a + b).
+\]</div>
+<p>我们得出结论： <span class="arithmatex">\(n\)</span> 能被 9 整除。证毕。</p>
+<p>定理 2.2 的逆命题也成立吗？回想一下， <span class="arithmatex">\(P \implies Q\)</span> 的逆命题是 <span class="arithmatex">\(Q \Longrightarrow P\)</span> 。定理 2.2 的逆命题是：对于任何整数 <span class="arithmatex">\(0 &lt; n &lt; 1000\)</span> ，如果 <span class="arithmatex">\(n\)</span> 能被 9 整除，那么 <span class="arithmatex">\(n\)</span> 的各位数字之和能被 9 整除。</p>
+<p><strong>定理 2.3</strong> (定理 2.2 的逆命题)。设 <span class="arithmatex">\(0 &lt; n &lt; 1000\)</span> 为一个整数。如果 <span class="arithmatex">\(n\)</span> 能被 9 整除，那么 <span class="arithmatex">\(n\)</span> 的各位数字之和也能被 9 整除。</p>
+<p><strong>证明</strong>。假设 <span class="arithmatex">\(n\)</span> 能被 9 整除。我们使用与定理 2.2 证明中相同的符号。过程如下：</p>
+<div class="arithmatex">\[
+\begin{array}{l} n \text{ 能被 9 整除} \Longrightarrow n = 9l \quad \text{对于某个 } l \in \mathbb{Z} \\ \Longrightarrow 100a + 10b + c = 9l \\ \Longrightarrow 99a + 9b + (a + b + c) = 9l \\ \Longrightarrow a + b + c = 9l - 99a - 9b \\ \Longrightarrow a + b + c = 9(l - 11a - b) \\ \Longrightarrow a + b + c = 9k \quad \text{其中 } k = l - 11a - b \in \mathbb{Z} \\ \end{array}
+\]</div>
+<p>我们得出结论： <span class="arithmatex">\(a + b + c\)</span> 能被 9 整除。证毕。</p>
+<p>现在我们来看看这个故事的寓意。我们已经证明了定理 2.2 及其逆命题定理 2.3。这意味着当且仅当 <span class="arithmatex">\(n\)</span> 能被 9 整除时， <span class="arithmatex">\(n\)</span> 的各位数字之和才被 9 整除；换句话说，这两个陈述逻辑等价。所以关键教训是：每当你希望证明等价关系 <span class="arithmatex">\(P \iff Q\)</span> 时，一定要通过分别证明 <span class="arithmatex">\(P \implies Q\)</span> 和 <span class="arithmatex">\(Q \Longrightarrow P\)</span> 来进行（正如我们在这里所做的那样）。</p>
+<h2 id="4">4 逆否命题证明法</h2>
+<p>我们现在转向第二种证明技术。从对命题逻辑的讨论中回想一下，任何蕴含式 <span class="arithmatex">\(P \implies Q\)</span> 都等价于其 <strong>逆否命题</strong>（Contrapositive） <span class="arithmatex">\(\neg Q \Longrightarrow \neg P\)</span> 。然而，有时证明 <span class="arithmatex">\(\neg Q \Longrightarrow \neg P\)</span> 比证明 <span class="arithmatex">\(P \implies Q\)</span> 要简单得多。因此，逆否命题证明法通过证明 <span class="arithmatex">\(\neg Q \Longrightarrow \neg P\)</span> 而非 <span class="arithmatex">\(P \Longrightarrow Q\)</span> 来进行。</p>
+<blockquote>
+<p><strong>逆否命题证明法</strong></p>
+<p>目标：证明 <span class="arithmatex">\(P \Longrightarrow Q\)</span> 。</p>
+<p>方法：假设 <span class="arithmatex">\(\neg Q\)</span></p>
+<p>因此 <span class="arithmatex">\(\neg P\)</span></p>
+<p>结论： <span class="arithmatex">\(\neg Q \Longrightarrow \neg P\)</span> ，它等价于 <span class="arithmatex">\(P \Longrightarrow Q\)</span></p>
+</blockquote>
+<p>现在考虑以下定理：</p>
+<p><strong>定理 2.4</strong>。设 <span class="arithmatex">\(n\)</span> 为正整数，并设 <span class="arithmatex">\(d\)</span> 整除 <span class="arithmatex">\(n\)</span> 。如果 <span class="arithmatex">\(n\)</span> 是奇数，那么 <span class="arithmatex">\(d\)</span> 也是奇数。</p>
+<p>通过直接证明技术来证明这一点似乎很困难；我们会在第 1 步假设 <span class="arithmatex">\(n\)</span> 是奇数，但然后呢？另一方面，通过逆否命题的方法结果要容易得多。</p>
+<blockquote>
+<p>概念检查！定理 2.4 的逆否命题是什么？（答案：如果 <span class="arithmatex">\(d\)</span> 是偶数，那么 <span class="arithmatex">\(n\)</span> 也是偶数。）</p>
+</blockquote>
+<p><strong>定理 2.4 的证明</strong>。我们采用逆否命题证明法。假设 <span class="arithmatex">\(d\)</span> 是偶数。那么，根据定义，对于某个 <span class="arithmatex">\(k \in \mathbb{Z}\)</span> ，有 <span class="arithmatex">\(d = 2k\)</span> 。因为 <span class="arithmatex">\(d \mid n\)</span> ，所以对于某个 <span class="arithmatex">\(l \in \mathbb{Z}\)</span> ，有 <span class="arithmatex">\(n = dl\)</span> 。结合这两个陈述，我们得到 <span class="arithmatex">\(n = dl = (2k)l = 2(kl)\)</span> 。我们得出结论： <span class="arithmatex">\(n\)</span> 是偶数。证毕。 □</p>
+<p>请注意，这一次我们证明的第一行陈述了我们的证明技术——这对任何证明都是良好的实践，类似于编程时编写注释。像这样陈述你的证明技术对读者理解你的证明走向有极大的帮助。（不要忘记，理解你证明的读者，如助教或讲师，更有可能给你好分！）</p>
+<p>作为逆否命题证明法的另一个示例，我们将证明一个著名的定理，称为 <strong>鸽巢原理</strong> (Pigeonhole Principle)。尽管定理的表述看似简单，但它却有着惊人的后果。</p>
+<p><strong>定理 2.5</strong> (鸽巢原理)。设 <span class="arithmatex">\(n\)</span> 和 <span class="arithmatex">\(k\)</span> 为正整数。将 <span class="arithmatex">\(n\)</span> 个物体放入 <span class="arithmatex">\(k\)</span> 个盒子里。如果 <span class="arithmatex">\(n &gt; k\)</span> ，则至少有一个盒子必须包含多个物体。</p>
+<p>该定理的名字来自于想象 <span class="arithmatex">\(n\)</span> 个物体是鸽子，而我们正试图将它们放入鸽巢中。</p>
+<p><strong>定理 2.5 的证明</strong>。我们采用逆否命题证明法。如果所有盒子最多包含一个物体，那么物体的数量最多等于盒子的数量，即 <span class="arithmatex">\(n \leq k\)</span> 。证毕。 □</p>
+<p>该定理的效用源于这样一个事实：无论盒中物体的配置如何，它都成立。在物体以复杂方式放入盒子的情况下，该定理的结论可能是非平凡的。</p>
+<p>这里有一个例子。在互联网上快速搜索可以发现，人类头上的头发数量平均约为 100,000 根。因此，我们可以合理地确信，没有任何人的头上会有超过 500,000 根头发。另一方面，旧金山的人口（截至 2024 年）超过了 800,000。如果我们把旧金山的居民看作“鸽子”，而居民头上的头发数量看作他或她落入的“盒子”，那么鸽巢原理允许我们得出这样一个有趣的事实：旧金山有两个人的头上的头发数量完全相同！（当然，这个论证并没有告诉我们那个具体的数字是多少。）</p>
+<h2 id="5">5 反证法</h2>
+<p>在我们在本讲义中讨论的所有证明技术中，也许最难抗拒这一种的魅力；毕竟，谁不想使用一种被称为 reductio ad absurdum（即归于荒谬）的技术呢？反证法的思路是先假设你想要证明的断言是假的（是的，这看起来是倒着来的，但请听我们说下去）。然后，你展示这会导致一个完全荒唐的结论： <strong>矛盾</strong>（Contradiction）。因此，你断定你的断言实际上必定是真的。</p>
+<blockquote>
+<p>概念检查！反证法关键在于：如果一个命题不是假的，那么它一定是真的。前几讲中的哪条法则体现了这种对陈述“非黑即白”的解读？</p>
+<p><strong>反证法</strong></p>
+<p>目标：证明 <span class="arithmatex">\(P\)</span> 。</p>
+<p>方法：假设 <span class="arithmatex">\(\neg P\)</span></p>
+<p>得到 <span class="arithmatex">\(R\)</span> 且 <span class="arithmatex">\(\neg R\)</span></p>
+<p>结论： <span class="arithmatex">\(\neg P \implies \neg R \land R\)</span> ，这是一个矛盾。因此， <span class="arithmatex">\(P\)</span> 成立。</p>
+</blockquote>
+<p>如果你对目前关于反证法为何有效的直观解释不满意，这里有正式的推理：反证法展示了 <span class="arithmatex">\(\neg P \implies \neg R \land R \equiv \text{False}\)</span> 。该陈述的逆否命题是 <span class="arithmatex">\(\text{True} \implies P\)</span> ，这意味着 <span class="arithmatex">\(P\)</span> 必须为真。</p>
+<p>现在让我们试运行一下这种证明技术。请注意，在这样做时，我们是在延续一个悠久的传统——下面定理的证明可以追溯到 2000 多年前的古希腊数学家，亚历山大港的欧几里得！</p>
+<p><strong>定理 2.6</strong>。存在无限多个质数。</p>
+<p>为了体会反证法的力量，让我们暂停一下思考一下如何尝试通过不同的证明技术（比如，直接证明）来证明定理 2.6。这看起来非常困难，对吧？你会如何构造无限多个质数？然而，反证法的奇妙之处在于，如果我们假设该陈述是假的，即只有有限多个质数，坏事就会发生。</p>
+<p>为了继续，我们现在陈述一个简单的引理，它在证明定理 2.6 时非常方便。其证明将推迟到我们学习数学归纳法的讲义中。</p>
+<p><strong>引理 2.1</strong>。每个大于 1 的自然数要么是质数，要么有一个质因数。</p>
+<p><strong>定理 2.6 的证明</strong>。我们采用反证法。假设定理 2.6 是假的，即只有有限多个质数，设为 <span class="arithmatex">\(k\)</span> 个。然后，我们可以列举它们： <span class="arithmatex">\(p_{1}, p_{2}, p_{3}, \dots, p_{k}\)</span> 。</p>
+<p>现在，定义数字 <span class="arithmatex">\(q := p_{1}p_{2}p_{3} \dots p_{k} + 1\)</span> ，它是所有质数的乘积加一。我们断言 <span class="arithmatex">\(q\)</span> 不能是质数。为什么？因为根据定义，它比所有的质数 <span class="arithmatex">\(p_{1}\)</span> 到 <span class="arithmatex">\(p_{k}\)</span> 都大！根据引理 2.1，我们因此得出结论： <span class="arithmatex">\(q\)</span> 有一个质因数 <span class="arithmatex">\(p\)</span> 。这将是我们的陈述 <span class="arithmatex">\(R\)</span> 。</p>
+<p>接下来，因为 <span class="arithmatex">\(p_{1}, p_{2}, p_{3}, \dots, p_{k}\)</span> 是所有的质数，所以 <span class="arithmatex">\(p\)</span> 必定等于其中的一个；因此，<span class="arithmatex">\(p\)</span> 整除 <span class="arithmatex">\(r := p_{1}p_{2}p_{3} \dots p_{k}\)</span> 。因此，<span class="arithmatex">\(p \mid q\)</span> 且 <span class="arithmatex">\(p \mid r\)</span> ，这意味着 <span class="arithmatex">\(p \mid (q - r)\)</span> 。但是 <span class="arithmatex">\(q - r = 1\)</span> ，这意味着 <span class="arithmatex">\(p = 1\)</span> ，因此 <span class="arithmatex">\(p\)</span> 不是质数；这就是陈述 <span class="arithmatex">\(\neg R\)</span> 。我们因此得到了 <span class="arithmatex">\(R \land \neg R\)</span> ，这是一个矛盾，正如所愿。证毕。 □</p>
+<p>既然我们已经热身完毕，让我们来处理另一个涉及矛盾的经典证明。回想一下， <strong>有理数</strong>（Rational Number） 是可以表示为两个整数之比的数。例如， <span class="arithmatex">\(2/3\)</span> 、 <span class="arithmatex">\(3/5\)</span> 和 <span class="arithmatex">\(9/16\)</span> 都是有理数。另一方面，不能表示为分数的数被称为 <strong>无理数</strong>（Irrational Number）。那么， <span class="arithmatex">\(\sqrt{2}\)</span> 呢？你认为它是理性的还是非理性的？答案如下。</p>
+<p><strong>定理 2.7</strong>。 <span class="arithmatex">\(\sqrt{2}\)</span> 是无理数。</p>
+<p>在给出证明之前，让我们先问一个关键问题：为什么反证法在这里是一个值得尝试的优秀候选证明技术？嗯，考虑一下这一点：定理 2.6 和定理 2.7 共享一些根本的共同点——在这两种情况下，我们都希望证明某物不存在。例如，对于定理 2.6，我们希望证明不存在最大的质数，而对于定理 2.7，我们希望证明不存在满足 <span class="arithmatex">\(\sqrt{2} = a/b\)</span> 的整数 <span class="arithmatex">\(a\)</span> 和 <span class="arithmatex">\(b\)</span> 。通常，证明某物不存在似乎很难。但这实际上正是反证法大放异彩的场景之一。</p>
+<p>为了证明定理 2.7，我们使用以下简单的引理。在第 9 节中，我们要求你证明引理 2.2。</p>
+<p><strong>引理 2.2</strong>。如果 <span class="arithmatex">\(a^{2}\)</span> 是偶数，那么 <span class="arithmatex">\(a\)</span> 也是偶数。</p>
+<p><strong>定理 2.7 的证明</strong>。我们采用反证法。假设 <span class="arithmatex">\(\sqrt{2}\)</span> 是有理数。根据有理数的定义，存在整数 <span class="arithmatex">\(a\)</span> 和 <span class="arithmatex">\(b \neq 0\)</span> ，除了 1 之外没有共同因子，使得 <span class="arithmatex">\(\sqrt{2} = a/b\)</span> 。让我们令断言 <span class="arithmatex">\(R\)</span> 为 <span class="arithmatex">\(a\)</span> 和 <span class="arithmatex">\(b\)</span> 没有公共因子。</p>
+<p>现在，对于任何数 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(y\)</span> ，我们知道 <span class="arithmatex">\(x = y \implies x^{2} = y^{2}\)</span> 。因此 <span class="arithmatex">\(2 = a^{2}/b^{2}\)</span> 。两边各乘以 <span class="arithmatex">\(b^{2}\)</span> ，我们得到 <span class="arithmatex">\(a^{2} = 2b^{2}\)</span> 。由于 <span class="arithmatex">\(b\)</span> 是整数，所以 <span class="arithmatex">\(b^{2}\)</span> 是整数，因此 <span class="arithmatex">\(a^{2}\)</span> 是偶数（根据偶数的定义）。套用引理 2.2，我们因此得到 <span class="arithmatex">\(a\)</span> 是偶数。换句话说，存在整数 <span class="arithmatex">\(c\)</span> 使得 <span class="arithmatex">\(a = 2c\)</span> 。</p>
+<p>结合到目前为止的所有事实，我们有 <span class="arithmatex">\(2b^{2} = 4c^{2}\)</span> ，即 <span class="arithmatex">\(b^{2} = 2c^{2}\)</span> 。因为 <span class="arithmatex">\(c\)</span> 是整数，所以 <span class="arithmatex">\(c^{2}\)</span> 是整数，因此 <span class="arithmatex">\(b^{2}\)</span> 是偶数。因此，再次应用引理 2.2，我们得出结论： <span class="arithmatex">\(b\)</span> 是偶数。</p>
+<p>但我们刚刚展示了 <span class="arithmatex">\(a\)</span> 和 <span class="arithmatex">\(b\)</span> 都是偶数。特别地，这意味着它们共享公共因子 2。这蕴含了 <span class="arithmatex">\(\neg R\)</span> 。我们断定 <span class="arithmatex">\(R \land \neg R\)</span> 成立；因此，我们得到了一个矛盾。证毕。 □</p>
+<h2 id="6">6 分情况证明</h2>
+<p>这里有一个有趣的证明；它依赖于另一种被称为 <strong>分情况证明</strong>（Proof by Cases） 的证明技术，我们将在本节非正式地触及它。具体来说，分情况证明背后的思路如下：有时当我们希望证明一个断言时，我们不知道一组可能的情况中哪一个是真的，但我们知道至少其中一个是真的。那么我们可以做的是证明在所有情况下结果都成立；这样，显然总的陈述必定成立。</p>
+<p><strong>定理 2.8</strong>。存在无理数 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(y\)</span> 使得 <span class="arithmatex">\(x^{y}\)</span> 是有理数。</p>
+<p><strong>证明</strong>。我们按情况进行。请注意，定理的陈述由存在量词量化：因此，要证明我们的主张，只需演示一对单一的 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(y\)</span> 使得 <span class="arithmatex">\(x^{y}\)</span> 是有理数。为此，设 <span class="arithmatex">\(x = \sqrt{2}\)</span> 且 <span class="arithmatex">\(y = \sqrt{2}\)</span> 。让我们将我们的证明分为两种情况，其中有且仅有一个必须为真：</p>
+<p>(a) <span class="arithmatex">\(\sqrt{2}^{\sqrt{2}}\)</span> 是有理数，或者
+(b) <span class="arithmatex">\(\sqrt{2}^{\sqrt{2}}\)</span> 是无理数。</p>
+<p><strong>情况 (a)</strong>：首先假设 <span class="arithmatex">\(\sqrt{2}^{\sqrt{2}}\)</span> 是有理数。但这立即得出了我们的主张，因为 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(y\)</span> 是无理数且 <span class="arithmatex">\(x^{y}\)</span> 是有理数。</p>
+<p><strong>情况 (b)</strong>：现在假设 <span class="arithmatex">\(\sqrt{2}^{\sqrt{2}}\)</span> 是无理数。我们对 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(y\)</span> 的第一次尝试并不完全正确，但现在我们有了一个新的无理数可以尝试，即 <span class="arithmatex">\(\sqrt{2}^{\sqrt{2}}\)</span> 。所以，让我们尝试设定 <span class="arithmatex">\(x = \sqrt{2}^{\sqrt{2}}\)</span> 且 <span class="arithmatex">\(y = \sqrt{2}\)</span> 。那么：</p>
+<div class="arithmatex">\[
+x^{y} = (\sqrt{2}^{\sqrt{2}})^{\sqrt{2}} = \sqrt{2}^{\sqrt{2} \cdot \sqrt{2}} = \sqrt{2}^{2} = 2.
+\]</div>
+<p>其中第二个等号由公理 <span class="arithmatex">\((x^{y})^{z} = x^{yz}\)</span> 得出。但现在我们再次从两个无理数 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(y\)</span> 出发，得到了有理数 <span class="arithmatex">\(x^{y}\)</span> 。</p>
+<p>既然情况 (a) 或情况 (b) 必居其一，我们因此断定定理 2.8 的陈述为真。证毕。</p>
+<p>在结束之前，让我们指出上述证明的一个奇特之处。满足定理 2.8 断言的实际数字 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(y\)</span> 到底是什么？它们是 <span class="arithmatex">\(x = \sqrt{2}\)</span> 和 <span class="arithmatex">\(y = \sqrt{2}\)</span> 吗？还是 <span class="arithmatex">\(x = \sqrt{2}^{\sqrt{2}}\)</span> 和 <span class="arithmatex">\(y = \sqrt{2}\)</span> ？嗯，既然我们做了分情况分析，目前还不清楚这两个选择中哪一个实际上是正确的。换句话说，我们刚刚演示了一些相当了不起的东西，被称为 <strong>非构造性证明</strong> (Non-constructive Proof)：我们已经证明了某个对象 <span class="arithmatex">\(X\)</span> 存在，但却没有明确透露 <span class="arithmatex">\(X\)</span> 本身是什么！</p>
+<h2 id="7">7 编写证明时的常见错误</h2>
+<p>编写清晰简洁的证明的能力是一件了不起的事情，可以说是人们可以达到的最高形式的知识启迪之一。它要求你的大脑对自己内在的运作方式（即你的思维过程）进行批判性反思，并将其重新组织成一连串连贯且合乎逻辑的想法。换句话说，你的思维正在最基本的层面上自我完善，超越了计算机科学或任何特定学习领域的界限。</p>
+<p>与任何此类基础性成就一样，培养编写严谨证明的能力可能是你在大学面临的最困难的学习挑战之一，所以如果它给你带来麻烦，请不要绝望；你并不孤单。在这里，大量大量的练习是无可替代的：阅读大量的证明，并在你开发自己的方法时尝试模仿它们的风格和形式。为了帮助你开始迈向成功，我们现在就撰写证明时的常见陷阱提出一些警示（Red Flags）。让我们从一个简单但常见的错误开始。</p>
+<p><strong>断言 2.1</strong>。 <span class="arithmatex">\(-2 = 2\)</span></p>
+<p><strong>证明？</strong> 假设 <span class="arithmatex">\(-2 = 2\)</span> 。对两边平方，我们得到 <span class="arithmatex">\((-2)^{2} = 2^{2}\)</span> ，或 <span class="arithmatex">\(4 = 4\)</span> ，这是真的。我们得出结论： <span class="arithmatex">\(-2 = 2\)</span> ，正如所愿。 ♠</p>
+<p>这个定理显然是假的，那我们做错了什么？我们的算术是正确的，每一步都严格遵循前一步。所以，错误一定就在证明的最开始，我们做出了一个厚颜无耻的假设：即 <span class="arithmatex">\(-2 = 2\)</span> 。但等等，这不正是我们要证明的陈述吗？没错。换句话说，为了证明陈述 <span class="arithmatex">\(P \equiv -2 = 2\)</span> ，我们刚刚证明了 <span class="arithmatex">\(P \implies \text{True}\)</span> ，这与证明 <span class="arithmatex">\(P\)</span> 本身是不一样的。 <strong>教训 #1：在编写证明时，不要假设你旨在证明的断言！</strong></p>
+<p>教训 #2 是关于数字零：特别是，千万不要忘记考虑变量取值为 0 的情况。否则，可能会发生这种情况：</p>
+<p><strong>断言 2.2</strong>。 <span class="arithmatex">\(1 = 2\)</span> 。</p>
+<p><strong>证明？</strong> 假设对于整数 <span class="arithmatex">\(x, y \in \mathbb{Z}\)</span> ，有 <span class="arithmatex">\(x = y\)</span> 。那么：</p>
+<div class="arithmatex">\[
+\begin{array}{l} x^{2} - xy = x^{2} - y^{2} \quad (\text{因为 } x = y) \\ x(x - y) = (x + y)(x - y) \\ x = x + y \quad (\text{等式两边同时除以 } x - y) \\ x = 2x \\ \end{array}
+\]</div>
+<p>设定 <span class="arithmatex">\(x = y = 1\)</span> 即可得出该主张。</p>
+<p>但是，显然 <span class="arithmatex">\(1 \neq 2\)</span> ，除非你的小学老师在骗你。我们哪里做错了？在推导第三个等式时，我们除以了 <span class="arithmatex">\((x - y)\)</span> 。在我们的设定中 <span class="arithmatex">\((x - y)\)</span> 的值是多少？零。除以零是没有定义的；因此第三个等号不成立。</p>
+<p>教训 #3 是说在混合负数和不等式时要小心。例如：</p>
+<p><strong>断言 2.3</strong>。 <span class="arithmatex">\(4 \leq 1\)</span> 。</p>
+<p><strong>证明？</strong> 我们知道 <span class="arithmatex">\(-2 \leq 1\)</span> ；对该不等式的两边平方，得 <span class="arithmatex">\(4 \leq 1\)</span> 。</p>
+<blockquote>
+<p>概念检查！要了解为什么这个证明失败了，请问自己：如果 <span class="arithmatex">\(a \leq b\)</span> ，那么必然有 <span class="arithmatex">\(|a| \leq |b|\)</span> 吗？你能给出一个反例吗？</p>
+</blockquote>
+<p>此外，不要忘记，在一个不等式两边同时乘以一个负数会反转不等式的方向！例如，在 <span class="arithmatex">\(-2 &lt; 5\)</span> 的两边乘以 <span class="arithmatex">\(-1\)</span> 会得到 <span class="arithmatex">\(2 &gt; -5\)</span> ，正如你所预料的那样。</p>
+<h2 id="8">8 证明中的风格与内容</h2>
+<p>我们以一些一般性的建议来结束。首先，养成在写下证明的下一个句子之前仔细思考的习惯。如果你不能清晰地解释为什么这一步是合理的，那么你就是在跨越一个鸿沟，你需要回去再多思考一下。理论上，证明中的每一步都必须通过援引定义或一般公理来证明其合理性。在实践中，这样做到的深度是一个品味（Taste）的问题。例如，我们可以将“既然 <span class="arithmatex">\(a\)</span> 是整数， <span class="arithmatex">\((2a^{2} + 2a)\)</span> 也是整数”这一步分解为更多步骤。[练习：它们是什么？] 仅当你绝对确信：(1) 它是正确的，且 (2) 读者会自动同意它是正确的时候，才能在不加证明的情况下陈述一个理由。</p>
+<p>请注意，在证明 <span class="arithmatex">\(\sqrt{2}\)</span> 是无理数时，我们两次使用了结果：“对于任何整数 <span class="arithmatex">\(n\)</span> ，如果 <span class="arithmatex">\(n^{2}\)</span> 是偶数，那么 <span class="arithmatex">\(n\)</span> 也是偶数”。这表明它在许多证明中可能是一个有用的事实。在一个更复杂的证明中有用的附属结果（Subsidiary Result）被称为 <strong>引理</strong> (Lemma)。将冗长的证明分解为几个引理通常是一个好主意。这类似于大型编程任务应该划分为较小的子程序的方式。此外，尽可能使每个引理（像每个子程序一样）具有普适性，以便它可以重用于其他地方。</p>
+<p>引理和定理之间的分界线并不明确。通常，在撰写论文时，定理是那些你想要从论文“导出”到世界其他地方的命题，而引理是用于局部证明你的定理的命题。然而，有一些引理（例如泵引理 Pumping Lemma 和上升引理 Lifting Lemma）可能比用来证明它们的定理更著名、更重要。</p>
+<p>最后，你应该记住，本讲的重点不是我们证明的具体陈述，而是不同的证明策略及其逻辑结构。确保你清晰地理解它们；在家庭作业和考试的证明中，当然还有在 CS70 之后的更广阔天地中，你都会用到它们。</p>
+<h2 id="9">9 练习</h2>
+<ol>
+<li>推固定理 2.2 的证明，使其适用于任何正整数 <span class="arithmatex">\(n\)</span> 。（提示：假设 <span class="arithmatex">\(n\)</span> 有 <span class="arithmatex">\(k\)</span> 位，并将 <span class="arithmatex">\(n\)</span> 的各位数字记为 <span class="arithmatex">\(a_{i}\)</span> ，使得 <span class="arithmatex">\(n = \sum_{i=0}^{k-1} (a_{i} \cdot 10^{i})\)</span> 。）</li>
+<li>证明引理 2.2。（提示：先尝试直接证明。然后，尝试逆否命题证明。哪种证明方法更适合证明这个引理？）</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/0nikod/study-docs-zh" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

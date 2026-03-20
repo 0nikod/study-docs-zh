@@ -1,0 +1,1655 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="一个存放外国课程的中文翻译的网站">
+      
+      
+        <meta name="author" content="0nikod">
+      
+      
+        <link rel="canonical" href="https://study-docs-zh.example.com/CS70/016/">
+      
+      
+        <link rel="prev" href="../015/">
+      
+      
+        <link rel="next" href="../017/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>016 - 随机变量：分布与期望 - 外国课程课程笔记翻译</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#016-" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="外国课程课程笔记翻译" class="md-header__button md-logo" aria-label="外国课程课程笔记翻译" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            外国课程课程笔记翻译
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              016 - 随机变量：分布与期望
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  课程笔记翻译
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../000/" class="md-tabs__link">
+          
+  
+  
+  CS70
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="外国课程课程笔记翻译" class="md-nav__button md-logo" aria-label="外国课程课程笔记翻译" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    外国课程课程笔记翻译
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    课程笔记翻译
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CS70
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CS70
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../000/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    000 - 集合与数学符号回顾
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../001/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    001 - 命题逻辑与量词
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../002/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    002 - 证明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../003/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    003 - 数学归纳法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../004/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    004 - 稳定匹配问题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../005/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    005 - 图论简介
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    006 - 同余运算
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    007 - 公钥加密
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../008/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    008 - 多项式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    009 - 纠错码
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    010 - 迈向无穷：可数性与可计算性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    011 - 自指与可计算性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    012 - 计数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    013 - 离散概率入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../014/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    014 - 条件概率、独立性和事件组合
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../015/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    015 - 三个杀手级应用：哈希、收集优惠券和负载均衡
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    016 - 随机变量：分布与期望
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    016 - 随机变量：分布与期望
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 随机变量
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        置换的固定点
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        随机变量的正规定义
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 概率分布
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        伯努利分布
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        二项分布
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        超几何分布
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 多个随机变量与独立性
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 期望
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 示例
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 期望的线性性质
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 期望线性性质的应用
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../017/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    017 - 随机变量的函数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../018/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    018 - 几何分布和泊松分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../019/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    019 - 集中不等式与大数定律
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../020/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    020 - 连续概率分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 随机变量
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        置换的固定点
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        随机变量的正规定义
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 概率分布
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        伯努利分布
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        二项分布
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        超几何分布
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 多个随机变量与独立性
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 期望
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 示例
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 期望的线性性质
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 期望线性性质的应用
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="016-">016 - 随机变量：分布与期望</h1>
+<p>回顾我们将概率实验设定为从一组可能值中抽取样本的过程，并为实验的每个可能结果分配一个概率。例如，如果我们抛一枚均匀硬币 <span class="arithmatex">\(n\)</span> 次，那么存在 <span class="arithmatex">\(2 ^ { n }\)</span> 个可能的结果，每个结果的可能性相等，概率为 <span class="arithmatex">\(\textstyle \frac { 1 } { 2 ^ { n } }\)</span> 。</p>
+<p>现在假设我们想在实验中进行测量。例如，我们可以问在 <span class="arithmatex">\(n\)</span> 次硬币抛掷中正面朝上的次数是多少；将这个数字称为 <span class="arithmatex">\(X\)</span> 。当然，<span class="arithmatex">\(X\)</span> 不是一个固定的数字，它取决于我们获得的实际硬币翻转序列。例如，如果 <span class="arithmatex">\(n = 4\)</span> 并且我们观察到结果 <span class="arithmatex">\(\omega = H T H H\)</span> ，那么 <span class="arithmatex">\(X = 3\)</span> ；而如果我们观察到结果 <span class="arithmatex">\(\omega = H T H T\)</span> ，那么 <span class="arithmatex">\(X = 2\)</span> 。在这个 <span class="arithmatex">\(n\)</span> 次硬币抛掷的例子中，我们只知道 <span class="arithmatex">\(X\)</span> 是 0 到 <span class="arithmatex">\(n\)</span> 之间的整数，但在观察到 <span class="arithmatex">\(n\)</span> 次硬币翻转的实际结果并计算有多少个正面之前，我们并不知道它的确切值。因为每个可能的结果都被分配了一个概率，所以值 <span class="arithmatex">\(X\)</span> 对于它可以取的每个可能值也带有概率。下表列出了在 <span class="arithmatex">\(n = 4\)</span> 次硬币抛掷的示例中 <span class="arithmatex">\(X\)</span> 可以取的所有可能值，以及它们各自的概率。</p>
+<table><tr><td>结果 ω</td><td>X 的值（正面个数）</td><td>发生的概率</td></tr><tr><td>TTTT</td><td>0</td><td>1/16</td></tr><tr><td>HTTT, THTT, TTHT, TTTH</td><td>1</td><td>4/16</td></tr><tr><td>HHTT, HTHT, HTTH, THHT, THTH, TTHH</td><td>2</td><td>6/16</td></tr><tr><td>HHHT, HHTH, HTHH, THHH</td><td>3</td><td>4/16</td></tr><tr><td>HHHH</td><td>4</td><td>1/16</td></tr></table>
+
+<p>这种取决于概率实验结果的值 <span class="arithmatex">\(X\)</span> 被称为<strong>随机变量</strong>（Random Variable，简称 <span class="arithmatex">\(r.v.\)</span> ）。正如我们从上面的例子中看到的，随机变量 <span class="arithmatex">\(X\)</span> 通常没有一个确定的值，而是对 <span class="arithmatex">\(X\)</span> 可以取的一组可能值有一个概率分布，这就是为什么它被称为随机的。因此，“n 次硬币抛掷中正面朝上的次数是多少？”这个问题并不完全有意义，因为答案 <span class="arithmatex">\(X\)</span> 是一个随机变量。但“n 次硬币抛掷中典型的正面次数是多少？”这个问题是有意义的 —— 它是在问，如果我们多次重复抛掷 <span class="arithmatex">\(n\)</span> 枚硬币的实验，<span class="arithmatex">\(X\)</span> （正面次数）的平均值是多少。这个平均值被称为 <span class="arithmatex">\(X\)</span> 的<strong>期望</strong>（Expectation），是实验最有用的总结（也称为统计量）之一。</p>
+<h2 id="1">1 随机变量</h2>
+<p>在我们正式阐述上述概念之前，让我们看另一个例子来加强对随机变量的概念理解。</p>
+<h2 id="_1">置换的固定点</h2>
+<p>问题：假设我们收集 <span class="arithmatex">\(n\)</span> 名学生的作业，随机打乱后返还给学生。有多少名学生收到了自己的作业？</p>
+<p>这里概率空间由作业的所有 <span class="arithmatex">\(n!\)</span> 种置换组成，每种置换的概率相等，均为 <span class="arithmatex">\(\textstyle \frac { 1 } { n ! }\)</span> 。如果我们把作业标记为 <span class="arithmatex">\(1, 2, \ldots, n\)</span> ，那么每个样本点都是一个置换 <span class="arithmatex">\(\pmb { \pi } = ( \pi _ { 1 } , \ldots , \pi _ { n } )\)</span> ，其中 <span class="arithmatex">\(\pi _ { i }\)</span> 是返还给第 <span class="arithmatex">\(i\)</span> 名学生的作业。如果 <span class="arithmatex">\(\pi _ { i } = i\)</span> ，即如果学生 <span class="arithmatex">\(i\)</span> 收到了自己的作业，我们称 <span class="arithmatex">\(i\)</span> 为 <span class="arithmatex">\(\pi\)</span> 的一个<strong>固定点</strong>（Fixed Point）。</p>
+<p>正如上面的抛硬币案例一样，我们的问题没有简单的数值答案（例如 4），因为结果取决于我们选择的具体置换（即样本点）。让我们把固定点的数量称为 <span class="arithmatex">\(X _ { n }\)</span> ，它是一个在集合 <span class="arithmatex">\(\{ 0, 1, 2, \ldots, n \}\)</span> 中取值的随机变量。（实际上，<span class="arithmatex">\(X _ { n } = n - 1\)</span> 是不可能的：为什么？）</p>
+<h2 id="_2">随机变量的正规定义</h2>
+<p>我们现在正式阐述上面讨论的概念。</p>
+<p><strong>定义 16.1</strong>（随机变量）。样本空间 <span class="arithmatex">\(\Omega\)</span> 上的<strong>随机变量</strong>（Random Variable） <span class="arithmatex">\(X\)</span> 是一个函数 <span class="arithmatex">\(X \colon \Omega \to \mathbb { R }\)</span> ，它为每个样本点 <span class="arithmatex">\(\omega \in \Omega\)</span> 分配一个实数 <span class="arithmatex">\(X ( \omega )\)</span> 。</p>
+<p>在另行通知之前，我们将把注意力集中在<strong>离散</strong>（Discrete）的随机变量上，即它们在有限或可数无限的范围内取值。这意味着尽管我们将 <span class="arithmatex">\(X\)</span> 定义为从 <span class="arithmatex">\(\Omega\)</span> 到 <span class="arithmatex">\(\mathbb { R }\)</span> 的映射，但 <span class="arithmatex">\(X\)</span> 实际取的值集合 <span class="arithmatex">\(\{ X ( \omega ) \colon \omega \in \Omega \}\)</span> 是 <span class="arithmatex">\(\mathbb { R }\)</span> 的一个离散子集。</p>
+<p>随机变量通常可以用图 1 所示的图像来可视化。请注意，“随机变量”这个词其实有点误导：它是一个函数，所以它本身并没有什么随机性，而且它绝对不是一个变量！随机的是实验中实现的样本点，从而导致了随机变量将样本点映射到的值。</p>
+<p><img alt="" src="../images/acd9384eafce467bf4e2e529214193dce3ad91dd73db81719a582e00189f0aa5.jpg" /><br />
+图 1：随机变量在样本空间上定义的示意图。</p>
+<p><strong>练习</strong>。通过完成图 1 下方的图片，证明随机变量 <span class="arithmatex">\(X _ { 3 }\)</span> 唯一可能的值是 0、1 和 3，并且它们的概率分别为 <span class="arithmatex">\(\textstyle \frac 1 3\)</span> 、 <span class="arithmatex">\(\textstyle \frac { 1 } { 2 }\)</span> 和 <span class="arithmatex">\(\textstyle \frac { 1 } { 6 }\)</span> 。</p>
+<h2 id="2">2 概率分布</h2>
+<p>当我们在之前的讲义中介绍基本概率空间时，我们定义了两件事：</p>
+<ol>
+<li>样本空间 <span class="arithmatex">\(\Omega\)</span> ，由实验所有可能的结果（样本点）组成。</li>
+<li>每个样本点的概率。</li>
+</ol>
+<p>类似地，关于任何随机变量，也有两件重要的事：</p>
+<ol>
+<li>它可以取的值的集合。</li>
+<li>它取这些值的概率。</li>
+</ol>
+<p>由于随机变量定义在概率空间上，我们可以根据样本点的概率计算出这些概率。令 <span class="arithmatex">\(a\)</span> 为随机变量 <span class="arithmatex">\(X\)</span> 范围内的任何数字。那么集合</p>
+<div class="arithmatex">\[
+\left\{\omega \in \Omega : X (\omega) = a \right\}
+\]</div>
+<p>是样本空间中的一个事件（因为它是一个 <span class="arithmatex">\(\Omega\)</span> 的子集）。我们通常把这个事件简写为 “<span class="arithmatex">\(X = a\)</span>” 。由于 <span class="arithmatex">\(X = a\)</span> 是一个事件，我们可以讨论它的概率 <span class="arithmatex">\(\mathbb { P } [ X = a ]\)</span> 。对于 <span class="arithmatex">\(a\)</span> 的所有可能值，这些概率的集合被称为随机变量 <span class="arithmatex">\(X\)</span> 的<strong>分布</strong>（Distribution）。</p>
+<p><strong>定义 16.2</strong>（分布）。离散随机变量 <span class="arithmatex">\(X\)</span> 的<strong>分布</strong>（Distribution）是值集合 <span class="arithmatex">\(\{ ( a, \mathbb { P } [ X = a ] ) : a \in \mathcal { A } \}\)</span> ，其中 <span class="arithmatex">\(\mathcal { A }\)</span> 是 <span class="arithmatex">\(X\)</span> 所取的所有可能值的集合。</p>
+<p>因此，我们上面置换示例中随机变量 <span class="arithmatex">\(X\)</span> 的分布是：</p>
+<div class="arithmatex">\[
+\mathbb {P} [ X = 0 ] = \frac {1}{3}; \qquad \mathbb {P} [ X = 1 ] = \frac {1}{2}; \qquad \mathbb {P} [ X = 3 ] = \frac {1}{6}.
+\]</div>
+<p>如果需要，我们也可以对所有其他 <span class="arithmatex">\(a\)</span> 值写成 <span class="arithmatex">\(\mathbb { P } [ X = a ] = 0\)</span> 。</p>
+<p>随机变量的分布可以可视化为条形图，如图 2 所示。 <span class="arithmatex">\(x\)</span> 轴表示随机变量可以承担的值。在值 <span class="arithmatex">\(a\)</span> 处的条形高度是概率 <span class="arithmatex">\(\mathbb { P } [ X = a ]\)</span> 。通过查看样本空间中对应事件的概率，可以计算出这些概率中的每一个。</p>
+<p>请注意，对于 <span class="arithmatex">\(a \in \mathcal { A }\)</span> ，事件集合 <span class="arithmatex">\(X = a\)</span> 满足两个重要的性质：</p>
+<ul>
+<li>任何两个具有 <span class="arithmatex">\(a _ { 1 } \neq a _ { 2 }\)</span> 的事件 <span class="arithmatex">\(X = a _ { 1 }\)</span> 和 <span class="arithmatex">\(X = a _ { 2 }\)</span> 都是互斥的。</li>
+<li>所有这些事件的并集等于整个样本空间 <span class="arithmatex">\(\Omega\)</span> 。</li>
+</ul>
+<p>因此，事件集合形成了样本空间的一个划分（见图 2）。这两个性质都直接源于 <span class="arithmatex">\(X\)</span> 是定义在 <span class="arithmatex">\(\Omega\)</span> 上的函数这一事实，即 <span class="arithmatex">\(X\)</span> 为 <span class="arithmatex">\(\Omega\)</span> 中的每一个可能的样本点分配一个唯一的值。所以，当我们对事件 <span class="arithmatex">\(X = a\)</span> 的概率求和时，我们实际上是对所有样本点的概率求和，得到总和正好为 1。</p>
+<p><img alt="" src="../images/1836baa43956d2f5017a34033238764eb0ae11ba97dca7c76943cfe26dc4017d.jpg" /></p>
+<p><img alt="" src="../images/ff8b04c10cdb4b07d7f734ac4d4e42bd18da2e818940009676b57471477470ca.jpg" /><br />
+图 2：随机变量分布定义的示意图。</p>
+<h2 id="_3">伯努利分布</h2>
+<p>一个简单但也非常有用的概率分布是取值在 <span class="arithmatex">\(\{ 0, 1 \}\)</span> 中的随机变量的<strong>伯努利分布</strong>（Bernoulli Distribution）：</p>
+<div class="arithmatex">\[
+\mathbb {P} [ X = i ] = \left\{ \begin{array}{l l} p, &amp; \text {若 } i = 1, \\ 1 - p, &amp; \text {若 } i = 0, \end{array} \right.
+\]</div>
+<p>其中 <span class="arithmatex">\(0 \leq p \leq 1\)</span> 。我们说 <span class="arithmatex">\(X\)</span> 服从参数为 <span class="arithmatex">\(p\)</span> 的伯努利分布，并计作</p>
+<div class="arithmatex">\[
+X \sim \operatorname {Bernoulli} (p) \qquad \text {或} \qquad X \sim \operatorname {Ber} (p).
+\]</div>
+<h2 id="_4">二项分布</h2>
+<p>让我们回到上面的抛硬币例子，在那里我们将随机变量 <span class="arithmatex">\(X\)</span> 定义为正面的数量。更正式地，考虑由 <span class="arithmatex">\(n\)</span> 次独立抛掷一枚以概率 <span class="arithmatex">\(p\)</span> 出现 <span class="arithmatex">\(H\)</span>（正面）的有偏硬币组成的随机实验。每个样本点 <span class="arithmatex">\(\omega\)</span> 是抛掷序列，而 <span class="arithmatex">\(X ( \omega )\)</span> 被定义为 <span class="arithmatex">\(\omega\)</span> 中正面的数量。例如，当 <span class="arithmatex">\(n = 3\)</span> 时，<span class="arithmatex">\(X ( T H H ) = 2\)</span> 。</p>
+<p>为了计算 <span class="arithmatex">\(X\)</span> 的分布，我们首先列举 <span class="arithmatex">\(X\)</span> 可以取的所有可能值。它们仅仅是 <span class="arithmatex">\(0, 1, \ldots, n\)</span> 。然后我们计算每个事件 <span class="arithmatex">\(X = i\)</span> 的概率，其中 <span class="arithmatex">\(i = 0, 1, \ldots, n\)</span> 。事件 <span class="arithmatex">\(X = i\)</span> 的概率是所有恰好有 <span class="arithmatex">\(i\)</span> 个正面的样本点的概率之和（例如，如果 <span class="arithmatex">\(n = 3\)</span> 且 <span class="arithmatex">\(i = 2\)</span> ，则会有三个这样的样本点 <span class="arithmatex">\(\{ H H T, H T H, T H H \}\)</span> ）。任何这样的样本点的概率都是 <span class="arithmatex">\(p ^ { i } ( 1 - p ) ^ { n - i }\)</span> ，因为硬币翻转是独立的。恰好有 <span class="arithmatex">\(\binom { n } { i }\)</span> 个这样的样本点。因此，</p>
+<div class="arithmatex">\[
+\mathbb {P} [ X = i ] = \binom {n} {i} p ^ {i} (1 - p) ^ {n - i}, \quad \text {对于 } i = 0, 1, \dots , n. \tag {1}
+\]</div>
+<p>这种分布被称为<strong>二项分布</strong>（Binomial Distribution），是概率论中最重要的分布之一。服从这种分布的随机变量被称为二项随机变量，我们记作</p>
+<div class="arithmatex">\[
+X \sim \operatorname {Bin} (n, p),
+\]</div>
+<p>其中 <span class="arithmatex">\(n\)</span> 表示试验次数，<span class="arithmatex">\(p\)</span> 表示成功的概率（在示例中为观察到 <span class="arithmatex">\(H\)</span> ）。二项分布的一个例子如图 3 所示。请注意，由于上述提到的 <span class="arithmatex">\(X\)</span> 的性质，必然有 <span class="arithmatex">\(\textstyle \sum _ { i = 0 } ^ { n } \mathbb { P } [ X = i ] = 1\)</span> ，这意味着 <span class="arithmatex">\(\textstyle \sum _ { i = 0 } ^ { n } \binom { n } { i } p ^ { i } ( 1 - p ) ^ { n - i } = 1\)</span> 。这为之前讲义中我们从组合学角度看过的二项式定理提供了一个概率证明，其中 <span class="arithmatex">\(a = p\)</span> 且 <span class="arithmatex">\(b = 1 - p\)</span> 。</p>
+<p><img alt="" src="../images/13527c1a0b02f9412d952d7fdf6d4d68d1efa33b33b5f0666a837122b1e2230c.jpg" /></p>
+<p><img alt="" src="../images/b4f33081d982f94f9419f4e4567dc2d7cbb9d09cc5f3d3b3a82baa224ba8d3db.jpg" /><br />
+图 3：两种 <span class="arithmatex">\(( n, p )\)</span> 选择下的二项分布。</p>
+<p>虽然我们将二项分布定义为涉及抛硬币的实验，但这种分布对于模拟许多现实世界的问题非常有用。例如，考虑之前研究过的纠错问题。回想一下，我们想将 <span class="arithmatex">\(n\)</span> 个数据包编码为 <span class="arithmatex">\(n + k\)</span> 个数据包，使得接收者可以从收到的任何 <span class="arithmatex">\(n\)</span> 个数据包中重构原始的 <span class="arithmatex">\(n\)</span> 个数据包。但在实践中，丢失的数据包数量是随机的，那么我们如何选择冗余量 <span class="arithmatex">\(k\)</span> 呢？如果我们假设每个数据包丢失的概率为 <span class="arithmatex">\(p\)</span> 且丢包是相互独立的，那么如果我们发送 <span class="arithmatex">\(n + k\)</span> 个数据包，接收到的数据包数量就是一个服从二项分布的随机变量 <span class="arithmatex">\(X\)</span> ： <span class="arithmatex">\(X \sim \operatorname {Bin} ( n + k, 1 - p )\)</span> （我们抛了 <span class="arithmatex">\(n + k\)</span> 次硬币，每次硬币为正面（收到数据包）的概率为 <span class="arithmatex">\(1 - p\)</span> ）。因此，成功解码原始数据的概率为：</p>
+<div class="arithmatex">\[
+\mathbb {P} [ X \geq n ] = \sum_ {i = n} ^ {n + k} \mathbb {P} [ X = i ] = \sum_ {i = n} ^ {n + k} \binom {n + k} {i} (1 - p) ^ {i} p ^ {n + k - i }.
+\]</div>
+<p>给定固定的 <span class="arithmatex">\(n\)</span> 和 <span class="arithmatex">\(p\)</span> ，我们可以选择 <span class="arithmatex">\(k\)</span> 使得该概率不小于（比如）0.99。</p>
+<h2 id="_5">超几何分布</h2>
+<p>考虑一个装有 <span class="arithmatex">\(N = B + W\)</span> 个球的瓮，其中 <span class="arithmatex">\(B\)</span> 个是黑球， <span class="arithmatex">\(W\)</span> 个是白球。假设你随机地从瓮中<strong>有放回</strong>地抽取 <span class="arithmatex">\(n \leq N\)</span> 个球，并令 <span class="arithmatex">\(X\)</span> 表示样本中黑球的数量。 <span class="arithmatex">\(X\)</span> 的概率分布是什么？由于每次抽取看到黑球的概率独立于所有其他抽取，均为 <span class="arithmatex">\(B / N\)</span> ，因此 <span class="arithmatex">\(X\)</span> 服从参数为 <span class="arithmatex">\(p = B / N\)</span> 的二项分布 <span class="arithmatex">\(\operatorname {Bin} ( n, p )\)</span> 。</p>
+<p>如果你随机地从瓮中<strong>无放回</strong>地抽取 <span class="arithmatex">\(n \leq N\)</span> 个球呢？在这种情况下，在第 <span class="arithmatex">\(i\)</span> 次抽取中看到黑球的概率取决于已经抽出的 <span class="arithmatex">\(i - 1\)</span> 个球的颜色；也就是说，与有放回抽样的情况不同，各次抽取是不独立的。在这种设定下，黑球数量 <span class="arithmatex">\(Y\)</span> 的概率分布可以通过如下方式找到。</p>
+<p>由于抽取 <span class="arithmatex">\(n\)</span> 个球的所有方式都是等可能的，我们处于一个均匀概率空间 <span class="arithmatex">\(\Omega\)</span> 中，因此我们可以使用计数来计算概率。具体来说，对于任何 <span class="arithmatex">\(k = 0, 1, \ldots, n\)</span> ，我们有</p>
+<div class="arithmatex">\[
+\mathbb {P} [ Y = k ] = \frac {\left| E _ {k} \right|}{\left| \Omega \right|}, \tag {2}
+\]</div>
+<p>其中 <span class="arithmatex">\(E _ { k } \subseteq \Omega\)</span> 是包含恰好 <span class="arithmatex">\(k\)</span> 个黑球的结果集合。可能的结果总数为 <span class="arithmatex">\(| \Omega | = \binom { N } { n }\)</span> 。包含恰好 <span class="arithmatex">\(k\)</span> 个黑球的结果总数为</p>
+<div class="arithmatex">\[
+| E _ {k} | = \binom {B} {k} \binom {N - B} {n - k};
+\]</div>
+<p>之所以如此，是因为有 <span class="arithmatex">\(\binom { B } { k }\)</span> 种方式从瓮中的 <span class="arithmatex">\(B\)</span> 个黑球中选择 <span class="arithmatex">\(k\)</span> 个，以及 <span class="arithmatex">\(\binom { N - B } { n - k }\)</span> 种方式从瓮中的 <span class="arithmatex">\(N - B\)</span> 个白球中选择剩余的 <span class="arithmatex">\(n - k\)</span> 个。将这些计算代入 (2)，我们得出结论：</p>
+<div class="arithmatex">\[
+\mathbb {P} [ Y = k ] = \frac {\binom {B} {k} \binom {N - B} {n - k}}{\binom {N} {n}},
+\]</div>
+<p>对于 <span class="arithmatex">\(k \in \{ 0, 1, \ldots, n \}\)</span> 。（注意，如果 <span class="arithmatex">\(j &gt; m\)</span> ，则 <span class="arithmatex">\(\binom { m } { j } = 0\)</span> ，因此只有当 <span class="arithmatex">\(\max ( 0, n + B - N ) \leq k \leq \min ( n, B )\)</span> 时 <span class="arithmatex">\(\mathbb { P } [ Y = k ] \neq 0\)</span> 。）这种概率分布被称为参数为 <span class="arithmatex">\(N, B, n\)</span> 的<strong>超几何分布</strong>（Hypergeometric Distribution），我们记作</p>
+<div class="arithmatex">\[
+Y \sim \operatorname {Hypergeometric} (N, B, n).
+\]</div>
+<h2 id="3">3 多个随机变量与独立性</h2>
+<p>人们通常会对同一样本空间上的多个随机变量感兴趣。例如，考虑抛掷三枚硬币的样本空间。人们可以定义许多随机变量：例如，表示正面数量的随机变量 <span class="arithmatex">\(X\)</span> ，或者表示反面数量的随机变量 <span class="arithmatex">\(Y\)</span> ，或者表示第一次抛掷是否为 <span class="arithmatex">\(H\)</span> 的二进制随机变量 <span class="arithmatex">\(Z\)</span> 。请注意，对于每个样本点，任何随机变量都有一个特定值：例如，对于 <span class="arithmatex">\(\omega = H T T\)</span> ，我们有 <span class="arithmatex">\(X ( \omega ) = 1\)</span> , <span class="arithmatex">\(Y ( \omega ) = 2\)</span> , <span class="arithmatex">\(Z ( \omega ) = 1\)</span> 。</p>
+<p>分布的概念随后可以扩展到多个随机变量取值组合的概率。</p>
+<p><strong>定义 16.3</strong>。两个离散随机变量 <span class="arithmatex">\(X\)</span> 和 <span class="arithmatex">\(Y\)</span> 的<strong>联合分布</strong>（Joint Distribution）是值集合 <span class="arithmatex">\(\{ ( ( a, b ), \mathbb { P } [ X = a, Y = b ] ) : a \in \mathcal { A }, b \in \mathcal { B } \}\)</span> ，其中 <span class="arithmatex">\(\mathcal { A }\)</span> 是 <span class="arithmatex">\(X\)</span> 所取的所有可能结果的集合， <span class="arithmatex">\(\mathcal { B }\)</span> 是 <span class="arithmatex">\(Y\)</span> 所取的所有可能结果的集合。</p>
+<p>给定 <span class="arithmatex">\(X\)</span> 和 <span class="arithmatex">\(Y\)</span> 的联合分布， <span class="arithmatex">\(X\)</span> 的分布 <span class="arithmatex">\(\mathbb { P } [ X = a ]\)</span> 被称为 <span class="arithmatex">\(X\)</span> 的<strong>边缘分布</strong>（Marginal Distribution），可以通过对 <span class="arithmatex">\(Y\)</span> 的值求和来找到。也就是说，</p>
+<div class="arithmatex">\[
+\mathbb {P} [ X = a ] = \sum_ {b \in \mathcal {B}} \mathbb {P} [ X = a, Y = b ].
+\]</div>
+<p><span class="arithmatex">\(Y\)</span> 的边缘分布定义类似。</p>
+<p>任意一组随机变量 <span class="arithmatex">\(X _ { 1 } , \ldots , X _ { n }\)</span> （例如， <span class="arithmatex">\(X _ { i }\)</span> 可以是 <span class="arithmatex">\(n\)</span> 次掷骰子序列中第 <span class="arithmatex">\(i\)</span> 次的值）的联合分布是 <span class="arithmatex">\(\mathbb { P } [ X _ { 1 } = a _ { 1 } , \ldots , X _ { n } = a _ { n } ]\)</span> ，其中 <span class="arithmatex">\(a _ { i } \in \mathcal { A } _ { i }\)</span> 且 <span class="arithmatex">\(\mathcal { A } _ { i }\)</span> 是 <span class="arithmatex">\(X _ { i }\)</span> 的可能值集合。 <span class="arithmatex">\(X _ { i }\)</span> 的边缘分布可以通过对其他变量的所有可能值求和来获得。</p>
+<p>随机变量的独立性定义与事件的独立性定义类似：</p>
+<p><strong>定义 16.4</strong>（独立性）。如果对于所有值 <span class="arithmatex">\(a, b\)</span> ，事件 <span class="arithmatex">\(X = a\)</span> 和 <span class="arithmatex">\(Y = b\)</span> 都是独立的，则称同一概率空间上的随机变量 <span class="arithmatex">\(X\)</span> 和 <span class="arithmatex">\(Y\)</span> 是<strong>独立</strong>（Independent）的。等价地，独立随机变量的联合分布可以分解为</p>
+<div class="arithmatex">\[
+\mathbb {P} [ X = a, Y = b ] = \mathbb {P} [ X = a ] \mathbb {P} [ Y = b ], \quad \forall a, b.
+\]</div>
+<p>两个以上随机变量的相互独立性定义类似。</p>
+<p>独立随机变量的一个非常重要的例子是独立事件的指示随机变量。如果 <span class="arithmatex">\(I _ { i }\)</span> 表示第 <span class="arithmatex">\(i\)</span> 次抛硬币为 <span class="arithmatex">\(H\)</span> 的指示随机变量，那么 <span class="arithmatex">\(I _ { 1 }, \ldots, I _ { n }\)</span> 是相互独立的随机变量。这个例子引出了常用的短语 “<strong>独立同分布</strong>（Independent and Identically Distributed，简称 i.i.d.）随机变量集”。在这个例子中， <span class="arithmatex">\(\{ I _ { 1 }, \ldots, I _ { n } \}\)</span> 是一组 i.i.d. 指示随机变量。</p>
+<h2 id="4">4 期望</h2>
+<p>随机变量的分布包含了关于该随机变量的所有信息。然而，在大多数应用中，计算随机变量的完整分布是非常困难的。例如，考虑 <span class="arithmatex">\(n = 20\)</span> 的作业置换示例。原则上，我们必须枚举 <span class="arithmatex">\(20! \approx 2.4 \times 10 ^ { 18 }\)</span> 个样本点，计算每个点上的 <span class="arithmatex">\(X\)</span> 值，并统计 <span class="arithmatex">\(X\)</span> 取其每个可能值的点数（尽管在实践中我们可以简化这种计算）！此外，即使我们可以计算随机变量的完整分布，它通常也没有很强的信息性。</p>
+<p>出于这些原因，我们寻求将分布总结为一种更紧凑、方便、且更易于计算的形式。最广泛使用的这种形式是随机变量的<strong>期望</strong>（Expectation，或称均值 Mean 或平均值 Average）。</p>
+<p><strong>定义 16.5</strong>（期望）。离散随机变量 <span class="arithmatex">\(X\)</span> 的<strong>期望</strong>（Expectation）定义为</p>
+<div class="arithmatex">\[
+\mathbb {E} [ X ] = \sum_ {a \in \mathcal {A}} a \times \mathbb {P} [ X = a ], \tag {3}
+\]</div>
+<p>其中求和是对随机变量所取的所有可能值进行的。</p>
+<p><strong>技术说明</strong>。只要 (3) 式右手边的和是绝对收敛的，即 <span class="arithmatex">\(\textstyle \sum _ { a \in \mathcal { A } } | a | \times \mathbb { P } [ X = a ] &lt; \infty\)</span> ，期望就是定义良好的。存在期望不存在的离散随机变量，例如分布为 <span class="arithmatex">\(\mathbb { P } [ X = i ] = \frac { 6 } { \pi ^ { 2 } i ^ { 2 } }\)</span> （对于所有正整数 <span class="arithmatex">\(i\)</span> ）的随机变量 <span class="arithmatex">\(X\)</span> 。（这里系数 <span class="arithmatex">\(\frac { 6 } { \pi ^ { 2 } }\)</span> 的原因是为了使概率之和为 1，因为 <span class="arithmatex">\(\textstyle \sum _ { i = 1 } ^ { \infty } \frac { 1 } { i ^ { 2 } } = \frac { \pi ^ { 2 } } { 6 }\)</span> 。）</p>
+<p>对于只有 3 名学生的更简单的置换示例，期望是</p>
+<div class="arithmatex">\[
+\mathbb {E} [ X ] = \left(0 \times \frac {1}{3}\right) + \left(1 \times \frac {1}{2}\right) + \left(3 \times \frac {1}{6}\right) = 0 + \frac {1}{2} + \frac {1}{2} = 1.
+\]</div>
+<p>也就是说，三个物品的置换中固定点的期望数量正好是 1。</p>
+<p>期望在某种意义上可以被看作是随机变量的一个 “典型” 值（尽管请注意， <span class="arithmatex">\(\mathbb { E } [ X ]\)</span> 实际上可能不是 <span class="arithmatex">\(X\)</span> 可以取的值）。对于给定的随机变量，期望具有多大的代表性是一个非常重要的问题，我们将在后面的课程中回顾。</p>
+<p>这里是随机变量期望的一个物理阐释：想象如图 4 所示，刻出一个概率分布的木质轮廓图。那么分布的期望值就是该物体的平衡点（直接位于重心下方）。</p>
+<p><img alt="" src="../images/af2b0b2cb1c52d248ea9b5101435832cf5092cc502f852dfe7efc043120ec90f.jpg" /><br />
+图 4：将期望值作为平衡点的物理阐释。</p>
+<h2 id="41">4.1 示例</h2>
+<ol>
+<li>单个筛子。掷一次公平的筛子，令 <span class="arithmatex">\(X\)</span> 为出现的点数。那么 <span class="arithmatex">\(X\)</span> 以每个 <span class="arithmatex">\(\textstyle \frac { 1 } { 6 }\)</span> 的概率取值 <span class="arithmatex">\(1, 2, \ldots, 6\)</span> ，所以</li>
+</ol>
+<div class="arithmatex">\[
+\mathbb {E} [ X ] = \frac {1}{6} (1 + 2 + 3 + 4 + 5 + 6) = \frac {2 1}{6} = \frac {7}{2}.
+\]</div>
+<p>注意 <span class="arithmatex">\(X\)</span> 实际上从未取到其期望值 <span class="arithmatex">\(\textstyle \frac { 7 } { 2 }\)</span> 。</p>
+<ol>
+<li>两个筛子。掷两个公平的筛子，令 <span class="arithmatex">\(X\)</span> 为它们的点数之和。那么 <span class="arithmatex">\(X\)</span> 的分布为</li>
+</ol>
+<table><tr><td>a</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td></tr><tr><td>P[X=a]</td><td>1/36</td><td>1/18</td><td>1/12</td><td>1/9</td><td>5/36</td><td>1/6</td><td>5/36</td><td>1/9</td><td>1/12</td><td>1/18</td><td>1/36</td></tr></table>
+
+<p>因此期望是</p>
+<div class="arithmatex">\[
+\mathbb {E} [ X ] = \left(2 \times \frac {1}{3 6}\right) + \left(3 \times \frac {1}{1 8}\right) + \left(4 \times \frac {1}{1 2}\right) + \dots + \left(1 2 \times \frac {1}{3 6}\right) = 7.
+\]</div>
+<ol>
+<li>轮盘赌 (Roulette)。旋转一个轮盘（回想一下轮盘有 38 个槽位：数字 1, 2, . . . , 36，其中一半是红色，一半是黑色，加上 0 和 00，它们是绿色）。你在黑色上押注 <span class="arithmatex">\(\$ 1\)</span> 。如果出现黑色数字，你收回本金并获得 <span class="arithmatex">\(\$ 1\)</span> ；否则你输掉本金。令 <span class="arithmatex">\(X\)</span> 为你在一次游戏中的净收益。那么 <span class="arithmatex">\(X\)</span> 可以取值 <span class="arithmatex">\(+1\)</span> 和 <span class="arithmatex">\(-1\)</span> ，且 <span class="arithmatex">\(\mathbb { P } [ X = 1 ] = \frac { 1 8 } { 3 8 }\)</span> ， <span class="arithmatex">\(\mathbb { P } [ X = - 1 ] = \frac { 2 0 } { 3 8 }\)</span> 。因此，</li>
+</ol>
+<div class="arithmatex">\[
+\mathbb {E} [ X ] = \left(1 \times \frac {1 8}{3 8}\right) + \left(- 1 \times \frac {2 0}{3 8}\right) = - \frac {1}{1 9};
+\]</div>
+<p>也就是说，你预计每局游戏平均损失约 5 美分。注意那些零是如何向赌场倾斜平衡的！</p>
+<h2 id="42">4.2 期望的线性性质</h2>
+<p>到目前为止，我们都是通过“蛮力”计算期望的：即，我们写出整个分布，然后将所有可能值对随机变量的贡献加起来。期望的真正威力在于，在许多现实生活中的例子中，可以使用一个简单的捷径更轻松地计算它们。这个捷径如下：</p>
+<p><strong>定理 16.1</strong>。对于同一概率空间上的任何两个随机变量 <span class="arithmatex">\(X\)</span> 和 <span class="arithmatex">\(Y\)</span> ，我们有</p>
+<div class="arithmatex">\[
+\mathbb {E} [ X + Y ] = \mathbb {E} [ X ] + \mathbb {E} [ Y ].
+\]</div>
+<p>此外，对于任何常数 <span class="arithmatex">\(c\)</span> ，我们有</p>
+<div class="arithmatex">\[
+\mathbb {E} [ c X ] = c \mathbb {E} [ X ].
+\]</div>
+<p><strong>证明</strong>。我们首先将期望的定义改写为一种更方便的形式。回想定义 16.5：</p>
+<div class="arithmatex">\[
+\mathbb {E} [ X ] = \sum_ {a \in \mathcal {A}} a \times \mathbb {P} [ X = a ].
+\]</div>
+<p>考虑上述和式中的一个特定项 <span class="arithmatex">\(a \times \mathbb { P } [ X = a ]\)</span> 。请注意，根据定义， <span class="arithmatex">\(\mathbb { P } [ X = a ]\)</span> 是使 <span class="arithmatex">\(X ( \omega ) = a\)</span> 的那些样本点 <span class="arithmatex">\(\omega\)</span> 的 <span class="arithmatex">\(\mathbb { P } [ \omega ]\)</span> 之和。此外，我们知道每个样本点 <span class="arithmatex">\(\omega \in \Omega\)</span> 恰好位于这些事件 <span class="arithmatex">\(X = a\)</span> 中的一个。这意味着我们可以将上述定义改写为一种更冗长但等价的形式：</p>
+<div class="arithmatex">\[
+\mathbb {E} [ X ] = \sum_ {\boldsymbol {\omega} \in \Omega} X (\boldsymbol {\omega}) \times \mathbb {P} [ \boldsymbol {\omega} ]. \tag {4}
+\]</div>
+<p>这个等价的期望定义将使目前的证明变得更容易（尽管它通常不太便于实际计算）。将 (4) 应用于 <span class="arithmatex">\(\mathbb { E } [ X + Y ]\)</span> 得到：</p>
+<div class="arithmatex">\[
+\begin{array}{l} \mathbb {E} [ X + Y ] = \sum_ {\omega \in \Omega} (X + Y) (\omega) \times \mathbb {P} [ \omega ] \\ = \sum_ {\boldsymbol {\omega} \in \Omega} (X (\boldsymbol {\omega}) + Y (\boldsymbol {\omega})) \times \mathbb {P} [ \boldsymbol {\omega} ] \\ = \sum_ {\omega \in \Omega} (X (\omega) \times \mathbb {P} [ \omega ]) + \sum_ {\omega \in \Omega} (Y (\omega) \times \mathbb {P} [ \omega ]) \\ = \mathbb {E} [ X ] + \mathbb {E} [ Y ] \\ \end{array}
+\]</div>
+<p>在最后一步中，我们两次使用了 (4)。</p>
+<p>这就完成了第一个等式的证明。第二个等式的证明要简单得多，留作练习。 <span class="arithmatex">\(\square\)</span></p>
+<p>定理 16.1 非常强大：它表明随机变量之和的期望等于它们各自期望的和，而无需对这些随机变量作任何假设。我们可以使用定理 16.1 得出诸如 <span class="arithmatex">\(\mathbb { E } [ 3 X - 5 Y ] = 3 \mathbb { E } [ X ] - 5 \mathbb { E } [ Y ]\)</span> 之类的结论，无论 <span class="arithmatex">\(X\)</span> 和 <span class="arithmatex">\(Y\)</span> 是否独立。这一重要性质被称为<strong>期望的线性性质</strong>（Linearity of Expectation）。</p>
+<p><strong>重要警示</strong>：定理 16.1 并没有说 <span class="arithmatex">\(\mathbb { E } [ X Y ] = \mathbb { E } [ X ] \mathbb { E } [ Y ]\)</span> ，或者 <span class="arithmatex">\(\mathbb { E } [ \frac { 1 } { X } ] = \frac { 1 } { \mathbb { E } [ X ] }\)</span> 等。这些断言在一般情况下是不成立的。只有随机变量的和、差和倍数才表现得如此之好。</p>
+<h2 id="43">4.3 期望线性性质的应用</h2>
+<p>现在让我们看看定理 16.1 实际应用的一些例子。</p>
+<ol>
+<li>
+<p>再次看两个筛子。这里有一种计算 <span class="arithmatex">\(X\)</span> （两个筛子点数之和）的远不那么痛苦的方法。注意 <span class="arithmatex">\(X = Y _ { 1 } + Y _ { 2 }\)</span> ，其中 <span class="arithmatex">\(Y _ { i }\)</span> 是第 <span class="arithmatex">\(i\)</span> 个筛子的点数。我们从 4.1 节的例 1 中知道 <span class="arithmatex">\(\mathbb { E } [ Y _ { 1 } ] = \mathbb { E } [ Y _ { 2 } ] = \frac { 7 } { 2 }\)</span> 。因此，根据定理 16.1，我们有 <span class="arithmatex">\(\mathbb { E } [ X ] = \mathbb { E } [ Y _ { 1 } ] + \mathbb { E } [ Y _ { 2 } ] = 7\)</span> 。</p>
+</li>
+<li>
+<p>更多的轮盘赌。假设我们玩 4.1 节提到的轮盘赌游戏 <span class="arithmatex">\(n \geq 1\)</span> 次。令 <span class="arithmatex">\(X _ { n }\)</span> 为我们的预期净收益。那么 <span class="arithmatex">\(X _ { n } = Y _ { 1 } + Y _ { 2 } + \cdots + Y _ { n }\)</span> ，其中 <span class="arithmatex">\(Y _ { i }\)</span> 是我们在第 <span class="arithmatex">\(i\)</span> 次游戏中的净收益。我们从之前知道对于每个 <span class="arithmatex">\(i\)</span> ， <span class="arithmatex">\(\mathbb { E } [ Y _ { i } ] = - \frac { 1 } { 1 9 }\)</span> 。因此，根据定理 16.1， <span class="arithmatex">\(\mathbb { E } [ X _ { n } ] = \mathbb { E } [ Y _ { 1 } ] + \mathbb { E } [ Y _ { 2 } ] + \cdots + \mathbb { E } [ Y _ { n } ] = - \frac { n } { 1 9 }\)</span> 。对于 <span class="arithmatex">\(n = 1000\)</span> ， <span class="arithmatex">\(\mathbb { E } [ X _ { n } ] = - \frac { 1000 } { 1 9 } \approx - 53\)</span> ，所以如果你玩 1000 局，你预计亏损约 <span class="arithmatex">\(\$ 53\)</span> 。</p>
+</li>
+<li>
+<p>置换的固定点。让我们回到有任意 <span class="arithmatex">\(n\)</span> 名学生的作业置换示例。令 <span class="arithmatex">\(X _ { n }\)</span> 表示打乱后收到自己作业的学生人数（或等价地，固定点的数量）。为了利用定理 16.1，我们需要将 <span class="arithmatex">\(X _ { n }\)</span> 写成更简单的随机变量之和。由于 <span class="arithmatex">\(X _ { n }\)</span> 统计某事发生的次数，我们可以使用以下有用的技巧将其写成一个和：</p>
+</li>
+</ol>
+<div class="arithmatex">\[
+X _ {n} = I _ {1} + I _ {2} + \dots + I _ {n}, \quad \text {其中 } I _ {i} = \left\{ \begin{array}{l l} 1, &amp; \text {若学生 } i \text { 拿到自己的作业，} \\ 0, &amp; \text {否则。} \end{array} \right. \tag {5}
+\]</div>
+<p>[你应该思考一下这个等式。记住所有的 <span class="arithmatex">\(I _ { i }\)</span> 都是随机变量。涉及随机变量的等式意味着什么？我们的意思是，在每个样本点 <span class="arithmatex">\(\omega\)</span> 处，都有 <span class="arithmatex">\(X _ { n } ( \omega ) = I _ { 1 } ( \omega ) + I _ { 2 } ( \omega ) + \cdots + I _ { n } ( \omega )\)</span> 。为什么这是真的？]</p>
+<p>像 <span class="arithmatex">\(I _ { i }\)</span> 这样的伯努利随机变量被称为对应事件（在本例中，是学生 <span class="arithmatex">\(i\)</span> 拿到自己作业的事件）的<strong>指示随机变量</strong>（Indicator Random Variable）。对于指示随机变量，期望特别容易计算。具体来说，</p>
+<div class="arithmatex">\[
+\mathbb {E} \left[ I _ {i} \right] = \left(0 \times \mathbb {P} \left[ I _ {i} = 0 \right]\right) + \left(1 \times \mathbb {P} \left[ I _ {i} = 1 \right]\right) = \mathbb {P} \left[ I _ {i} = 1 \right].
+\]</div>
+<p>在我们的例子中，我们有</p>
+<div class="arithmatex">\[
+\mathbb {P} [ I _ {i} = 1 ] = \mathbb {P} [ \text {学生 } i \text { 拿到自己的作业} ] = \frac {1}{n}.
+\]</div>
+<p>我们现在可以将定理 16.1 应用于 (5)，得到</p>
+<div class="arithmatex">\[
+\mathbb {E} \left[ X _ {n} \right] = \mathbb {E} \left[ I _ {1} \right] + \mathbb {E} \left[ I _ {2} \right] + \dots + \mathbb {E} \left[ I _ {n} \right] = n \times \frac {1}{n} = 1.
+\]</div>
+<p>所以，我们看到在规模为 <span class="arithmatex">\(n\)</span> 的班级中，拿到自己作业的学生的期望人数是 1。也就是说，在 <span class="arithmatex">\(n\)</span> 个物品的随机置换中，固定点的期望数量始终是 1，无论 <span class="arithmatex">\(n\)</span> 是多少！</p>
+<ol>
+<li>抛硬币。抛一枚公平硬币 <span class="arithmatex">\(n \geq 1\)</span> 次。令随机变量 <span class="arithmatex">\(X _ { n }\)</span> 为观察到的正面次数。与前面的例子一样，为了利用定理 16.1，我们写作</li>
+</ol>
+<div class="arithmatex">\[
+X _ {n} = I _ {1} + I _ {2} + \dots + I _ {n},
+\]</div>
+<p>其中 <span class="arithmatex">\(I _ { i }\)</span> 是第 <span class="arithmatex">\(i\)</span> 次抛掷为 <span class="arithmatex">\(H\)</span> 的事件的指示随机变量。由于硬币是公平的，我们有</p>
+<div class="arithmatex">\[
+\mathbb {E} \left[ I _ {i} \right] = \mathbb {P} \left[ I _ {i} = 1 \right] = \mathbb {P} [ \text {第 } i \text { 次抛掷为 } H ] = \frac {1}{2}.
+\]</div>
+<p>利用定理 16.1，我们因此得到</p>
+<div class="arithmatex">\[
+\mathbb {E} \left[ X _ {n} \right] = \sum_ {i = 1} ^ {n} \frac {1}{2} = \frac {n}{2}.
+\]</div>
+<p>更一般地，在抛掷一枚以概率 <span class="arithmatex">\(p\)</span> 出现 <span class="arithmatex">\(H\)</span> 的有偏硬币 <span class="arithmatex">\(n\)</span> 次中， <span class="arithmatex">\(\mathbb { E } [ X _ { n } ] = n p\)</span> 。（检查这一点！）因此二项随机变量 <span class="arithmatex">\(X \sim \operatorname {Bin} ( n, p )\)</span> 的期望等于 <span class="arithmatex">\(n p\)</span> 。请注意，如果通过 (3) 中的期望定义和 (1) 中的二项随机变量分布直接计算得出这个结论，将会麻烦得多（尽管也是可能的）。</p>
+<ol>
+<li>球与箱子。将 <span class="arithmatex">\(m\)</span> 个球扔进 <span class="arithmatex">\(n\)</span> 个箱子。令随机变量 <span class="arithmatex">\(X\)</span> 为落在第一个箱子中的球数。那么 <span class="arithmatex">\(X\)</span> 的行为恰好类似于在 <span class="arithmatex">\(m\)</span> 次以 <span class="arithmatex">\(\textstyle \mathbb { P } [ H ] = \frac { 1 } { n }\)</span> 抛掷的有偏硬币中的正面次数（为什么？）。所以，从前面的例子中，我们得到 <span class="arithmatex">\(\mathbb { E } [ X ] = \frac { m } { n }\)</span> 。在 <span class="arithmatex">\(m = n\)</span> 的特殊情况下，任何箱子中球的期望数量为 1。如果我们想直接从 <span class="arithmatex">\(X\)</span> 的分布中计算这个值，就会陷入涉及二项式系数的复杂计算中。</li>
+</ol>
+<p>这里是同一样本空间上的另一个例子。令随机变量 <span class="arithmatex">\(Y _ { n }\)</span> 为空箱子的数量。 <span class="arithmatex">\(Y _ { n }\)</span> 的分布令人望而生畏：为了对此有所感悟，你可能想写下 <span class="arithmatex">\(m = n = 3\)</span> （即 3 个球，3 个箱子）时的分布。然而，利用定理 16.1 计算期望 <span class="arithmatex">\(\mathbb { E } [ Y _ { n } ]\)</span> 却很容易。与前面的两个例子一样，我们写作</p>
+<div class="arithmatex">\[
+Y _ {n} = I _ {1} + I _ {2} + \dots + I _ {n}, \tag {6}
+\]</div>
+<p>其中 <span class="arithmatex">\(I _ { i }\)</span> 是事件 “箱子 <span class="arithmatex">\(i\)</span> 为空” 的指示随机变量。 <span class="arithmatex">\(I _ { i }\)</span> 的期望很容易找到：</p>
+<div class="arithmatex">\[
+\mathbb {E} \left[ I _ {i} \right] = \mathbb {P} \left[ I _ {i} = 1 \right] = \mathbb {P} [ \text {箱子 } i \text { 为空} ] = \left(1 - \frac {1}{n}\right) ^ {m},
+\]</div>
+<p>正如之前讨论过的。将定理 16.1 应用于 (6)，我们因此获得</p>
+<div class="arithmatex">\[
+\mathbb {E} \left[ Y _ {n} \right] = \sum_ {i = 1} ^ {n} \mathbb {E} \left[ I _ {i} \right] = n \left(1 - \frac {1}{n}\right) ^ {m},
+\]</div>
+<p>一个非常容易推导的简单公式。让我们看看它在 <span class="arithmatex">\(m = n\)</span> （球数与箱数相同）这一特殊情况下的表现。在这种情况下，我们得到 <span class="arithmatex">\(\mathbb { E } [ Y _ { n } ] = n ( 1 - \frac { 1 } { n } ) ^ { n }\)</span> 。现在，量 <span class="arithmatex">\(( 1 - \frac { 1 } { n } ) ^ { n }\)</span> 可以被（对于足够大的 <span class="arithmatex">\(n\)</span> 值）近似为数字 <span class="arithmatex">\(\textstyle \frac { 1 } { e }\)</span> 。因此我们看到，对于大 <span class="arithmatex">\(n\)</span> ，</p>
+<div class="arithmatex">\[
+\mathbb {E} \left[ Y _ {n} \right] \approx \frac {n}{e} \approx 0.368 n.
+\]</div>
+<p>底线是，如果我们把（例如）1000 个球扔进 1000 个箱子，空箱子的期望数量大约是 368。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/0nikod/study-docs-zh" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
